@@ -14,6 +14,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'factory_bot_rails', '~> 4.10'
+  gem 'capybara', '~> 3.3', '>= 3.3.1'
 end
 
 group :development do
