@@ -1,4 +1,8 @@
 <% @categories.each do |category| %>
-  <%= category.title %>
-  <%= category.description %>
+  <%= link_to category, id: category.id do %>
+    <div>
+      <%= category.title %>
+      <%= category.description %>
+    </div>
+  <% end %>
 <% end %>
