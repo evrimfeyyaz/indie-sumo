@@ -22,5 +22,7 @@ feature 'Category management' do
     click_link category.id
 
     expect(page).to have_current_path(category_path(category))
+    expect(page).to have_text(category.title)
+    expect(page).to have_text(category.description)
   end
 end
