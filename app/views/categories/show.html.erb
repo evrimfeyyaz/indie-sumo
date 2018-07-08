@@ -2,3 +2,10 @@
   <%= @category.title %>
   <%= @category.description %>
 </div>
+
+<% @category.items.each do |item| %>
+  <div>
+    <%= item.title %>
+    <%= item.description %>
+  </div>
+<% end %>

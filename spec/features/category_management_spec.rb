@@ -16,6 +16,8 @@ feature 'Category management' do
 
   scenario 'User clicks on a category on the index, and visits the category details page' do
     category = create(:category)
+    item1 = create(:item, category: category)
+    item2 = create(:item, category: category)
 
     visit categories_path
 
@@ -24,5 +26,10 @@ feature 'Category management' do
     expect(page).to have_current_path(category_path(category))
     expect(page).to have_text(category.title)
     expect(page).to have_text(category.description)
+
+    expect(page).to have_text(item1.title)
+    expect(page).to have_text(item1.description)
+    expect(page).to have_text(item2.title)
+    expect(page).to have_text(item2.description)
   end
 end
