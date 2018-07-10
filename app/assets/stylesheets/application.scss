@@ -1,2 +1,32 @@
-// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "_theme";
 @import "bootstrap";
+
+body {
+  background-color: $background-color;
+}
+
+.category-summary {
+  @extend .card;
+  @extend .shadow;
+  @extend .text-center;
+  @extend .text-black-50;
+  @extend .my-4;
+  @extend .mx-auto;
+
+  height: 180px;
+  width: 290px;
+}
+
+.category-summary__body {
+  @extend .card-body;
+}
+
+.category-summary__icon {
+  @extend .mb-3;
+
+  height: 32px;
+}
+
+.category-summary__title {
+  @extend .text-dark;
+}
