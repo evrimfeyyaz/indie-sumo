@@ -1,15 +1,14 @@
 <div class="row">
   <% @categories.each do |category| %>
-    <%#= link_to category, id: category.id do %>
     <div class="col-xl-4 col-md-6 col-sm-12 justify-content-center">
-      <div class="category-summary">
+      <%= link_to category, id: category.id, class: 'category-summary' do %>
         <div class="category-summary__body">
           <%= image_tag 'no-icon.png', alt: "#{category.title} Icon", class: 'category-summary__icon' %>
+
           <h3 class="category-summary__title"><%= truncate(category.title, length: 20) %></h3>
-          <%= truncate(category.description, length: 90) %>
+          <%= truncate(category.description, length: 90, separator: ' ') %>
         </div>
-      </div>
+      <% end %>
     </div>
-    <%# end %>
   <% end %>
 </div>
