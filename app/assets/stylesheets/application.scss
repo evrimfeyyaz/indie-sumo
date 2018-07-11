@@ -15,7 +15,7 @@ body {
 
   height: 180px;
   width: 290px;
-  transition: all .2s;
+  transition: all .2s ease-in-out;
 
   &:hover {
     text-decoration: none;
