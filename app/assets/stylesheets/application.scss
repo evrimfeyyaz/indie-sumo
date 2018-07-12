@@ -1,6 +1,7 @@
 @import "_theme";
 @import "bootstrap";
 
+// General
 html {
   font-size: 14px;
 }
@@ -9,7 +10,8 @@ body {
   background-color: $background-color;
 }
 
-.category-summary {
+// Summary Card
+.summary-card {
   @extend .card;
   @extend .shadow;
   @extend .text-center;
@@ -17,9 +19,7 @@ body {
   @extend .my-4;
   @extend .mx-auto;
 
-  height: 185px;
-  width: 290px;
-  transition: all .2s ease-in-out;
+  transition: background-color .3s ease-in-out;
 
   &:hover {
     text-decoration: none;
@@ -27,53 +27,64 @@ body {
   }
 }
 
-.category-summary__body {
+.summary-card__body {
   @extend .card-body;
 }
 
-.category-summary__icon {
+.summary-card__icon {
   @extend .mb-3;
+}
+
+.summary-card__title {
+  @extend .text-dark;
+}
+
+// Category Index
+.category-summary {
+  @extend .summary-card;
+
+  height: 185px;
+  width: 290px;
+}
+
+.category-summary__body {
+  @extend .summary-card__body;
+}
+
+.category-summary__icon {
+  @extend .summary-card__icon;
 
   height: 32px;
 }
 
 .category-summary__title {
-  @extend .text-dark;
+  @extend .summary-card__title;
 }
 
+// Item Index
 .item-summary {
-  @extend .card;
-  @extend .shadow;
-  @extend .text-center;
-  @extend .text-black-50;
-  @extend .my-4;
-  @extend .mx-auto;
+  @extend .summary-card;
 
   height: 235px;
   width: 290px;
-  transition: all .2s ease-in-out;
-
-  &:hover {
-    text-decoration: none;
-    background-color: darken($card-bg, 1%);
-  }
 }
 
 .item-summary__body {
-  @extend .card-body;
+  @extend .summary-card__body;
 }
 
 .item-summary__icon {
-  @extend .mb-3;
+  @extend .summary-card__icon;
   @extend .rounded-circle;
 
   height: 100px;
 }
 
 .item-summary__title {
-  @extend .text-dark;
+  @extend .summary-card__title;
 }
 
+// Category Details
 .category__title {
   @extend .display-4;
   @extend .text-center;
