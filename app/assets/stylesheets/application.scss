@@ -1,0 +1,109 @@
+@import "_theme";
+@import "bootstrap";
+
+// General
+html {
+  font-size: 14px;
+}
+
+body {
+  background-color: $background-color;
+}
+
+// Summary card
+.summary-card {
+  @extend .card;
+  @extend .shadow;
+  @extend .text-center;
+  @extend .text-black-50;
+  @extend .my-4;
+  @extend .mx-auto;
+
+  transition: background-color .3s ease-in-out;
+
+  &:hover {
+    text-decoration: none;
+    background-color: darken($card-bg, 1%);
+  }
+}
+
+.summary-card__body {
+  @extend .card-body;
+}
+
+.summary-card__icon {
+  @extend .mb-3;
+}
+
+.summary-card__title {
+  @extend .text-dark;
+}
+
+// Category index
+.category-summary {
+  @extend .summary-card;
+
+  height: 185px;
+  width: 290px;
+}
+
+.category-summary__body {
+  @extend .summary-card__body;
+}
+
+.category-summary__icon {
+  @extend .summary-card__icon;
+
+  height: 32px;
+}
+
+.category-summary__title {
+  @extend .summary-card__title;
+}
+
+// Item index
+.item-summary {
+  @extend .summary-card;
+
+  height: 235px;
+  width: 290px;
+}
+
+.item-summary__body {
+  @extend .summary-card__body;
+}
+
+.item-summary__icon {
+  @extend .summary-card__icon;
+  @extend .rounded-circle;
+
+  height: 100px;
+}
+
+.item-summary__title {
+  @extend .summary-card__title;
+}
+
+// Category details
+.category__title {
+  @extend .display-4;
+  @extend .text-center;
+}
+
+.category__description {
+  @extend .text-center;
+  @extend .lead;
+}
+
+// Navigational links
+.navigational-links {
+  @extend .list-inline;
+  @extend .text-center;
+}
+
+.navigation-links__link {
+  @extend .list-inline-item;
+  @extend .mx-5;
+
+  font-size: 18px;
+}
