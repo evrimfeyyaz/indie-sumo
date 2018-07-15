@@ -1,13 +1,6 @@
-<div class="category">
-  <h1 class="category__title"><%= @category.title %></h1>
-  <div class="row">
-    <div class="offset-md-2 col-md-8">
-      <p class="category__description"><%= @category.description %></p>
-    </div>
-  </div>
-</div>
+<%= render 'shared/page_title', title: @category.title %>
 
-<%= render 'navigational_links' %>
+<%= render 'shared/page_description', description: @category.description %>
 
 <div class="row my-5">
   <% @category.items.each do |item| %>
@@ -23,5 +16,3 @@
     </div>
   <% end %>
 </div>
-
-<%= render 'navigational_links' %>

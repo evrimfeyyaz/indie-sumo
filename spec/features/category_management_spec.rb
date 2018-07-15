@@ -14,7 +14,7 @@ feature 'Category management' do
     expect(page).to have_text(category2.description)
   end
 
-  scenario 'User clicks on a category on the index, and visits the category details page' do
+  scenario 'User clicks on a category on the home page, and visits the category details page' do
     category = create(:category)
     item1 = create(:item, category: category)
     item2 = create(:item, category: category)
@@ -31,5 +31,16 @@ feature 'Category management' do
     expect(page).to have_text(item1.description)
     expect(page).to have_text(item2.title)
     expect(page).to have_text(item2.description)
+  end
+
+  scenario 'User clicks on an item on the category detail page, and visits the item details page' do
+    category = create(:category)
+    item = create(:item, category: category)
+
+    visit category_path(category)
+
+    click_link item.id
+
+    expect(page).to have_current_path(item_path(item))
   end
 end
