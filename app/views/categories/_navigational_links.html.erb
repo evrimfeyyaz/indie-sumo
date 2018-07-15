@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="offset-md-2 col-md-8">
+    <ul class="navigational-links">
+      <li class="navigation-links__link">
+        <%= link_to categories_path do %>
+          <i class="fas fa-chevron-left mx-2"></i>Back to Categories
+        <% end %>
+      </li>
+      <li class="navigation-links__link">
+        <%= link_to new_category_item_path(@category) do %>
+          <i class="fas fa-plus mx-2"></i><%= add_link_title_for(@category) %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

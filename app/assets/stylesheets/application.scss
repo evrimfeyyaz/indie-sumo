@@ -10,7 +10,7 @@ body {
   background-color: $background-color;
 }
 
-// Summary Card
+// Summary card
 .summary-card {
   @extend .card;
   @extend .shadow;
@@ -39,7 +39,7 @@ body {
   @extend .text-dark;
 }
 
-// Category Index
+// Category index
 .category-summary {
   @extend .summary-card;
 
@@ -61,7 +61,7 @@ body {
   @extend .summary-card__title;
 }
 
-// Item Index
+// Item index
 .item-summary {
   @extend .summary-card;
 
@@ -84,7 +84,7 @@ body {
   @extend .summary-card__title;
 }
 
-// Category Details
+// Category details
 .category__title {
   @extend .display-4;
   @extend .text-center;
@@ -93,4 +93,17 @@ body {
 .category__description {
   @extend .text-center;
   @extend .lead;
+}
+
+// Navigational links
+.navigational-links {
+  @extend .list-inline;
+  @extend .text-center;
+}
+
+.navigation-links__link {
+  @extend .list-inline-item;
+  @extend .mx-5;
+
+  font-size: 18px;
 }
