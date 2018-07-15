@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Category management' do
-  scenario 'User visits the category index' do
+  scenario 'User visits the home page' do
     category1 = create(:category)
     category2 = create(:category)
 
