@@ -16,8 +16,8 @@ feature 'Category management' do
 
   scenario 'User clicks on a category on the home page, and visits the category details page' do
     category = create(:category)
-    item1 = create(:item, category: category)
-    item2 = create(:item, category: category)
+    item1 = create(:item, categories: [category])
+    item2 = create(:item, categories: [category])
 
     visit categories_path
 
@@ -35,7 +35,7 @@ feature 'Category management' do
 
   scenario 'User clicks on an item on the category detail page, and visits the item details page' do
     category = create(:category)
-    item = create(:item, category: category)
+    item = create(:item, categories: [category])
 
     visit category_path(category)
 

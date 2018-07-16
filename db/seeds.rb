@@ -13,7 +13,7 @@
 
     Item.create(title: item_title,
                 description: item_description,
-                category: category,
+                categories: [category],
                 website: links_url,
                 twitter: links_url,
                 github: links_url,

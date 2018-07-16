@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Item management' do
   scenario 'User visits an item details page' do
     category = create(:category)
-    item = create(:item, category: category)
+    item = create(:item, categories: [category])
 
     visit item_path(item)
 
