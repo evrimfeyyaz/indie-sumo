@@ -10,7 +10,7 @@
     <div class="row">
       <% list.external_resources.each do |external_resource| %>
         <div class="col-xl-4 col-md-6 col-sm-12 justify-content-center">
-          <%= link_to external_resource.url, class: 'resource-summary' do %>
+          <%= link_to_if external_resource.url.present?, external_resource.url, class: 'resource-summary' do %>
             <div class="resource-summary__body">
               <%= image_tag 'test-photo.png', alt: "#{external_resource.title} Icon", class: 'resource-summary__icon' %>
 
