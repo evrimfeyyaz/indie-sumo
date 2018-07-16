@@ -95,15 +95,19 @@ body {
   @extend .lead;
 }
 
-// Navigational links
-.navigational-links {
+// Item links
+.item-links {
   @extend .list-inline;
   @extend .text-center;
 }
 
-.navigation-links__link {
+.item-links__link {
   @extend .list-inline-item;
-  @extend .mx-5;
+  @extend .mx-4;
 
   font-size: 18px;
+}
+
+.item-links__icon {
+  @extend .mx-2;
 }
