@@ -1,25 +1,18 @@
 require 'rails_helper'
 
 feature 'Category management' do
+  let!(:category) { create(:category) }
+  let!(:item) { create(:item, categories: [category]) }
+
   scenario 'User visits the home page' do
-    category1 = create(:category)
-    category2 = create(:category)
+    visit root_path
 
-    visit categories_path
-
-    expect(page).to have_text(category1.title)
-    expect(page).to have_text(category1.description)
-
-    expect(page).to have_text(category2.title)
-    expect(page).to have_text(category2.description)
+    expect(page).to have_text(category.title)
+    expect(page).to have_text(category.description)
   end
 
   scenario 'User clicks on a category on the home page, and visits the category details page' do
-    category = create(:category)
-    item1 = create(:item, categories: [category])
-    item2 = create(:item, categories: [category])
-
-    visit categories_path
+    visit root_path
 
     click_link category.id
 
@@ -27,16 +20,11 @@ feature 'Category management' do
     expect(page).to have_text(category.title)
     expect(page).to have_text(category.description)
 
-    expect(page).to have_text(item1.title)
-    expect(page).to have_text(item1.description)
-    expect(page).to have_text(item2.title)
-    expect(page).to have_text(item2.description)
+    expect(page).to have_text(item.title)
+    expect(page).to have_text(item.description)
   end
 
-  scenario 'User clicks on an item on the category detail page, and visits the item details page' do
-    category = create(:category)
-    item = create(:item, categories: [category])
-
+  scenario 'User clicks on an item on the category details page, and visits the item details page' do
     visit category_path(category)
 
     click_link item.id
