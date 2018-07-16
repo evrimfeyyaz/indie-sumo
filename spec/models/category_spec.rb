@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Category, type: :model do
-  it { should have_and_belong_to_many(:items) }
+describe Category do
+  it { should have_and_belong_to_many(:resources) }
   it { should validate_presence_of(:title) }
 end

@@ -61,26 +61,26 @@ body {
   @extend .summary-card__title;
 }
 
-// Item index
-.item-summary {
+// Resource index
+.resource-summary {
   @extend .summary-card;
 
   height: 235px;
   width: 290px;
 }
 
-.item-summary__body {
+.resource-summary__body {
   @extend .summary-card__body;
 }
 
-.item-summary__icon {
+.resource-summary__icon {
   @extend .summary-card__icon;
   @extend .rounded-circle;
 
   height: 100px;
 }
 
-.item-summary__title {
+.resource-summary__title {
   @extend .summary-card__title;
 }
 
@@ -95,19 +95,19 @@ body {
   @extend .lead;
 }
 
-// Item links
-.item-links {
+// Resource links
+.resource-links {
   @extend .list-inline;
   @extend .text-center;
 }
 
-.item-links__link {
+.resource-links__link {
   @extend .list-inline-item;
   @extend .mx-4;
 
   font-size: 18px;
 }
 
-.item-links__icon {
+.resource-links__icon {
   @extend .mx-2;
 }

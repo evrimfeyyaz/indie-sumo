@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Category management' do
   let!(:category) { create(:category) }
-  let!(:item) { create(:item, categories: [category]) }
+  let!(:resource) { create(:resource, categories: [category]) }
 
   scenario 'User visits the home page' do
     visit root_path
@@ -20,15 +20,15 @@ feature 'Category management' do
     expect(page).to have_text(category.title)
     expect(page).to have_text(category.description)
 
-    expect(page).to have_text(item.title)
-    expect(page).to have_text(item.description)
+    expect(page).to have_text(resource.title)
+    expect(page).to have_text(resource.description)
   end
 
-  scenario 'User clicks on an item on the category details page, and visits the item details page' do
+  scenario 'User clicks on a resource on the category details page, and visits the resource details page' do
     visit category_path(category)
 
-    click_link item.id
+    click_link resource.id
 
-    expect(page).to have_current_path(item_path(item))
+    expect(page).to have_current_path(resource_path(resource))
   end
 end

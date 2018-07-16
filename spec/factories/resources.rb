@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :item do
-    sequence(:title) { |n| "Item #{n}" }
+  factory :resource do
+    sequence(:title) { |n| "Resource #{n}" }
     description 'Lorem ipsum dolor sit amet.'
   end
 end
