@@ -1,0 +1,15 @@
+<div class="col-xl-4 col-md-6 col-sm-12 justify-content-center">
+  <%= link_to_block_if resource_url(resource_summary).present?,
+                       resource_url(resource_summary),
+                       success_class: 'resource-summary',
+                       fail_class:    'resource-summary is-not-link' do %>
+    <div class="resource-summary__body">
+      <%= image_tag 'test-photo.png', alt: "#{resource_summary.title} Icon", class: 'resource-summary__icon' %>
+
+      <h3 class="resource-summary__title">
+        <%= truncate(resource_summary.title, length: RESOURCE_SUMMARY_MAX_TITLE_LENGTH) %>
+      </h3>
+      <%= truncate(resource_summary.description, length: RESOURCE_SUMMARY_MAX_DESCRIPTION_LENGTH, separator: ' ') %>
+    </div>
+  <% end %>
+</div>
