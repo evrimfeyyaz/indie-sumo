@@ -84,6 +84,12 @@ body {
   @extend .summary-card__title;
 }
 
+.resource-summary.is-not-link {
+  &:hover {
+    background-color: $card-bg;
+  }
+}
+
 // Headers
 .page-title {
   @extend .display-4;
