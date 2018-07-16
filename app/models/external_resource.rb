@@ -1,5 +1,5 @@
 class ExternalResource < ApplicationRecord
-  belongs_to :list
+  has_many :list_items, as: :listable
 
   validates_presence_of :title
 end
