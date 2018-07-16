@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_16_105434) do
+ActiveRecord::Schema.define(version: 2018_07_16_121312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,24 @@ ActiveRecord::Schema.define(version: 2018_07_16_105434) do
     t.bigint "resource_id", null: false
   end
 
+  create_table "external_resources", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "url"
+    t.bigint "list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["list_id"], name: "index_external_resources_on_list_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "title"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_id"], name: "index_lists_on_resource_id"
+  end
+
   create_table "resources", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -39,4 +57,6 @@ ActiveRecord::Schema.define(version: 2018_07_16_105434) do
     t.string "youtube"
   end
 
+  add_foreign_key "external_resources", "lists"
+  add_foreign_key "lists", "resources"
 end

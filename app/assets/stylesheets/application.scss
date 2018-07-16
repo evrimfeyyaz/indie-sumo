@@ -93,6 +93,8 @@ body {
 .page-description {
   @extend .text-center;
   @extend .lead;
+
+  margin-bottom: 3rem;
 }
 
 // Resource links
@@ -110,4 +112,15 @@ body {
 
 .resource-links__icon {
   @extend .mx-2;
+}
+
+// Lists
+.list {
+  margin-bottom: 4rem;
+}
+
+.list__title {
+  @extend .text-center;
+
+  font-size: 36px;
 }

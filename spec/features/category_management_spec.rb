@@ -14,7 +14,7 @@ feature 'Category management' do
   scenario 'User clicks on a category on the home page, and visits the category details page' do
     visit root_path
 
-    click_link category.id
+    click_link category.title
 
     expect(page).to have_current_path(category_path(category))
     expect(page).to have_text(category.title)
@@ -27,7 +27,7 @@ feature 'Category management' do
   scenario 'User clicks on a resource on the category details page, and visits the resource details page' do
     visit category_path(category)
 
-    click_link resource.id
+    click_link resource.title
 
     expect(page).to have_current_path(resource_path(resource))
   end

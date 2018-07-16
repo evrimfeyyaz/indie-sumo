@@ -2,15 +2,17 @@
 
 <%= render 'shared/page_description', description: @category.description %>
 
-<div class="row my-5">
+<div class="row">
   <% @category.resources.each do |resource| %>
     <div class="col-xl-4 col-md-6 col-sm-12 justify-content-center">
-      <%= link_to resource, id: resource.id, class: 'resource-summary' do %>
+      <%= link_to resource, class: 'resource-summary' do %>
         <div class="resource-summary__body">
           <%= image_tag 'test-photo.png', alt: "#{resource.title} Icon", class: 'resource-summary__icon' %>
 
-          <h3 class="resource-summary__title"><%= truncate(resource.title, length: 20) %></h3>
-          <%= truncate(resource.description, length: 60, separator: ' ') %>
+          <h3 class="resource-summary__title">
+            <%= truncate(resource.title, length: RESOURCE_SUMMARY_MAX_TITLE_LENGTH) %>
+          </h3>
+          <%= truncate(resource.description, length: RESOURCE_SUMMARY_MAX_DESCRIPTION_LENGTH, separator: ' ') %>
         </div>
       <% end %>
     </div>
