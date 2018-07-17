@@ -6,9 +6,11 @@
           <%= image_tag 'no-icon.png', alt: "#{category.title} Icon", class: 'category-summary__icon' %>
 
           <h3 class="category-summary__title">
-            <%= truncate(category.title, length: CATEGORY_SUMMARY_MAX_TITLE_LENGTH) %>
+            <%= truncate_with_tooltip(category.title, length: CATEGORY_SUMMARY_MAX_TITLE_LENGTH) %>
           </h3>
-          <%= truncate(category.description, length: CATEGORY_SUMMARY_MAX_DESCRIPTION_LENGTH, separator: ' ') %>
+          <%= truncate_with_tooltip(category.description,
+                                    length:    CATEGORY_SUMMARY_MAX_DESCRIPTION_LENGTH,
+                                    separator: ' ') %>
         </div>
       <% end %>
     </div>

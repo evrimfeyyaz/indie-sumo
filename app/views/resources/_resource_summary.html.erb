@@ -7,9 +7,11 @@
       <%= image_tag 'test-photo.png', alt: "#{resource_summary.title} Icon", class: 'resource-summary__icon' %>
 
       <h3 class="resource-summary__title">
-        <%= truncate(resource_summary.title, length: RESOURCE_SUMMARY_MAX_TITLE_LENGTH) %>
+        <%= truncate_with_tooltip(resource_summary.title, length: RESOURCE_SUMMARY_MAX_TITLE_LENGTH) %>
       </h3>
-      <%= truncate(resource_summary.description, length: RESOURCE_SUMMARY_MAX_DESCRIPTION_LENGTH, separator: ' ') %>
+      <%= truncate_with_tooltip(resource_summary.description,
+                                length:    RESOURCE_SUMMARY_MAX_DESCRIPTION_LENGTH,
+                                separator: ' ') %>
     </div>
   <% end %>
 </div>

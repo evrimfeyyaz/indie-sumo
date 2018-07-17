@@ -10,4 +10,18 @@ module ApplicationHelper
 
     content_tag('div', class: fail_class, &block)
   end
+
+  # This wrapper around Rails' #truncate method puts the
+  # text in a span with a title attribute when the text
+  # is truncated. This way the user sees a tooltip when
+  # he hovers on the truncated text.
+  def truncate_with_tooltip(text, options = {}, &block)
+    truncated_text = truncate(text, options, &block)
+
+    if options.key?(:length) && text.length > options[:length]
+      return content_tag(:span, truncated_text, title: text)
+    end
+
+    truncated_text
+  end
 end
