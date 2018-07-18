@@ -2,6 +2,14 @@
 
 <%= render 'shared/page_description', description: @category.description %>
 
-<div class="row">
+<%= render 'shared/recommendation_link',
+           title: "Recommend a #{@category.title.singularize}",
+           path: new_resource_recommendation_path(category_id: @category.id) %>
+
+<div class="resource-summaries">
   <%= render partial: 'resources/resource_summary', collection: @category.resources %>
 </div>
+
+<%= render 'shared/recommendation_link',
+           title: "Recommend a #{@category.title.singularize}",
+           path: new_resource_recommendation_path(category_id: @category.id) %>
