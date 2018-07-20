@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="offset-lg-3 col-lg-6 px-5 text-center mt-5">
-    <%= bootstrap_form_for @resource_recommendation do |f| %>
+    <%= bootstrap_form_for @resource_recommendation, html: { novalidate: 'novalidate' } do |f| %>
       <div class="form-group">
         <%= f.text_field :recommender_name,
                          placeholder: 'Your name (optional)',
