@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_20_163202) do
+ActiveRecord::Schema.define(version: 2018_07_20_170406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2018_07_20_163202) do
     t.string "other_information"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_resource_recommendations_on_category_id"
   end
 
   create_table "resources", force: :cascade do |t|
@@ -88,4 +90,5 @@ ActiveRecord::Schema.define(version: 2018_07_20_163202) do
   add_foreign_key "information_recommendations", "resources"
   add_foreign_key "list_items", "lists"
   add_foreign_key "lists", "resources"
+  add_foreign_key "resource_recommendations", "categories"
 end

@@ -1,14 +1,20 @@
 class ResourceRecommendationsController < ApplicationController
   def new
+    load_category
     build_resource_recommendation
   end
 
   def create
+    load_category
     build_resource_recommendation
     save_resource_recommendation or render 'new'
   end
 
   private
+
+    def load_category
+      @category = category_scope.find(params[:category_id])
+    end
 
     def build_resource_recommendation
       @resource_recommendation            ||= resource_recommendation_scope.build
@@ -27,11 +33,15 @@ class ResourceRecommendationsController < ApplicationController
     def save_resource_recommendation
       if @resource_recommendation.save
         flash[:success] = 'Thank you for your recommendation!'
-        redirect_back(fallback_location: root_path)
+        redirect_to @category
       end
     end
 
+    def category_scope
+      Category.all
+    end
+
     def resource_recommendation_scope
-      ResourceRecommendation.all
+      @category.resource_recommendations
     end
 end

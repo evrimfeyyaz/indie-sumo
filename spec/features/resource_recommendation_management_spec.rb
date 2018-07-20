@@ -8,7 +8,7 @@ feature 'Resource recommendation management' do
 
     click_link('Recommend a Person', match: :first)
 
-    expect(current_path).to eq(new_resource_recommendation_path)
+    expect(current_path).to eq(new_category_resource_recommendation_path(category))
 
     recommender_name = 'John Doe'
     recommender_email = 'john@example.com'
