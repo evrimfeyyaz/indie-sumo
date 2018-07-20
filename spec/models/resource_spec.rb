@@ -4,5 +4,6 @@ describe Resource do
   it { should have_and_belong_to_many(:categories) }
   it { should have_many(:lists) }
   it { should have_many(:list_items) }
+  it { should have_many(:information_recommendations) }
   it { should validate_presence_of(:title) }
 end

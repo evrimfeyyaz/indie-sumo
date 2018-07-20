@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_17_172640) do
+ActiveRecord::Schema.define(version: 2018_07_20_163202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2018_07_17_172640) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "information_recommendations", force: :cascade do |t|
+    t.string "recommender_name"
+    t.string "recommender_email"
+    t.text "information"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_id"], name: "index_information_recommendations_on_resource_id"
   end
 
   create_table "list_items", force: :cascade do |t|
@@ -75,6 +85,7 @@ ActiveRecord::Schema.define(version: 2018_07_17_172640) do
     t.string "youtube"
   end
 
+  add_foreign_key "information_recommendations", "resources"
   add_foreign_key "list_items", "lists"
   add_foreign_key "lists", "resources"
 end

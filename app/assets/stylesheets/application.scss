@@ -124,6 +124,10 @@ body {
 }
 
 // Lists
+.lists {
+  @extend .mt-5;
+}
+
 .list {
   margin-bottom: 4rem;
 }
