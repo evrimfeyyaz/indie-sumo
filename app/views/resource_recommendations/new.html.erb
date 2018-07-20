@@ -37,9 +37,7 @@
       </div>
       <div class="form-group">
         <%= f.submit 'Submit', class: 'btn btn-primary' %>
-        <% if params[:category_id] %>
-          <%= link_to 'Cancel', category_path(params[:category_id]), class: 'btn btn-link' %>
-        <% end %>
+        <%= link_to 'Cancel', @category, class: 'btn btn-link' %>
       </div>
     <% end %>
   </div>
