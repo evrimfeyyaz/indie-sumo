@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe List do
   it { should belong_to(:resource) }
-  it { should have_many(:list_items) }
+  it { should have_many(:list_items).dependent(:destroy) }
   it { should validate_presence_of(:title) }
 
   describe '#items' do
