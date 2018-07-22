@@ -4,7 +4,9 @@
                        success_class: 'resource-summary',
                        fail_class:    'resource-summary is-not-link' do %>
     <div class="resource-summary__body">
-      <%= image_tag 'test-photo.png', alt: "#{resource_summary.title} Icon", class: 'resource-summary__icon' %>
+      <div class="resource-summary__no-icon">
+        <%= initial(resource_summary.title) %>
+      </div>
 
       <h3 class="resource-summary__title">
         <%= truncate_with_tooltip(resource_summary.title, length: RESOURCE_SUMMARY_MAX_TITLE_LENGTH) %>

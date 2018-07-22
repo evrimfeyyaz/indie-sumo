@@ -42,4 +42,8 @@ module ApplicationHelper
       'alert alert-secondary'
     end
   end
+
+  def initial(str)
+    str.first.capitalize
+  end
 end

@@ -33,6 +33,15 @@ body {
 
 .summary-card__icon {
   @extend .mb-3;
+  @extend .mx-auto;
+}
+
+.summary-card__no-icon {
+  @extend .category-summary__icon;
+  @extend .h1;
+
+  background: #3e1089 linear-gradient(135deg, #3e1089 0%, #1e5799 100%);
+  color: #fff;
 }
 
 .summary-card__title {
@@ -55,6 +64,15 @@ body {
   @extend .summary-card__icon;
 
   height: 32px;
+}
+
+.category-summary__no-icon {
+  @extend .summary-card__no-icon;
+
+  height: 32px;
+  width: 32px;
+  border-radius: 16px;
+  line-height: 28px;
 }
 
 .category-summary__title {
@@ -83,6 +101,16 @@ body {
   @extend .rounded-circle;
 
   height: 100px;
+}
+
+.resource-summary__no-icon {
+  @extend .summary-card__no-icon;
+
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  font-size: 3.5rem;
+  line-height: 110px;
 }
 
 .resource-summary__title {
