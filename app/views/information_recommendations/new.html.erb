@@ -3,30 +3,20 @@
 <div class="row">
   <div class="offset-lg-3 col-lg-6 px-5 text-center mt-5">
     <%= bootstrap_form_for [@resource, @information_recommendation], html: { novalidate: 'novalidate' } do |f| %>
-      <div class="form-group">
-        <%= f.text_field :recommender_name,
-                         placeholder: 'Your name (optional)',
-                         class:       'form-control',
-                         hide_label:  true %>
-      </div>
-      <div class="form-group">
-        <%= f.email_field :recommender_email,
-                          placeholder: 'Your e-mail (optional)',
-                          class:       'form-control',
-                          hide_label:  true %>
-      </div>
-      <div class="my-1">&nbsp;</div>
-      <div class="form-group">
-        <%= f.text_area :information,
-                        placeholder: 'Information you would like to add',
-                        rows:        5,
-                        class:       'form-control',
+      <%= f.text_field :recommender_name,
+                       placeholder: 'Your name (optional)',
+                       hide_label:  true %>
+      <%= f.email_field :recommender_email,
+                        placeholder: 'Your e-mail (optional)',
                         hide_label:  true %>
-      </div>
-      <div class="form-group">
-        <%= f.submit 'Submit', class: 'btn btn-primary' %>
-        <%= link_to 'Cancel', @resource, class: 'btn btn-link' %>
-      </div>
+      <div class="my-1">&nbsp;</div>
+      <%= f.text_area :information,
+                      placeholder: 'Information you would like to add',
+                      rows:        5,
+                      hide_label:  true %>
+      <%= render 'shared/recaptcha', obj: @information_recommendation %>
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <%= link_to 'Cancel', @resource, class: 'btn btn-link' %>
     <% end %>
   </div>
 </div>

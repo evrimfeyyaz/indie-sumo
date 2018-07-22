@@ -13,6 +13,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'bootstrap_form', '>= 4.0.0.alpha1'
+gem 'recaptcha', '~> 4.10'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
@@ -20,6 +21,7 @@ group :development, :test do
   gem 'capybara', '~> 3.3', '>= 3.3.1'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
   gem 'faker', '~> 1.8', '>= 1.8.7'
+  gem 'dotenv-rails', '~> 2.5'
 end
 
 group :development do

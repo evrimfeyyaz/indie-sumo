@@ -29,8 +29,8 @@ class InformationRecommendationsController < ApplicationController
     end
 
     def save_information_recommendation
-      if @information_recommendation.save
-        flash[:success] = 'Thank you for your addition!'
+      if verify_recaptcha(model: @information_recommendation) && @information_recommendation.save
+        flash[:success] = 'We will consider your addition, thanks!'
         redirect_to @resource
       end
     end

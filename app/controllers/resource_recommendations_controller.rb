@@ -31,8 +31,8 @@ class ResourceRecommendationsController < ApplicationController
     end
 
     def save_resource_recommendation
-      if @resource_recommendation.save
-        flash[:success] = 'Thank you for your recommendation!'
+      if verify_recaptcha(model: @resource_recommendation) && @resource_recommendation.save
+        flash[:success] = 'We will consider your recommendation, thanks!'
         redirect_to @category
       end
     end

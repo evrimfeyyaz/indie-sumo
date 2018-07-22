@@ -46,4 +46,9 @@ module ApplicationHelper
   def initial(str)
     str.first.capitalize
   end
+
+  # Returns the reCAPTCHA error.
+  def recaptcha_error(obj)
+    obj.errors[:base].select { |e| e.downcase.include?('recaptcha') }.first
+  end
 end

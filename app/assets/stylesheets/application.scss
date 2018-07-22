@@ -170,3 +170,18 @@ body {
 .recommendation-link {
   @extend .text-center;
 }
+
+// Recaptcha
+.recaptcha {
+  @extend .form-group;
+}
+
+.recaptcha__invalid-feedback {
+  @extend .invalid-feedback;
+
+  display: block;
+}
+
+.g-recaptcha div {
+  @extend .mx-auto;
+}
