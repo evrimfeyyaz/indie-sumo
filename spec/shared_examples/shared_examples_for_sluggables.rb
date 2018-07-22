@@ -20,6 +20,12 @@ shared_examples_for 'a sluggable' do
     end
   end
 
+  describe '#to_param' do
+    it 'returns the slug' do
+      expect(sluggable.to_param).to eq(sluggable.slug)
+    end
+  end
+
   describe 'before creation' do
     context 'when a slug exists' do
       it 'does nothing' do

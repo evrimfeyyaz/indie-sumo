@@ -13,7 +13,7 @@ class InformationRecommendationsController < ApplicationController
   private
 
     def load_resource
-      @resource = resource_scope.find(params[:resource_id])
+      @resource = resource_scope.find_by!(slug: params[:resource_slug])
     end
 
     def build_information_recommendation

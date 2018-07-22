@@ -13,7 +13,7 @@ class ResourceRecommendationsController < ApplicationController
   private
 
     def load_category
-      @category = category_scope.find(params[:category_id])
+      @category = category_scope.find_by!(slug: params[:category_slug])
     end
 
     def build_resource_recommendation

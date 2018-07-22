@@ -6,7 +6,7 @@ class ResourcesController < ApplicationController
   private
 
     def load_resource
-      @resource ||= resource_scope.find(params[:id])
+      @resource ||= resource_scope.find_by!(slug: params[:slug])
     end
 
     def resource_scope

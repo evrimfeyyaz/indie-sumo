@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
     end
 
     def load_category
-      @category ||= category_scope.find(params[:id])
+      @category ||= category_scope.find_by!(slug: params[:slug])
     end
 
     def category_scope
