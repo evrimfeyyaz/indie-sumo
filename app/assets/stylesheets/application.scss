@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  background-color: $background-color;
+  background-color: $bg-color;
 }
 
 // Summary card
@@ -184,4 +184,39 @@ body {
 
 .g-recaptcha div {
   @extend .mx-auto;
+}
+
+// Navbar
+.navbar {
+  background-color: $navbar-bg-color;
+}
+
+.navbar-brand {
+  font-family: $headings-font-family;
+  color: $orange !important;
+  margin-bottom: -0.15rem;
+}
+
+.header-separator {
+  background-color: $orange;
+  height: 5px;
+}
+
+// Header title
+.header-title {
+  @extend .jumbotron, .jumbotron-fluid, .text-center, .text-white, .mb-0;
+}
+
+.header-title__text {
+  @extend .display-4;
+}
+
+.header_title__text-strong {
+  text-decoration: underline rgba($white, .25);
+}
+
+@include media-breakpoint-down(xs) {
+  .header-title__text {
+    font-size: $h1-font-size;
+  }
 }
