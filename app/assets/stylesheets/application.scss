@@ -193,12 +193,12 @@ body {
 
 .navbar-brand {
   font-family: $headings-font-family;
-  color: $orange !important;
+  color: $brand !important;
   margin-bottom: -0.15rem;
 }
 
 .header-separator {
-  background-color: $orange;
+  background-color: $separator;
   height: 5px;
 }
 
@@ -219,4 +219,33 @@ body {
   .header-title__text {
     font-size: $h1-font-size;
   }
+}
+
+// Footer
+.footer {
+  @extend .container-fluid, .bg-dark, .pt-5, .pb-4, .text-light, .text-center, .text-md-left;
+}
+
+.footer__link {
+  @extend .my-1;
+
+  display: inline-block;
+  color: rgba($white, .5);
+
+  &:hover {
+    color: rgba($white, .75);
+    text-decoration: none;
+  }
+}
+
+.footer__title {
+  @extend .mb-2, .h4;
+}
+
+.footer__title.is-brand {
+  color: $brand;
+}
+
+.footer__follow-us {
+  @extend .mt-4;
 }

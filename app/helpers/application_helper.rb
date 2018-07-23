@@ -51,4 +51,12 @@ module ApplicationHelper
   def recaptcha_error(obj)
     obj.errors[:base].select { |e| e.downcase.include?('recaptcha') }.first
   end
+
+  def categories_array
+    Category.all.to_a
+  end
+
+  def category_count
+    Category.count
+  end
 end
