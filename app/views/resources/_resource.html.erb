@@ -1,4 +1,4 @@
-<div class="col-xl-4 col-md-6 col-sm-12 justify-content-center">
+<div class="col-xl-4 col-sm-6 justify-content-center">
   <%= link_to_if_or_block resource_url(resource).present?,
                           resource_url(resource),
                           success_class: 'resource-summary',
@@ -8,12 +8,14 @@
         <%= initial(resource.title) %>
       </div>
 
-      <h3 class="resource-summary__title">
+      <h3 class="resource-summary__title text-truncate">
         <%= truncate_with_tooltip(resource.title, length: RESOURCE_SUMMARY_MAX_TITLE_LENGTH) %>
       </h3>
-      <%= truncate_with_tooltip(resource.description,
-                                length:    RESOURCE_SUMMARY_MAX_DESCRIPTION_LENGTH,
-                                separator: ' ') %>
+      <p class="d-none d-sm-none d-md-block">
+        <%= truncate_with_tooltip(resource.description,
+                                  length:    RESOURCE_SUMMARY_MAX_DESCRIPTION_LENGTH,
+                                  separator: ' ') %>
+      </p>
     </div>
   <% end %>
 </div>
