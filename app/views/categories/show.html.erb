@@ -7,7 +7,7 @@
            path: new_category_resource_recommendation_path(category_slug: @category.slug) %>
 
 <div class="resource-summaries">
-  <%= render partial: 'resources/resource_summary', collection: @category.resources %>
+  <%= render partial: 'resources/resource', collection: @category.resources %>
 </div>
 
 <%= render 'shared/recommendation_link',

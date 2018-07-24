@@ -14,7 +14,7 @@ feature 'Category management' do
   scenario 'User clicks on a category on the home page, and visits the category details page' do
     visit root_path
 
-    click_link category.title
+    click_link(category.title, match: :first)
 
     expect(page).to have_current_path(category_path(category))
     expect(page).to have_text(category.title)

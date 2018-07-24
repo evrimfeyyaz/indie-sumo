@@ -1,0 +1,16 @@
+<div class="col-xl-4 col-md-6 col-sm-12 justify-content-center">
+  <%= link_to category, class: 'category-summary' do %>
+    <div class="category-summary__body">
+      <div class="category-summary__no-icon">
+        <span class="h6"><%= initial(category.title) %></span>
+      </div>
+
+      <h3 class="category-summary__title">
+        <%= truncate_with_tooltip(category.title, length: CATEGORY_SUMMARY_MAX_TITLE_LENGTH) %>
+      </h3>
+      <%= truncate_with_tooltip(category.description,
+                                length:    CATEGORY_SUMMARY_MAX_DESCRIPTION_LENGTH,
+                                separator: ' ') %>
+    </div>
+  <% end %>
+</div>

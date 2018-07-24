@@ -1,17 +1,17 @@
 <div class="col-xl-4 col-md-6 col-sm-12 justify-content-center">
-  <%= link_to_block_if resource_url(resource_summary).present?,
-                       resource_url(resource_summary),
+  <%= link_to_block_if resource_url(resource).present?,
+                       resource_url(resource),
                        success_class: 'resource-summary',
                        fail_class:    'resource-summary is-not-link' do %>
     <div class="resource-summary__body">
       <div class="resource-summary__no-icon">
-        <%= initial(resource_summary.title) %>
+        <%= initial(resource.title) %>
       </div>
 
       <h3 class="resource-summary__title">
-        <%= truncate_with_tooltip(resource_summary.title, length: RESOURCE_SUMMARY_MAX_TITLE_LENGTH) %>
+        <%= truncate_with_tooltip(resource.title, length: RESOURCE_SUMMARY_MAX_TITLE_LENGTH) %>
       </h3>
-      <%= truncate_with_tooltip(resource_summary.description,
+      <%= truncate_with_tooltip(resource.description,
                                 length:    RESOURCE_SUMMARY_MAX_DESCRIPTION_LENGTH,
                                 separator: ' ') %>
     </div>
