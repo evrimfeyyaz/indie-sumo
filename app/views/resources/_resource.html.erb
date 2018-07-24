@@ -1,8 +1,8 @@
 <div class="col-xl-4 col-md-6 col-sm-12 justify-content-center">
-  <%= link_to_block_if resource_url(resource).present?,
-                       resource_url(resource),
-                       success_class: 'resource-summary',
-                       fail_class:    'resource-summary is-not-link' do %>
+  <%= link_to_if_or_block resource_url(resource).present?,
+                          resource_url(resource),
+                          success_class: 'resource-summary',
+                          fail_class:    'resource-summary is-not-link' do %>
     <div class="resource-summary__body">
       <div class="resource-summary__no-icon">
         <%= initial(resource.title) %>
