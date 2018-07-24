@@ -226,6 +226,10 @@ body {
   @extend .container-fluid, .bg-dark, .pt-5, .pb-4, .text-light, .text-center, .text-md-left;
 }
 
+.footer__by {
+  margin-top: -.8rem;
+}
+
 .footer__link {
   @extend .my-1;
 

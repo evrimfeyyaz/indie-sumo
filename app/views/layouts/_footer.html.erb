@@ -3,7 +3,7 @@
     <div class="row">
       <div class="offset-lg-2 col-lg-4 col-md-6 col-sm-12">
         <h1 class="footer__title is-brand">IndieSumo</h1>
-        <p>by Evrim Persembe</p>
+        <p class="footer__by">by <%= link_to 'Evrim Persembe', APP_SETTINGS['owner_url'], class: 'footer__link' %></p>
         <div class="footer__follow-us">
           <h1 class="footer__title">Follow Us</h1>
           <ul class="list-unstyled">
@@ -11,10 +11,10 @@
               <a class="footer__link" href="#">Newsletter</a>
             </li>
             <li class="list-item">
-              <a class="footer__link" href="#">Facebook</a>
+              <%= link_to 'Facebook', APP_SETTINGS['facebook_page_url'], class: 'footer__link' %>
             </li>
             <li class="list-item">
-              <a class="footer__link" href="#">Twitter</a>
+              <%= link_to 'Twitter', APP_SETTINGS['twitter_profile_url'], class: 'footer__link' %>
             </li>
           </ul>
         </div>

@@ -28,10 +28,14 @@
           <a class="nav-link" href="#">Search</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fab fa-facebook"></i></a>
+          <%= link_to APP_SETTINGS['facebook_page_url'], class: 'nav-link' do %>
+            <i class="fab fa-facebook"></i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
+          <%= link_to APP_SETTINGS['twitter_profile_url'], class: 'nav-link' do %>
+            <i class="fab fa-twitter"></i>
+          <% end %>
         </li>
       </ul>
     </div>
