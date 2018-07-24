@@ -1,6 +1,8 @@
 // Color system
-$blue: #0696ED;
+$blue: #4389da;
 $orange: #FCA126;
+$purple: #201037;
+$dark-blue: #1e5799;
 
 $bg-color: #FAF7F7;
 $brand: $orange;
@@ -8,7 +10,6 @@ $dark: #232323;
 
 // Components
 $border-radius: .5rem;
-$component-active-bg: $orange;
 $separator: $orange;
 
 // Fonts
@@ -36,7 +37,7 @@ $input-padding-x: 1rem;
 // Navbar
 $navbar-brand-font-size: 2.6rem;
 $navbar-nav-link-padding-x: 1rem;
-$navbar-bg-color: #201037;
+$navbar-bg-color: $purple;
 
 // Jumbotron
 $jumbotron-bg: $navbar-bg-color;
