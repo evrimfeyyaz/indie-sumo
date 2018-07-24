@@ -31,15 +31,15 @@ module ApplicationHelper
   def flash_class(level)
     case level
     when 'notice' then
-      'alert alert-primary'
+      'alert-primary'
     when 'success' then
-      'alert alert-success'
+      'alert-success'
     when 'error' then
-      'alert alert-danger'
+      'alert-danger'
     when 'alert' then
-      'alert alert-danger'
+      'alert-danger'
     else
-      'alert alert-secondary'
+      'alert-secondary'
     end
   end
 
