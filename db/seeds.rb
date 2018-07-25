@@ -1,9 +1,18 @@
+p 'Seeding the database...'
+
 # Create categories.
 15.times do
   category_title       = Faker::Fallout.faction
   category_description = Faker::Fallout.quote
 
   category = Category.create!(title: category_title, description: category_description)
+
+  icon_no  = rand(0..5)
+
+  if icon_no > 0
+    icon_path = File.join(Rails.root, "/app/assets/images/seed/category_icons/#{icon_no}.png")
+    category.icon.attach(io: File.open(icon_path), filename: "#{category.title}.png")
+  end
 
   # Add resources to the category.
   10.times do
@@ -39,8 +48,8 @@
         external_resource_url         = 'http://www.example.com'
 
         external_resource = ExternalResource.create!(title:       external_resource_title,
-                                 description: external_resource_description,
-                                 url:         external_resource_url)
+                                                     description: external_resource_description,
+                                                     url:         external_resource_url)
         ListItem.create(listable: external_resource, list: list)
       end
     end
