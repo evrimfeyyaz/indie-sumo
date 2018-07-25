@@ -267,3 +267,8 @@ body {
 .footer__follow-us {
   @extend .mt-4;
 }
+
+// Resources
+.resource-icon {
+  @extend .resource-summary__icon;
+}

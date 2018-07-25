@@ -4,9 +4,11 @@
                           success_class: 'resource-summary',
                           fail_class:    'resource-summary is-not-link' do %>
     <div class="resource-summary__body">
-      <div class="resource-summary__no-icon">
-        <%= initial(resource.title) %>
-      </div>
+      <% if resource.icon.attached? %>
+        <%= image_tag resource.icon, class: 'resource-summary__icon' %>
+      <% else %>
+        <%= render 'resources/no_icon', resource: resource %>
+      <% end %>
 
       <h3 class="resource-summary__title text-truncate">
         <%= truncate_with_tooltip(resource.title, length: RESOURCE_SUMMARY_MAX_TITLE_LENGTH) %>

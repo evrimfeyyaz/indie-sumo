@@ -1,3 +1,7 @@
+<div class="text-center">
+  <%= image_tag @resource.icon, class: 'resource-icon' if @resource.icon.attached? %>
+</div>
+
 <%= render 'shared/page_title', title: @resource.title %>
 
 <%= render 'links' %>

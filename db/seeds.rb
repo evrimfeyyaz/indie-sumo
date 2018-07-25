@@ -11,7 +11,7 @@ p 'Seeding the database...'
 
   if icon_no > 0
     icon_path = File.join(Rails.root, "/app/assets/images/seed/category_icons/#{icon_no}.png")
-    category.icon.attach(io: File.open(icon_path), filename: "#{category.title}.png")
+    category.icon.attach(io: File.open(icon_path), filename: "#{category.title.parameterize}.png")
   end
 
   # Add resources to the category.
@@ -29,6 +29,13 @@ p 'Seeding the database...'
                                 github:      links_url,
                                 youtube:     links_url,
                                 facebook:    links_url)
+
+    icon_no  = rand(0..5)
+
+    if icon_no > 0
+      icon_path = File.join(Rails.root, "/app/assets/images/seed/resource_icons/#{icon_no}.jpg")
+      resource.icon.attach(io: File.open(icon_path), filename: "#{resource.title.parameterize}.jpg")
+    end
 
     # Add lists to the resource.
     3.times do
@@ -51,6 +58,13 @@ p 'Seeding the database...'
                                                      description: external_resource_description,
                                                      url:         external_resource_url)
         ListItem.create(listable: external_resource, list: list)
+
+        icon_no  = rand(0..5)
+
+        if icon_no > 0
+          icon_path = File.join(Rails.root, "/app/assets/images/seed/resource_icons/#{icon_no}.jpg")
+          external_resource.icon.attach(io: File.open(icon_path), filename: "#{resource.title.parameterize}.jpg")
+        end
       end
     end
   end
