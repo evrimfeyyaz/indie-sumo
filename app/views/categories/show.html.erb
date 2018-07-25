@@ -4,12 +4,15 @@
 
 <%= render 'shared/recommendation_link',
            title: "Recommend a #{@category.title.singularize}",
-           path: new_category_resource_recommendation_path(category_slug: @category.slug) %>
+           path:  new_category_resource_recommendation_path(category_slug: @category.slug) %>
 
 <div class="resource-summaries">
-  <%= render partial: 'resources/resource', collection: @category.resources %>
+  <%= render partial:    'resources/resource',
+             collection: @category_resources %>
 </div>
+
+<%=  paginate @category_resources %>
 
 <%= render 'shared/recommendation_link',
            title: "Recommend a #{@category.title.singularize}",
-           path: new_category_resource_recommendation_path(category_slug: @category.slug) %>
+           path:  new_category_resource_recommendation_path(category_slug: @category.slug) %>

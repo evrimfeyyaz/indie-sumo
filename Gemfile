@@ -14,6 +14,7 @@ gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'bootstrap_form', '>= 4.0.0.alpha1'
 gem 'recaptcha', '~> 4.10'
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'

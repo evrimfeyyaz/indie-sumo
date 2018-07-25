@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
     load_category
+    load_category_resources
   end
 
   private
@@ -15,6 +16,10 @@ class CategoriesController < ApplicationController
 
     def load_category
       @category ||= category_scope.find_by!(slug: params[:slug])
+    end
+
+    def load_category_resources
+      @category_resources ||= @category.resources.page(params[:page])
     end
 
     def category_scope
