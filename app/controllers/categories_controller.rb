@@ -23,6 +23,6 @@ class CategoriesController < ApplicationController
     end
 
     def category_scope
-      Category.all
+      Category.order(title: :asc)
     end
 end
