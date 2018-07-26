@@ -2,13 +2,17 @@ require 'rails_helper'
 
 feature 'Resource management' do
   let(:category) { create(:category) }
-  let(:resource) { create(:resource, categories: [category]) }
+  let!(:resource) { create(:resource, categories: [category]) }
+  let!(:creator1) { create(:creator, resource: resource, referenced_resource: create(:resource)) }
+  let!(:creator2) { create(:creator, resource: resource) }
 
   scenario 'User visits a resource details page' do
     visit resource_path(resource)
 
     expect(page).to have_text(resource.title)
     expect(page).to have_text(resource.description)
+    expect(page).to have_link(creator1.referenced_resource.title)
+    expect(page).to have_link(creator2.name)
   end
 
   context 'User visits a resource details page with a list' do

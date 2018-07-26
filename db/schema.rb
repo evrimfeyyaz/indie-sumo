@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_25_071813) do
+ActiveRecord::Schema.define(version: 2018_07_26_095343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 2018_07_25_071813) do
   create_table "categories_resources", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "resource_id", null: false
+  end
+
+  create_table "creators", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "referenced_resource_id"
+    t.index ["referenced_resource_id"], name: "index_creators_on_referenced_resource_id"
+    t.index ["resource_id"], name: "index_creators_on_resource_id"
   end
 
   create_table "external_resources", force: :cascade do |t|
@@ -112,6 +123,8 @@ ActiveRecord::Schema.define(version: 2018_07_25_071813) do
     t.index ["slug"], name: "index_resources_on_slug", unique: true
   end
 
+  add_foreign_key "creators", "resources"
+  add_foreign_key "creators", "resources", column: "referenced_resource_id"
   add_foreign_key "information_recommendations", "resources"
   add_foreign_key "list_items", "lists"
   add_foreign_key "lists", "resources"

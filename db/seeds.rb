@@ -3,6 +3,9 @@ NUM_OF_RESOURCES_PER_CATEGORY = 25
 
 total_resources = NUM_OF_CATEGORIES * NUM_OF_RESOURCES_PER_CATEGORY
 
+p 'Emptying the storage folder...'
+FileUtils.rm_rf(Dir['storage/*'])
+
 p 'Seeding the database...'
 
 # Create categories.
@@ -12,7 +15,7 @@ NUM_OF_CATEGORIES.times do |category_index|
 
   category = Category.create!(title: category_title, description: category_description)
 
-  icon_no  = rand(1..10)
+  icon_no = rand(1..10)
 
   if icon_no.between?(1, 5) # 50% chance of getting an icon.
     icon_path = File.join(Rails.root, "/app/assets/images/seed/category_icons/#{icon_no}.png")
@@ -35,7 +38,11 @@ NUM_OF_CATEGORIES.times do |category_index|
                                 youtube:     links_url,
                                 facebook:    links_url)
 
-    icon_no  = rand(1..25)
+    Creator.create!(name: 'John Doe', url: 'http://www.example.com', resource: resource)
+    Creator.create!(name: 'Jane Doe', resource: resource)
+    Creator.create!(referenced_resource: Resource.order("RANDOM()").first, resource: resource)
+
+    icon_no = rand(1..25)
 
     if icon_no.between?(1, 5) # 20% chance of getting an icon.
       icon_path = File.join(Rails.root, "/app/assets/images/seed/resource_icons/#{icon_no}.jpg")
@@ -72,8 +79,8 @@ NUM_OF_CATEGORIES.times do |category_index|
       end
     end
 
-    num_of_created_resources = (resource_index + 1 ) + (NUM_OF_RESOURCES_PER_CATEGORY * category_index)
-    print "#{(num_of_created_resources/total_resources.to_f * 100).to_i}% done.\r"
+    num_of_created_resources = (resource_index + 1) + (NUM_OF_RESOURCES_PER_CATEGORY * category_index)
+    print "#{(num_of_created_resources / total_resources.to_f * 100).to_i}% done.\r"
   end
 end
 

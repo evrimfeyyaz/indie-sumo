@@ -4,6 +4,8 @@
 
 <%= render 'shared/page_title', title: @resource.title %>
 
+<%= render 'created_by' %>
+
 <%= render 'links' %>
 
 <%= render 'shared/page_description', description: @resource.description %>
@@ -11,7 +13,10 @@
 <ul class="nav nav-pills mb-3 mt-4 justify-content-center" id="lists" role="tablist">
   <% @resource.lists.each_with_index do |list, i| %>
     <li class="nav-item">
-      <a class="nav-link <%= 'active' if i == 0 %>" id="list-<%= list.id %>-tab" data-toggle="tab" href="#list-<%= list.id %>" role="tab">
+      <a class="nav-link <%= 'active' if i == 0 %>"
+         id="list-<%= list.id %>-tab"
+         data-toggle="tab"
+         href="#list-<%= list.id %>" role="tab">
         <%= list.title %>
       </a>
     </li>
