@@ -5,6 +5,6 @@ class List < ApplicationRecord
   validates_presence_of :title
 
   def items
-    list_items.map(&:listable)
+    list_items.map(&:listable).sort_by { |listable| listable.title }
   end
 end
