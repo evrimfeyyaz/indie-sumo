@@ -22,7 +22,6 @@ group :development, :test do
   gem 'capybara', '~> 3.3', '>= 3.3.1'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'master'
   gem 'faker', '~> 1.8', '>= 1.8.7'
-  gem 'dotenv-rails', '~> 2.5'
 end
 
 group :development do
