@@ -1,0 +1,5 @@
+<% if @resource.footnote.present? %>
+  <div class="footnote">
+    <%= @resource.footnote.html_safe %>
+  </div>
+<% end %>

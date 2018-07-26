@@ -10,35 +10,10 @@
 
 <%= render 'shared/page_description', description: @resource.description %>
 
-<ul class="nav nav-pills mb-3 mt-4 justify-content-center" id="lists" role="tablist">
-  <% @resource.lists.each_with_index do |list, i| %>
-    <li class="nav-item">
-      <a class="nav-link <%= 'active' if i == 0 %>"
-         id="list-<%= list.id %>-tab"
-         data-toggle="tab"
-         href="#list-<%= list.id %>" role="tab">
-        <%= list.title %>
-      </a>
-    </li>
-  <% end %>
-</ul>
-
-<div class="tab-content mb-5" id="listsContent">
-  <% @resource.lists.each_with_index do |list, i| %>
-    <div class="tab-pane fade <%= 'show active' if i == 0 %>" id="list-<%= list.id %>">
-      <div class="row">
-        <%= render partial: 'resource', collection: list.items %>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render 'lists' %>
 
 <%= render 'shared/recommendation_link',
            title: 'Add Information',
            path:  new_resource_information_recommendation_path(@resource) %>
 
-<% if @resource.footnote.present? %>
-  <div class="footnote">
-    <%= @resource.footnote.html_safe %>
-  </div>
-<% end %>
+<%= render 'footnote' %>

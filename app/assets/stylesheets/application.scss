@@ -273,10 +273,6 @@ body {
   @extend .resource-summary__icon;
 }
 
-.creators {
-  margin-top: -.5rem;
-}
-
 .footnote {
   @extend .text-center, .text-muted, .my-4, .small;
 }
