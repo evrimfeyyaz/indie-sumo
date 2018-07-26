@@ -28,15 +28,17 @@ NUM_OF_CATEGORIES.times do |category_index|
     resource_description = Faker::Fallout.quote
 
     links_url = 'http://www.example.com'
+    footnote  = 'Image copyright <a href="http://www.example.com">John Doe</a>.'
 
-    resource = Resource.create!(title:       resource_title,
-                                description: resource_description,
-                                categories:  [category],
-                                website:     links_url,
-                                twitter:     links_url,
-                                github:      links_url,
-                                youtube:     links_url,
-                                facebook:    links_url)
+      resource = Resource.create!(title:       resource_title,
+                                  description: resource_description,
+                                  categories:  [category],
+                                  website:     links_url,
+                                  twitter:     links_url,
+                                  github:      links_url,
+                                  youtube:     links_url,
+                                  facebook:    links_url,
+                                  footnote:    footnote)
 
     Creator.create!(name: 'John Doe', url: 'http://www.example.com', resource: resource)
     Creator.create!(name: 'Jane Doe', resource: resource)

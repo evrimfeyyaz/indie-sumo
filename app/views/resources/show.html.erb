@@ -36,3 +36,9 @@
 <%= render 'shared/recommendation_link',
            title: 'Add Information',
            path:  new_resource_information_recommendation_path(@resource) %>
+
+<% if @resource.footnote.present? %>
+  <div class="footnote">
+    <%= @resource.footnote.html_safe %>
+  </div>
+<% end %>
