@@ -12,8 +12,7 @@ body {
 
 // Summary card
 .summary-card {
-  @extend .card, .shadow, .text-center,
-  .text-black-50, .my-4, .mx-auto;
+  @extend .card, .shadow, .text-center, .text-black-50, .my-4, .mx-auto;
 
   transition: background-color .3s ease-in-out;
 
@@ -206,8 +205,7 @@ body {
 
 // Header title
 .header-title {
-  @extend .jumbotron, .jumbotron-fluid, .text-center,
-  .text-white, .mb-0;
+  @extend .jumbotron, .jumbotron-fluid, .text-center, .text-white, .mb-0;
 }
 
 .header-title__text {
@@ -226,8 +224,7 @@ body {
 
 // Footer
 .footer {
-  @extend .container-fluid, .bg-dark, .pt-5, .pb-4,
-  .text-light, .text-center, .text-md-left;
+  @extend .container-fluid, .bg-dark, .pt-5, .pb-4, .text-light, .text-center, .text-md-left;
 }
 
 .footer__by {
@@ -264,6 +261,5 @@ body {
 }
 
 .footnote {
-  @extend .text-center, .text-muted,
-  .my-4, .small;
+  @extend .text-center, .text-muted, .my-4, .small;
 }

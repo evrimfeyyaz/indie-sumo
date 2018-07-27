@@ -4,7 +4,7 @@
       <div class="offset-md-2 col-md-8 text-center font-weight-light text-muted">
         <ul class="list-inline">
           <li class="list-inline-item">by</li>
-          <% @resource.creators.each_with_index do |creator, index| %>
+          <% @resource.creators.sort_by { |c| c.name }.each_with_index do |creator, index| %>
             <li class="list-inline-item">
               <%= link_to_if creator.url.present?,
                              creator.name,
