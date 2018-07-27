@@ -12,12 +12,8 @@ body {
 
 // Summary card
 .summary-card {
-  @extend .card;
-  @extend .shadow;
-  @extend .text-center;
-  @extend .text-black-50;
-  @extend .my-4;
-  @extend .mx-auto;
+  @extend .card, .shadow, .text-center,
+  .text-black-50, .my-4, .mx-auto;
 
   transition: background-color .3s ease-in-out;
 
@@ -32,13 +28,11 @@ body {
 }
 
 .summary-card__icon {
-  @extend .mb-3;
-  @extend .mx-auto;
+  @extend .mb-3, .mx-auto;
 }
 
 .summary-card__no-icon {
-  @extend .category-summary__icon;
-  @extend .h1;
+  @extend .category-summary__icon, .h1;
 
   background: #3e1089 linear-gradient(135deg, #3e1089 0%, #1e5799 100%);
   color: #fff;
@@ -88,8 +82,7 @@ body {
 
 // Resource index
 .resource-summaries {
-  @extend .row;
-  @extend .my-5;
+  @extend .row, .my-5;
 }
 
 .resource-summary {
@@ -104,8 +97,7 @@ body {
 }
 
 .resource-summary__icon {
-  @extend .summary-card__icon;
-  @extend .rounded-circle;
+  @extend .summary-card__icon, .rounded-circle;
 
   height: 100px;
 }
@@ -139,24 +131,20 @@ body {
 
 // Headers
 .page-title {
-  @extend .display-4;
-  @extend .text-center;
+  @extend .display-4, .text-center;
 }
 
 .page-description {
-  @extend .text-center;
-  @extend .lead;
+  @extend .text-center, .lead;
 }
 
 // Resource links
 .resource-links {
-  @extend .list-inline;
-  @extend .text-center;
+  @extend .list-inline, .text-center;
 }
 
 .resource-links__link {
-  @extend .list-inline-item;
-  @extend .mx-4;
+  @extend .list-inline-item, .mx-4;
 
   font-size: 18px;
 }
@@ -218,7 +206,8 @@ body {
 
 // Header title
 .header-title {
-  @extend .jumbotron, .jumbotron-fluid, .text-center, .text-white, .mb-0;
+  @extend .jumbotron, .jumbotron-fluid, .text-center,
+  .text-white, .mb-0;
 }
 
 .header-title__text {
@@ -237,7 +226,8 @@ body {
 
 // Footer
 .footer {
-  @extend .container-fluid, .bg-dark, .pt-5, .pb-4, .text-light, .text-center, .text-md-left;
+  @extend .container-fluid, .bg-dark, .pt-5, .pb-4,
+  .text-light, .text-center, .text-md-left;
 }
 
 .footer__by {
@@ -274,5 +264,6 @@ body {
 }
 
 .footnote {
-  @extend .text-center, .text-muted, .my-4, .small;
+  @extend .text-center, .text-muted,
+  .my-4, .small;
 }
