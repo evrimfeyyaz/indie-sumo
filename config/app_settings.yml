@@ -2,6 +2,7 @@ defaults: &defaults
   facebook_page_url: 'https://www.facebook.com'
   twitter_profile_url: 'https://www.twitter.com'
   owner_url: 'https://evrim.io'
+  max_comment_length: 300
 
 development:
   <<: *defaults

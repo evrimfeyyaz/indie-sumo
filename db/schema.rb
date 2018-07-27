@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_26_130746) do
+ActiveRecord::Schema.define(version: 2018_07_27_142051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2018_07_26_130746) do
   create_table "categories_resources", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "resource_id", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "comment"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_id"], name: "index_comments_on_resource_id"
   end
 
   create_table "creators", force: :cascade do |t|
@@ -124,6 +134,7 @@ ActiveRecord::Schema.define(version: 2018_07_26_130746) do
     t.index ["slug"], name: "index_resources_on_slug", unique: true
   end
 
+  add_foreign_key "comments", "resources"
   add_foreign_key "creators", "resources"
   add_foreign_key "creators", "resources", column: "referenced_resource_id"
   add_foreign_key "information_recommendations", "resources"

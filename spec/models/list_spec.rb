@@ -18,7 +18,7 @@ describe List do
       create(:list_item, listable: resource, list: subject)
       create(:list_item, listable: external_resource, list: subject)
 
-      expect(subject.items).to eq([resource, external_resource])
+      expect(subject.items).to match_array([resource, external_resource])
     end
   end
 end

@@ -6,6 +6,7 @@ class Resource < ApplicationRecord
   has_many :information_recommendations, dependent: :destroy
   has_many :creators, dependent: :destroy
   has_one_attached :icon
+  has_many :comments
 
   validates_presence_of :title
 end

@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   resources :resources, only: [:show], path: '', param: :slug do
     resources :information_recommendations, only: [:new, :create], path: '', path_names: { new: 'add-information' }
+    resources :comments, only: [:create]
   end
 end

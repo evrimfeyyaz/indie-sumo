@@ -10,10 +10,30 @@
 
 <%= render 'shared/page_description', description: @resource.description %>
 
+<%= render 'footnote' %>
+
 <%= render 'lists' %>
 
 <%= render 'shared/recommendation_link',
            title: 'Add Information',
            path:  new_resource_information_recommendation_path(@resource) %>
 
-<%= render 'footnote' %>
+<div class="comment-form row">
+  <div class="offset-lg-3 col-lg-6 px-5 text-center mt-5">
+    <%= bootstrap_form_for [@resource, @comment] do |f| %>
+      <%= f.text_field :name,
+                       placeholder: 'Your name',
+                       hide_label:  true %>
+      <%= f.email_field :email,
+                        placeholder: 'Your e-mail (optional, not public)',
+                        hide_label:  true %>
+      <%= f.text_area :comment,
+                      placeholder: 'Your comment',
+                      rows:        5,
+                      hide_label:  true,
+                      maxlength:   APP_SETTINGS['max_comment_length'] %>
+      <%= render 'shared/recaptcha', obj: @comment %>
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
