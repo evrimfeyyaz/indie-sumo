@@ -1,7 +1,7 @@
 <% if @resource.creators.any? %>
   <div class="created-by">
     <div class="row">
-      <div class="offset-md-2 col-md-8 text-center font-weight-light text-muted">
+      <div class="offset-md-2 col-md-8 text-center font-weight-light text-muted small">
         <ul class="list-inline">
           <li class="list-inline-item">by</li>
           <% @resource.creators.sort_by { |c| c.name }.each_with_index do |creator, index| %>

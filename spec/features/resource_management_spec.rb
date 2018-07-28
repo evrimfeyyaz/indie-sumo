@@ -9,10 +9,13 @@ feature 'Resource management' do
   scenario 'User visits a resource details page' do
     visit resource_path(resource)
 
-    expect(page).to have_text(resource.title)
-    expect(page).to have_text(resource.description)
-    expect(page).to have_link(creator1.referenced_resource.title)
-    expect(page).to have_link(creator2.name)
+    within('.resource') do
+      expect(page).to have_text(resource.title)
+      expect(page).to have_text(resource.description)
+      expect(page).to have_link(creator1.referenced_resource.title)
+      expect(page).to have_link(creator2.name)
+      expect(page).to have_link(category.title)
+    end
   end
 
   context 'User visits a resource details page with a list' do
