@@ -4,7 +4,7 @@ module ApplicationHelper
   # not allow a class option. This method prints out a link
   # if the condition succeeds, and a div if it fails, with
   # the given class in both cases.
-  def link_to_if_or_block(condition, url, success_class: nil, fail_class: nil, &block)
+  def link_to_or_block(condition, url, success_class: nil, fail_class: nil, &block)
     if condition
       return link_to(url, class: success_class, &block)
     end

@@ -1,6 +1,6 @@
 module ResourceHelper
   # Extracts the URL to follow from Resources and External Resources.
-  def resource_url(item)
+  def url_of_resource(item)
     case item
     when Resource
       item

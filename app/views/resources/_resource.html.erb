@@ -1,8 +1,8 @@
 <div class="col-xl-4 col-sm-6 justify-content-center">
-  <%= link_to_if_or_block resource_url(resource).present?,
-                          resource_url(resource),
-                          success_class: 'resource-summary',
-                          fail_class:    'resource-summary is-not-link' do %>
+  <%= link_to_or_block url_of_resource(resource).present?,
+                       url_of_resource(resource),
+                       success_class: 'resource-summary',
+                       fail_class:    'resource-summary is-not-link' do %>
     <div class="resource-summary__body">
       <% if resource.icon.attached? %>
         <%= image_tag resource.icon, class: 'resource-summary__icon' %>
