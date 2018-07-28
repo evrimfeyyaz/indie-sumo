@@ -263,3 +263,8 @@ body {
 .footnote {
   @extend .text-center, .text-muted, .mb-5, .small;
 }
+
+// Comments
+.comment-form {
+  @extend .mt-5;
+}

@@ -2,16 +2,26 @@ class ResourcesController < ApplicationController
   def show
     load_resource
     build_comment
+    load_comments
   end
 
   private
 
     def build_comment
-      @comment ||= @resource.comments.build
+      @comment ||= comment_scope.build
+      @comment.approved = false
+    end
+
+    def load_comments
+      @comments ||= comment_scope
     end
 
     def load_resource
       @resource ||= resource_scope.find_by!(slug: params[:slug])
+    end
+
+    def comment_scope
+      @resource.comments.where(approved: true)
     end
 
     def resource_scope

@@ -30,15 +30,15 @@ NUM_OF_CATEGORIES.times do |category_index|
     links_url = 'http://www.example.com'
     footnote  = 'Image copyright <a href="http://www.example.com">John Doe</a>.'
 
-      resource = Resource.create!(title:       resource_title,
-                                  description: resource_description,
-                                  categories:  [category],
-                                  website:     links_url,
-                                  twitter:     links_url,
-                                  github:      links_url,
-                                  youtube:     links_url,
-                                  facebook:    links_url,
-                                  footnote:    footnote)
+    resource = Resource.create!(title:       resource_title,
+                                description: resource_description,
+                                categories:  [category],
+                                website:     links_url,
+                                twitter:     links_url,
+                                github:      links_url,
+                                youtube:     links_url,
+                                facebook:    links_url,
+                                footnote:    footnote)
 
     Creator.create!(name: 'John Doe', url: 'http://www.example.com', resource: resource)
     Creator.create!(name: 'Jane Doe', resource: resource)
@@ -49,6 +49,15 @@ NUM_OF_CATEGORIES.times do |category_index|
     if icon_no.between?(1, 5) # 20% chance of getting an icon.
       icon_path = File.join(Rails.root, "/app/assets/images/seed/resource_icons/#{icon_no}.jpg")
       resource.icon.attach(io: File.open(icon_path), filename: "#{resource.title.parameterize}.jpg")
+    end
+
+    # Add comments to the resource
+    2.times do
+      Comment.create!(name:     Faker::Fallout.character,
+                  email:    Faker::Internet.email,
+                  comment:  Faker::Fallout.quote,
+                  resource: resource,
+                  approved: true)
     end
 
     # Add lists to the resource.

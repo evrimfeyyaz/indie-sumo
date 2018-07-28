@@ -8,7 +8,7 @@ describe Resource do
   it { should have_many(:lists).dependent(:destroy) }
   it { should have_many(:information_recommendations).dependent(:destroy) }
   it { should have_many(:creators).dependent(:destroy) }
-  it { should have_many(:comments) }
+  it { should have_many(:comments).dependent(:destroy) }
 
   it { should validate_presence_of(:title) }
 end

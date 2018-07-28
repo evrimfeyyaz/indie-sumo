@@ -24,5 +24,17 @@ feature 'Comment management' do
     expect(unapproved_comment.name).to eq(name)
     expect(unapproved_comment.email).to eq(email)
     expect(unapproved_comment.comment).to eq(comment)
+
+    expect(page).not_to have_text(comment)
+  end
+
+  scenario 'User visits a resource page with an approved comment' do
+    comment = create(:comment, resource: resource, approved: true)
+
+    visit resource_path(resource)
+
+    expect(page).to have_text(comment.name)
+    expect(page).to have_text(comment.comment)
+    expect(page).not_to have_text(comment.email)
   end
 end

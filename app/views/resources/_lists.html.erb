@@ -15,7 +15,7 @@
   <% @resource.lists.each_with_index do |list, i| %>
     <div class="tab-pane fade <%= 'show active' if i == 0 %>" id="list-<%= list.id %>">
       <div class="row">
-        <%= render partial: 'resource', collection: list.items %>
+        <%= render partial: 'resources/resource', collection: list.items %>
       </div>
     </div>
   <% end %>
