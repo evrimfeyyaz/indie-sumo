@@ -1,15 +1,7 @@
 <div class="resource">
-  <div class="text-center">
-    <%= image_tag @resource.icon, class: 'resource-icon' if @resource.icon.attached? %>
-  </div>
+  <%= render 'resources/icon' %>
 
-  <div class="text-center mb-3">
-    Categories:
-    <% @resource.categories.each_with_index do |category, index| %>
-      <%= link_to category.title, category %>
-      <%= ' / ' unless index == @resource.categories.count - 1 %>
-    <% end %>
-  </div>
+  <%= render 'resources/categories' %>
 
   <%= render 'shared/page_title', title: @resource.title %>
 
@@ -29,68 +21,5 @@
 
   <hr>
 
-  <div class="row">
-    <div class="offset-lg-3 col-lg-6 px-5 text-center mt-5">
-      <h1 class="text-center">
-        Comments (<%= @comments.count %>)
-      </h1>
-      <% if @comments.any? %>
-        <%= link_to 'Add a Comment', '#add-comment', class: 'btn btn-link mb-4' %>
-      <% end %>
-      <% if @comments.any? %>
-        <% @comments.each do |comment| %>
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="float-left mr-4">
-                <div class="mb-3">
-                  <% if comment.email.present? %>
-                    <%= gravatar_image_tag(comment.email,
-                                           :alt      => comment.name,
-                                           :gravatar => { secure: true, rating: 'pg', size: 32 })
-                    %>
-                  <% else %>
-                    <%= gravatar_image_tag('',
-                                           :alt      => comment.name,
-                                           :gravatar => { secure: true, size: 32, default: :identicon })
-                    %>
-                  <% end %>
-                </div>
-                <h2 class="card-title h5 mb-3">
-                  <%= comment.name %>
-                </h2>
-                <div class="card-subtitle small text-muted">
-                  <%= comment.created_at %>
-                </div>
-              </div>
-              <div class="card-text">
-                <%= comment.comment %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <p>There are currently no comments. Be the first one to comment!</p>
-      <% end %>
-
-      <div id="add-comment" class="comment-form">
-        <h2 class="mb-3">Add a Comment</h2>
-        <%= bootstrap_form_for [@resource, @comment] do |f| %>
-          <%= f.text_field :name,
-                           placeholder: 'Your name',
-                           hide_label:  true %>
-          <%= f.email_field :email,
-                            placeholder: 'Your e-mail (optional)',
-                            hide_label:  true,
-                            help:        "Your e-mail is used to show your Gravatar and won't be publicly visible." %>
-          <%= f.text_area :comment,
-                          placeholder: 'Your comment',
-                          rows:        5,
-                          hide_label:  true,
-                          maxlength:   APP_SETTINGS['max_comment_length'] %>
-          <%= render 'shared/recaptcha', obj: @comment %>
-          <%= f.submit 'Submit', class: 'btn btn-primary' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <%= render 'resources/comments' %>
 </div>

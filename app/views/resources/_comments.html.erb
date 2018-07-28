@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="offset-lg-3 col-lg-6 px-5 text-center mt-3">
+    <h1 class="text-center">
+      Comments (<%= @comments.count %>)
+    </h1>
+    <% if @comments.any? %>
+      <%= link_to 'Add a Comment', '#add-comment', class: 'btn btn-link mb-4' %>
+    <% end %>
+    <% if @comments.any? %>
+      <% @comments.each do |comment| %>
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="float-left mr-4">
+              <div class="mb-3">
+                <% if comment.email.present? %>
+                  <%= gravatar_image_tag(comment.email,
+                                         :alt      => comment.name,
+                                         :gravatar => { secure: true, rating: 'pg', size: 32 })
+                  %>
+                <% else %>
+                  <%= gravatar_image_tag('',
+                                         :alt      => comment.name,
+                                         :gravatar => { secure: true, size: 32, default: :identicon })
+                  %>
+                <% end %>
+              </div>
+              <h2 class="card-title h5 mb-3">
+                <%= comment.name %>
+              </h2>
+              <div class="card-subtitle small text-muted">
+                <%= comment.created_at %>
+              </div>
+            </div>
+            <div class="card-text">
+              <%= comment.comment %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>There are currently no comments. Be the first one to comment!</p>
+    <% end %>
+
+    <%= render 'resources/comment_form' %>
+  </div>
+</div>
