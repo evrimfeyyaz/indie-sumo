@@ -19,10 +19,10 @@ class CategoriesController < ApplicationController
     end
 
     def load_category_resources
-      @category_resources ||= @category.resources.order(title: :asc).page(params[:page])
+      @category_resources ||= @category.resources.page(params[:page])
     end
 
     def category_scope
-      Category.order(title: :asc)
+      Category.all
     end
 end
