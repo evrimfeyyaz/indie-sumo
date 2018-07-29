@@ -3,7 +3,9 @@ class CommentsController < ApplicationController
     load_resource
     build_comment
     load_comments
-    save_comment or render 'resources/show'
+    save_comment or respond_to do |format|
+      format.js
+    end
   end
 
   private
@@ -39,6 +41,6 @@ class CommentsController < ApplicationController
     end
 
     def comment_scope
-      @resource.comments.where(approved: true)
+      @resource.comments
     end
 end

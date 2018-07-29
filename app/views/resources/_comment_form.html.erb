@@ -1,6 +1,6 @@
 <div id="add-comment" class="comment-form">
   <h2 class="mb-3">Add a Comment</h2>
-  <%= bootstrap_form_for [@resource, @comment] do |f| %>
+  <%= bootstrap_form_with(model: [@resource, @comment]) do |f| %>
     <%= f.text_field :name,
                      placeholder: 'Your name',
                      hide_label:  true %>

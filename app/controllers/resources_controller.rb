@@ -9,7 +9,6 @@ class ResourcesController < ApplicationController
 
     def build_comment
       @comment ||= comment_scope.build
-      @comment.approved = false
     end
 
     def load_comments
