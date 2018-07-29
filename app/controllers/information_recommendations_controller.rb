@@ -7,7 +7,9 @@ class InformationRecommendationsController < ApplicationController
   def create
     load_resource
     build_information_recommendation
-    save_information_recommendation or render 'new'
+    save_information_recommendation or respond_to do |format|
+      format.js
+    end
   end
 
   private

@@ -2,27 +2,6 @@
 
 <div class="row">
   <div class="offset-lg-3 col-lg-6 px-5 text-center mt-5">
-    <%= bootstrap_form_for [@category, @resource_recommendation], html: { novalidate: 'novalidate' } do |f| %>
-      <%= f.text_field :recommender_name,
-                       placeholder: 'Your name (optional)',
-                       hide_label:  true %>
-      <%= f.email_field :recommender_email,
-                        placeholder: 'Your e-mail (optional)',
-                        hide_label:  true %>
-      <div class="my-1">&nbsp;</div>
-      <%= f.text_field :name,
-                       placeholder: 'Name of the person you recommend',
-                       hide_label:  true %>
-      <%= f.url_field :website,
-                      placeholder: 'Website of the person you recommend',
-                      hide_label:  true %>
-      <%= f.text_area :other_information,
-                      placeholder: 'Other information (optional)',
-                      rows:        5,
-                      hide_label:  true %>
-      <%= render 'shared/recaptcha', obj: @resource_recommendation %>
-      <%= f.submit 'Submit', class: 'btn btn-primary' %>
-      <%= link_to 'Cancel', @category, class: 'btn btn-link' %>
-    <% end %>
+    <%= render 'form' %>
   </div>
 </div>

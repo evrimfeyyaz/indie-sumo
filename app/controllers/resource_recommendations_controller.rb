@@ -7,7 +7,9 @@ class ResourceRecommendationsController < ApplicationController
   def create
     load_category
     build_resource_recommendation
-    save_resource_recommendation or render 'new'
+    save_resource_recommendation or respond_to do |format|
+      format.js
+    end
   end
 
   private
