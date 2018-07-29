@@ -7,9 +7,11 @@
       <%= link_to 'Add a Comment', '#add-comment', class: 'btn btn-link mb-4' %>
     <% end %>
     <% if @comments.any? %>
-      <% @comments.each do |comment| %>
-        <%= render 'comment', comment: comment %>
-      <% end %>
+      <div id="comments">
+        <% @comments.each do |comment| %>
+          <%= render 'comment', comment: comment %>
+        <% end %>
+      </div>
     <% else %>
       <p>There are currently no comments. Be the first one to comment!</p>
     <% end %>

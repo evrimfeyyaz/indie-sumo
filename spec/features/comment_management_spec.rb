@@ -28,13 +28,20 @@ feature 'Comment management' do
     expect(page).not_to have_text(comment)
   end
 
-  scenario 'User visits a resource page with an approved comment' do
-    comment = create(:comment, resource: resource, approved: true)
+  scenario 'User visits a resource page with an approved comments' do
+    comment1 = create(:comment, comment: 'Comment 1', resource: resource, approved: true)
+    comment2 = create(:comment, comment: 'Comment 2', resource: resource, approved: true)
 
     visit resource_path(resource)
 
-    expect(page).to have_text(comment.name)
-    expect(page).to have_text(comment.comment)
-    expect(page).not_to have_text(comment.email)
+    # Check if relevant comment information is shown.
+    expect(page).to have_text(comment1.name)
+    expect(page).to have_text(comment1.comment)
+    expect(page).not_to have_text(comment1.email)
+
+    # Make sure they are sorted by date.
+    expect(page).to have_css('#comments',
+                             text: /#{Regexp.escape(comment2.comment)}.+#{Regexp.escape(comment1.comment)}/,
+                             visible: false)
   end
 end
