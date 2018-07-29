@@ -265,6 +265,23 @@ body {
 }
 
 // Comments
+.comment {
+  @extend .float-md-left, .mb-2, .mr-4;
+  @extend .d-flex, .flex-row, .flex-md-column, .align-items-center, .justify-content-center;
+
+  width: 100%;
+}
+
+@include media-breakpoint-up(md) {
+  .comment {
+    width: 25%;
+  }
+}
+
+.comment__avatar {
+  @extend .mb-0, .mr-3, .mr-md-0, .mb-md-3;
+}
+
 .comment-form {
   @extend .mt-5;
 }

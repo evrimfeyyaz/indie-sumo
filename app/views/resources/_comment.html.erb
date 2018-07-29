@@ -1,7 +1,7 @@
 <div class="card mb-4">
   <div class="card-body">
-    <div class="float-left mr-4">
-      <div class="mb-3">
+    <div class="comment">
+      <div class="comment__avatar">
         <% if comment.email.present? %>
           <%= gravatar_image_tag(comment.email,
                                  :alt      => comment.name,
@@ -14,11 +14,13 @@
           %>
         <% end %>
       </div>
-      <h2 class="card-title h5 mb-3">
-        <%= comment.name %>
-      </h2>
-      <div class="card-subtitle small text-muted">
-        <%= comment.created_at %>
+      <div>
+        <h2 class="card-title h5 mb-3">
+          <%= comment.name %>
+        </h2>
+        <div class="card-subtitle small text-muted">
+          <%= comment.created_at.strftime('%b %e, %Y<br>at %I:%M %p %Z').html_safe %>
+        </div>
       </div>
     </div>
     <div class="card-text">
