@@ -3,9 +3,9 @@
     <div class="row">
       <div class="offset-md-2 col-md-8 text-center font-weight-light text-muted small">
         <ul class="list-inline">
-          <li class="list-inline-item">by</li>
+          <li class="list-inline-item mx-0">by</li>
           <% @resource.creators.sort_by { |c| c.name }.each_with_index do |creator, index| %>
-            <li class="list-inline-item">
+            <li class="list-inline-item mx-0">
               <%= link_to_if creator.url.present?,
                              creator.name,
                              creator.url %><%= ',' unless index == @resource.creators.count - 1 %>
