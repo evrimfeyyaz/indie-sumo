@@ -1,3 +1,11 @@
 <div class="row" id="categories">
-  <%= render partial: 'category', collection: @categories %>
+  <% @categories.each_with_index do |category, index| %>
+    <% if index == 6 %>
+      <div class="col-12 pt-5">
+        <%= render 'shared/newsletter' %>
+      </div>
+    <% end %>
+
+    <%= render 'category', category: category %>
+  <% end %>
 </div>

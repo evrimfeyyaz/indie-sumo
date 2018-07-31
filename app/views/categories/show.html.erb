@@ -7,11 +7,18 @@
            path:  new_category_resource_recommendation_path(category_slug: @category.slug) %>
 
 <div class="resource-summaries" id="resources">
-  <%= render partial:    'resources/resource',
-             collection: @category_resources %>
+  <% @category_resources.each_with_index do |resource, index| %>
+    <% if index == 6 %>
+      <div class="col-12 pt-5">
+        <%= render 'shared/newsletter' %>
+      </div>
+    <% end %>
+
+    <%= render 'resources/resource', resource: resource %>
+  <% end %>
 </div>
 
-<%=  paginate @category_resources %>
+<%= paginate @category_resources %>
 
 <%= render 'shared/recommendation_link',
            title: "Recommend a #{@category.title.singularize}",
