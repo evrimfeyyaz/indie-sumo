@@ -10,6 +10,11 @@ body {
   background-color: $bg-color;
 }
 
+em {
+  font-style: normal;
+  color: $orange;
+}
+
 // Summary card
 .summary-card {
   @extend .card, .shadow, .text-center, .text-black-50, .my-4, .mx-auto;
@@ -284,4 +289,23 @@ body {
 
 .comment-form {
   @extend .mt-5;
+}
+
+// Newsletter
+.newsletter {
+  overflow: hidden;
+}
+
+.newsletter__left {
+  background-color: $purple;
+}
+
+@include media-breakpoint-up(md) {
+  .newsletter__left {
+    width: 40%;
+  }
+}
+
+.newsletter__right {
+  background-color: $white;
 }
