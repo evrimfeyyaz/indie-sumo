@@ -9,18 +9,7 @@
       </p>
     </div>
     <div class="newsletter__right px-5 py-4 text-center flex-grow-1 d-flex flex-column justify-content-center">
-      <%= bootstrap_form_with url: 'https://indiesumo.us12.list-manage.com/subscribe/post?u=7d6b207df0db42f6bfcff3322&amp;id=fbb0bb2608', local: true do |f| %>
-      <%= f.text_field :FNAME,
-                       placeholder: 'Your name',
-                       hide_label:  true %>
-      <%= f.email_field :EMAIL,
-                        placeholder: 'Your e-mail',
-                        hide_label:  true,
-                        help:        'No spam, unsubscribe at any time.' %>
-      <div style="position: absolute; left: -5000px;" aria-hidden="true">
-        <input type="text" name="b_7d6b207df0db42f6bfcff3322_fbb0bb2608" tabindex="-1" value=""></div>
-      <%= f.submit 'Submit', class: 'btn btn-primary' %>
-      <% end %>
+      <%= render 'shared/newsletter_form' %>
     </div>
   </div>
 </div>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'categories#index'
 
+  get 'newsletter', to: 'static_pages#newsletter'
+
   resources :categories, only: [:index, :show], param: :slug do
     resources :resource_recommendations, only: [:new, :create], path: '', path_names: { new: 'recommend-resource' }
   end

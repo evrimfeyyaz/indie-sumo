@@ -9,7 +9,7 @@
           <h1 class="footer__title">Follow Us</h1>
           <ul class="list-unstyled">
             <li class="list-item">
-              <a class="footer__link" href="#">Newsletter</a>
+              <%= link_to 'Newsletter', newsletter_path, class: 'footer__link' %>
             </li>
             <li class="list-item">
               <%= link_to 'Facebook', APP_SETTINGS['facebook_page_url'], class: 'footer__link' %>
