@@ -8,7 +8,7 @@
 
 <div class="resource-summaries" id="resources">
   <% @category_resources.each_with_index do |resource, index| %>
-    <% if index == 6 %>
+    <% if index == 6 || (@category_resources.count <= 6 && index == 0) %>
       <div class="col-12 pt-5">
         <%= render 'shared/newsletter' %>
       </div>
