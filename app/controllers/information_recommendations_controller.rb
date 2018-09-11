@@ -24,10 +24,7 @@ class InformationRecommendationsController < ApplicationController
     end
 
     def information_recommendation_params
-      information_recommendation_params = params[:information_recommendation]
-      information_recommendation_params ? information_recommendation_params.permit(:recommender_name,
-                                                                                   :recommender_email,
-                                                                                   :information) : {}
+      params.fetch(:information_recommendation, {}).permit(:recommender_name, :recommender_email, :information)
     end
 
     def save_information_recommendation

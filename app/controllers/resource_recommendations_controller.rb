@@ -24,12 +24,11 @@ class ResourceRecommendationsController < ApplicationController
     end
 
     def resource_recommendation_params
-      resource_recommendation_params = params[:resource_recommendation]
-      resource_recommendation_params ? resource_recommendation_params.permit(:recommender_name,
-                                                                             :recommender_email,
-                                                                             :name,
-                                                                             :website,
-                                                                             :other_information) : {}
+      params.fetch(:resource_recommendation, {}).permit(:recommender_name,
+                                                        :recommender_email,
+                                                        :name,
+                                                        :website,
+                                                        :other_information)
     end
 
     def save_resource_recommendation

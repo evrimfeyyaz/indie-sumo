@@ -25,8 +25,7 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      comment_params = params[:comment]
-      comment_params ? comment_params.permit(:name, :email, :comment) : {}
+      params.fetch(:comment, {}).permit(:name, :email, :comment)
     end
 
     def save_comment
