@@ -266,7 +266,11 @@ em {
 }
 
 .footnote {
-  @extend .text-center, .text-muted, .mb-5, .small;
+  @extend .text-center, .text-muted, .small;
+}
+
+.resource__lists {
+  @extend .mt-5;
 }
 
 // Comments
