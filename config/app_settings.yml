@@ -3,6 +3,9 @@ defaults: &defaults
   twitter_profile_url: 'https://www.twitter.com'
   owner_url: 'https://evrim.io'
   max_comment_length: 300
+  default_meta_title: 'Indie Sumo'
+  default_meta_description: ''
+  default_meta_image: ''
 
 development:
   <<: *defaults
