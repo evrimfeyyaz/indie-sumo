@@ -6,6 +6,8 @@
            title: "Recommend a #{@category.title.singularize}",
            path:  new_category_resource_recommendation_path(category_slug: @category.slug) %>
 
+<%= render 'shared/share_buttons' %>
+
 <div class="resource-summaries" id="resources">
   <% @category_resources.each_with_index do |resource, index| %>
     <% if index == 6 || (@category_resources.count <= 6 && index == 0) %>
