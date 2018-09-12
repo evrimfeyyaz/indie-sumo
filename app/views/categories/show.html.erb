@@ -1,3 +1,6 @@
+<% provide(:meta_title, "Indie Sumo: #{@category.title}") %>
+<% provide(:meta_description, @category.description) %>
+
 <%= render 'shared/page_title', title: @category.title %>
 
 <%= render 'shared/page_description', description: @category.description %>
