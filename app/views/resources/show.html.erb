@@ -1,3 +1,9 @@
+<% provide(:meta_title, "Indie Sumo: #{@resource.title}") %>
+<% provide(:meta_description, @resource.description) %>
+<% if @resource.icon.attached? %>
+  <% provide(:meta_image_url, url_for(@resource.icon)) %>
+<% end %>
+
 <div class="resource">
   <%= render 'icon' %>
 
