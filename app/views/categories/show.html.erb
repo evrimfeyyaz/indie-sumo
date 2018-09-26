@@ -9,7 +9,7 @@
            title: "Recommend a #{@category.title.singularize}",
            path:  new_category_resource_recommendation_path(category_slug: @category.slug) %>
 
-<%= render 'shared/share_buttons' %>
+<%= render 'shared/share_buttons', twitter_share_text: "Indie Sumo: #{@category.title}" %>
 
 <div class="resource-summaries" id="resources">
   <% @category_resources.each_with_index do |resource, index| %>

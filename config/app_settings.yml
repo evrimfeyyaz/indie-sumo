@@ -6,6 +6,7 @@ defaults: &defaults
   default_meta_title: 'Indie Sumo'
   default_meta_description: ''
   default_meta_image: ''
+  default_twitter_share_text: ''
 
 development:
   <<: *defaults
