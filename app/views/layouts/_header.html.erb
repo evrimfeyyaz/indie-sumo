@@ -1,46 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-  <div class="container">
-    <%= link_to 'IndieSumo', root_path, class: 'navbar-brand' %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-            Categories
-          </a>
-          <div class="dropdown-menu">
-            <% categories_array.each do |category| %>
-              <%= link_to_unless_current category.title, category, class: 'dropdown-item' do %>
-                <%= link_to category.title, category, class: 'dropdown-item active' %>
-              <% end %>
-            <% end %>
-          </div>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Newsletter', newsletter_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Search</a>
-        </li>
-        <li class="nav-item">
-          <%= link_to APP_SETTINGS['facebook_page_url'], class: 'nav-link' do %>
-            <i class="fab fa-facebook"></i>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to APP_SETTINGS['twitter_profile_url'], class: 'nav-link' do %>
-            <i class="fab fa-twitter"></i>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<%= render 'layouts/navbar' %>
+
 <% if current_page?(root_path) %>
   <div class="header-title">
     <div class="container">
