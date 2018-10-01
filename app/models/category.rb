@@ -1,4 +1,6 @@
 class Category < ApplicationRecord
+  after_commit :reindex_resources
+
   default_scope { order(title: :asc) }
 
   include Sluggable
@@ -8,4 +10,12 @@ class Category < ApplicationRecord
   has_one_attached :icon
 
   validates_presence_of :title
+
+  private
+
+    def reindex_resources
+      resources.each do |resource|
+        resource.reindex
+      end
+    end
 end

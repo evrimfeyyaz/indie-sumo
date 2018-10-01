@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'newsletter', to: 'static_pages#newsletter'
 
+  resource :search, only: [:show]
   resources :categories, only: [:index, :show], param: :slug do
     resources :resource_recommendations, only: [:new, :create], path: '', path_names: { new: 'recommend-resource' }
   end

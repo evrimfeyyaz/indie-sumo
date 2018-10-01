@@ -10,5 +10,32 @@ class Resource < ApplicationRecord
   has_one_attached :icon
   has_many :comments, dependent: :destroy
 
+  searchkick word_start: [:title],
+             word_middle: [:search_description],
+             highlight: [:title, :search_description]
+
   validates_presence_of :title
+
+  # TODO: Test the search data
+  def search_data
+    {
+      title: title,
+      search_description: "#{description}\n#{categories_as_string}\n#{links_as_string}"
+    }
+  end
+
+  def links_as_string
+    links = []
+
+    links.push("Website: #{website}") if website.present?
+    links.push("Twitter: #{twitter}") if twitter.present?
+    links.push("GitHub: #{github}") if github.present?
+    links.push("YouTube: #{youtube}") if youtube.present?
+
+    links.join(', ')
+  end
+
+  def categories_as_string
+    'Categories: ' + categories.map(&:title).join(', ')
+  end
 end

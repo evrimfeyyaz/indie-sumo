@@ -16,6 +16,7 @@ gem 'bootstrap_form', '>= 4.0.0.alpha1'
 gem 'recaptcha', '~> 4.10'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'gravatar_image_tag', '~> 1.2'
+gem 'searchkick', '~> 3.1', '>= 3.1.2'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'

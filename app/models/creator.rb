@@ -1,4 +1,6 @@
 class Creator < ApplicationRecord
+  after_commit :reindex_resource
+
   belongs_to :resource # Owner resource
   belongs_to :referenced_resource, class_name: 'Resource', optional: true
 
@@ -13,4 +15,5 @@ class Creator < ApplicationRecord
 
     self[:url]
   end
+
 end

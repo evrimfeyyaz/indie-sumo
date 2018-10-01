@@ -1,0 +1,10 @@
+<%= render 'shared/page_title', title: "Search Results (#{@search_results.count})" %>
+
+<ul>
+  <% @search_results.each do |result| %>
+    <li>
+      <p><%= result.highlighted_title.html_safe %></p>
+      <p><%= result.highlighted_search_description.html_safe %></p>
+    </li>
+  <% end %>
+</ul>
