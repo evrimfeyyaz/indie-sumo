@@ -7,10 +7,14 @@
 </div>
 
 <%= render 'shared/page_description',
-           description: "There are #{@search_results.count} results for \"#{params[:query]}\"." %>
+           description: "There are #{@search_results.total_count} results for \"#{params[:query]}\"." %>
 
 <div id="search-results" class="row">
   <% @search_results.each do |result| %>
     <%= render 'resources/resource', resource: result %>
   <% end %>
+</div>
+
+<div class="mt-4">
+  <%= paginate @search_results %>
 </div>
