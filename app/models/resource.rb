@@ -10,9 +10,8 @@ class Resource < ApplicationRecord
   has_one_attached :icon
   has_many :comments, dependent: :destroy
 
-  searchkick word_start: [:title],
-             word_middle: [:search_description],
-             highlight: [:title, :search_description]
+  searchkick word_start: [:title, :description, :categories],
+             word_middle: [:links]
 
   validates_presence_of :title
 
@@ -20,7 +19,9 @@ class Resource < ApplicationRecord
   def search_data
     {
       title: title,
-      search_description: "#{description}\n#{categories_as_string}\n#{links_as_string}"
+      description: description,
+      links: links_as_string,
+      categories: categories_as_string
     }
   end
 

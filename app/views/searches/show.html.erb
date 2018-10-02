@@ -1,10 +1,16 @@
-<%= render 'shared/page_title', title: "Search Results (#{@search_results.count})" %>
+<%= render 'shared/page_title', title: "Search" %>
 
-<ul>
+<div class="row">
+  <div class="offset-lg-3 col-lg-6 px-5 text-center mt-3 mb-4">
+    <%= render 'form' %>
+  </div>
+</div>
+
+<%= render 'shared/page_description',
+           description: "There are #{@search_results.count} results for \"#{params[:query]}\"." %>
+
+<div id="search-results" class="row">
   <% @search_results.each do |result| %>
-    <li>
-      <p><%= result.highlighted_title.html_safe %></p>
-      <p><%= result.highlighted_search_description.html_safe %></p>
-    </li>
+    <%= render 'resources/resource', resource: result %>
   <% end %>
-</ul>
+</div>

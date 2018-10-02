@@ -16,7 +16,7 @@ feature 'Search management' do
 
     within '#search-results' do
       expect(page).to have_text(resource1.title)
-      expect(page).to have_text(resource1.description)
+      expect(page).to have_text(search_term)
       expect(page).not_to have_text(resource2.title)
     end
   end

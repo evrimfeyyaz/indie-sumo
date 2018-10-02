@@ -20,7 +20,7 @@ module ApplicationHelper
     truncated_text = truncate(text, options, &block)
 
     if options.key?(:length) && text.length > options[:length]
-      return content_tag(:span, truncated_text, title: text)
+      return content_tag(:span, truncated_text, title: sanitize(text))
     end
 
     truncated_text

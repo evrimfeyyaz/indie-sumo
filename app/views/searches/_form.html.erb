@@ -1,0 +1,7 @@
+<%= bootstrap_form_with url:                 search_path,
+                        method:              :get,
+                        local:               true,
+                        skip_enforcing_utf8: true do |f| %>
+  <%= f.text_field :query, placeholder: 'Search', value: params[:query], hide_label: true %>
+  <%= f.submit 'Search', name: nil, class: 'btn btn-primary' %>
+<% end %>

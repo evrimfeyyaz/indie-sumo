@@ -38,13 +38,14 @@
           <% end %>
         </li>
       </ul>
-      <%= bootstrap_form_with url: search_path,
-                              layout: :inline,
-                              method: :get,
-                              html: { class: 'ml-lg-4 ml-0' },
-                              local: true do |f| %>
-        <%= f.text_field :query, placeholder: 'Search', class: 'form-control-sm', hide_label: true %>
-        <%= f.submit 'Search', class: 'btn-outline-light btn-sm ml-0 ml-sm-2 mt-2 mt-sm-0' %>
+      <%= bootstrap_form_with url:                 search_path,
+                              layout:              :inline,
+                              method:              :get,
+                              html:                { class: 'ml-lg-4 ml-0' },
+                              local:               true,
+                              skip_enforcing_utf8: true do |f| %>
+        <%= f.text_field :query, placeholder: 'Search', value: params[:query], class: 'form-control-sm', hide_label: true %>
+        <%= f.submit 'Search', name: nil, class: 'btn btn-outline-light btn-sm ml-0 ml-sm-2 mt-2 mt-sm-0' %>
       <% end %>
     </div>
   </div>

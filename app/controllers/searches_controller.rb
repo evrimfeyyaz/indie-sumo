@@ -8,8 +8,10 @@ class SearchesController < ApplicationController
     def build_search_results
       @search_results ||= Resource.search(params[:query],
                                           highlight: { tag: '<mark>' },
-                                          load:      false,
+                                          load:      true,
                                           fields:    [{ 'title^5': :word_start },
-                                                      { search_description: :word_middle }])
+                                                      { 'description^4': :word_start },
+                                                      { 'links^3': :word_middle },
+                                                      { 'categories^2': :word_start }])
     end
 end

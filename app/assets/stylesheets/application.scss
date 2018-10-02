@@ -90,24 +90,24 @@ em {
   @extend .row, .my-5;
 }
 
-.resource-summary {
+.large-card {
   @extend .summary-card;
 
   height: 235px;
   width: 290px;
 }
 
-.resource-summary__body {
+.large-card__body {
   @extend .summary-card__body;
 }
 
-.resource-summary__icon {
+.large-card__icon {
   @extend .summary-card__icon, .rounded-circle;
 
   height: 100px;
 }
 
-.resource-summary__no-icon {
+.large-card__no-icon {
   @extend .summary-card__no-icon;
 
   height: 100px;
@@ -117,18 +117,18 @@ em {
   line-height: 110px;
 }
 
-.resource-summary__title {
+.large-card__title {
   @extend .summary-card__title;
 }
 
-.resource-summary.is-not-link {
+.large-card.is-not-link {
   &:hover {
     background-color: $card-bg;
   }
 }
 
 @include media-breakpoint-down(sm) {
-  .resource-summary {
+  .large-card {
     height: 200px;
     width: 230px;
   }
@@ -262,7 +262,7 @@ em {
 
 // Resources
 .resource-icon {
-  @extend .resource-summary__icon;
+  @extend .large-card__icon;
 }
 
 .footnote {
