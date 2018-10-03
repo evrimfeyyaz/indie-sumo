@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resource :search, only: [:show]
   resources :categories, only: [:index, :show], param: :slug do
+    get 'page/:page', action: :show, on: :member
     resources :resource_recommendations, only: [:new, :create], path: '', path_names: { new: 'recommend-resource' }
   end
 
