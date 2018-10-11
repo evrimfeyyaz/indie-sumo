@@ -1,11 +1,13 @@
 class CategoriesController < ApplicationController
   def index
     load_categories
+    fresh_when @categories
   end
 
   def show
     load_category
     load_category_resources
+    fresh_when [@category, @category_resources]
   end
 
   private
