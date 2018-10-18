@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/thoughtbot/shoulda-matchers.git
+  revision: e2154f9e4e789fef5011245024b9e4a4eb830ffb
+  branch: master
+  specs:
+    shoulda-matchers (4.0.0.rc1)
+      activesupport (>= 4.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -64,6 +72,9 @@ GEM
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       xpath (~> 3.1)
+    capybara-webkit (1.15.1)
+      capybara (>= 2.3, < 4.0)
+      json
     concurrent-ruby (1.0.5)
     crass (1.0.4)
     diff-lcs (1.3)
@@ -202,8 +213,6 @@ GEM
       activemodel (>= 4.2)
       elasticsearch (>= 5)
       hashie
-    shoulda-matchers (3.1.2)
-      activesupport (>= 4.0.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -245,6 +254,7 @@ DEPENDENCIES
   bootstrap (~> 4.1, >= 4.1.1)
   bootstrap_form (>= 4.0.0.alpha1)
   capybara (~> 3.3, >= 3.3.1)
+  capybara-webkit (~> 1.15, >= 1.15.1)
   factory_bot_rails (~> 4.10)
   faker (~> 1.8, >= 1.8.7)
   gravatar_image_tag (~> 1.2)
@@ -258,7 +268,7 @@ DEPENDENCIES
   rspec-rails (~> 3.7, >= 3.7.2)
   sass-rails (~> 5.0)
   searchkick (~> 3.1, >= 3.1.2)
-  shoulda-matchers (~> 3.1, >= 3.1.2)
+  shoulda-matchers!
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5.1, >= 5.1.1)
@@ -270,4 +280,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.2
+   1.16.6

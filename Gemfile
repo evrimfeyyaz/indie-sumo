@@ -22,8 +22,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'factory_bot_rails', '~> 4.10'
   gem 'capybara', '~> 3.3', '>= 3.3.1'
-  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'master'
   gem 'faker', '~> 1.8', '>= 1.8.7'
+  gem 'capybara-webkit', '~> 1.15', '>= 1.15.1'
 end
 
 group :development do

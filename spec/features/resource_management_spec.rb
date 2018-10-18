@@ -35,7 +35,7 @@ feature 'Resource management' do
 
       # Make sure they are sorted by title.
       expect(page).to have_css("#list-#{list.id}",
-                               text: /#{Regexp.escape(external_resource_a.title)}.+#{Regexp.escape(resource_z.title)}/,
+                               text:    /#{Regexp.escape(external_resource_a.title)}.+#{Regexp.escape(resource_z.title)}/,
                                visible: false)
     end
 

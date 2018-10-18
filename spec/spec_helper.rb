@@ -58,7 +58,8 @@ RSpec.configure do |config|
 
   # Allows RSpec to persist some state between runs in order to support
   # the `--only-failures` and `--next-failure` CLI options. We recommend
-  # you configure your source control system to ignore this file.
+  # you configure your source control
+ system to ignore this file.
   config.example_status_persistence_file_path = "spec/examples.txt"
 
   # Limits the available syntax to the non-monkey patched syntax that is
@@ -95,18 +96,4 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-
-  config.before(:suite) do
-    # reindex models
-    Resource.reindex
-
-    # and disable callbacks
-    Searchkick.disable_callbacks
-  end
-
-  config.around(:each, search: true) do |example|
-    Searchkick.callbacks(true) do
-      example.run
-    end
-  end
 end
