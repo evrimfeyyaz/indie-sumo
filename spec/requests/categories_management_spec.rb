@@ -28,7 +28,7 @@ describe 'Categories management' do
           'HTTP_IF_NONE_MATCH': @etag
         }
 
-        expect(response.code).to eq('304')
+        expect(response).to have_http_status(:not_modified)
       end
 
       it 'responds with 200 when its resources are updated' do
@@ -38,7 +38,7 @@ describe 'Categories management' do
           'HTTP_IF_NONE_MATCH': @etag
         }
 
-        expect(response.code).to eq('200')
+        expect(response).to have_http_status(:ok)
       end
     end
   end

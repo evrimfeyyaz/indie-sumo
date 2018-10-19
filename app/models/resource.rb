@@ -1,4 +1,6 @@
 class Resource < ApplicationRecord
+  after_save :touch_list_items_referencing_this_resource
+
   default_scope { order(title: :asc) }
 
   include Sluggable
@@ -38,5 +40,11 @@ class Resource < ApplicationRecord
 
   def categories_as_string
     'Categories: ' + categories.map(&:title).join(', ')
+  end
+
+  private
+
+  def touch_list_items_referencing_this_resource
+    ListItem.where(listable_id: id).each(&:touch)
   end
 end

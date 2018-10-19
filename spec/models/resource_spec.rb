@@ -12,6 +12,17 @@ describe Resource do
 
   it { should validate_presence_of(:title) }
 
+  describe '#after_save' do
+    it 'touches all list items referencing it' do
+      subject   = create(:resource)
+      list_item = create(:list_item, listable: subject)
+
+      expect do
+        subject.update(title: 'New Title')
+      end.to change { list_item.reload.updated_at }
+    end
+  end
+
   describe '#links_as_string' do
     before(:each) do
       subject.website = 'https://www.example.com'
