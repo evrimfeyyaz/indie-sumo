@@ -15,22 +15,6 @@ describe Resource do
   describe '#after_save' do
     let(:subject) { create(:resource) }
 
-    it 'touches all list items referencing it' do
-      list_item = create(:list_item, listable: subject)
-
-      expect do
-        subject.update(title: 'New Title')
-      end.to change { list_item.reload.updated_at }
-    end
-
-    it 'touches all creators referencing it' do
-      creator = create(:creator, referenced_resource: subject)
-
-      expect do
-        subject.update(title: 'New Title')
-      end.to change { creator.reload.updated_at }
-    end
-
     it 'touches all categories it belongs to' do
       category = create(:category, resources: [subject])
 
@@ -39,6 +23,90 @@ describe Resource do
       expect do
         subject.update(title: 'New Title')
       end.to change { category.reload.updated_at }
+    end
+  end
+
+  describe '#categories' do
+    let(:subject) { create(:resource) }
+
+    it 'touches updated at when a category is added' do
+      category = create(:category, resources: [subject])
+
+      expect do
+        subject.categories << category
+      end.to change { subject.reload.updated_at }
+    end
+
+    it 'touches updated at when a category is removed' do
+      category = create(:category, resources: [subject])
+      subject.categories << category
+
+      expect do
+        subject.categories.delete(category)
+      end.to change { subject.reload.updated_at }
+    end
+  end
+
+  describe '#lists' do
+    let(:subject) { create(:resource) }
+
+    it 'touches updated at when a list is added' do
+      list = create(:list, resource: subject)
+
+      expect do
+        subject.lists << list
+      end.to change { subject.reload.updated_at }
+    end
+
+    it 'touches updated at when a list is removed' do
+      list = create(:list, resource: subject)
+      subject.lists << list
+
+      expect do
+        subject.lists.delete(list)
+      end.to change { subject.reload.updated_at }
+    end
+  end
+
+  describe '#creators' do
+    let(:subject) { create(:resource) }
+
+    it 'touches updated at when a creator is added' do
+      creator = create(:creator, resource: subject)
+
+      expect do
+        subject.creators << creator
+      end.to change { subject.reload.updated_at }
+    end
+
+    it 'touches updated at when a creator is removed' do
+      creator = create(:creator, resource: subject)
+      subject.creators << creator
+
+      expect do
+        subject.creators.delete(creator)
+      end.to change { subject.reload.updated_at }
+    end
+  end
+
+  describe '#comments' do
+    let(:subject) { create(:resource) }
+
+    it 'touches updated at when a comment is added' do
+      comment = create(:comment, resource: subject)
+
+      expect do
+        subject.comments << comment
+      end.to change { subject.reload.updated_at }
+    end
+
+    it 'touches updated at when a comment is removed' do
+      comment = create(:comment, resource: subject)
+      subject.comments << comment
+
+      expect do
+        subject.comments.delete(comment)
+      end.to change { subject.reload.updated_at }
     end
   end
 

@@ -1,18 +1,24 @@
 class Resource < ApplicationRecord
-  after_save :touch_list_items_referencing_this_resource,
-             :touch_creators_referencing_this_resource,
-             :touch_categories
+  after_save :touch_categories
 
   default_scope { order(title: :asc) }
 
   include Sluggable
 
-  has_and_belongs_to_many :categories
-  has_many :lists, dependent: :destroy
+  has_and_belongs_to_many :categories,
+                          after_add:    :touch_updated_at,
+                          after_remove: :touch_updated_at
+  has_many :lists, dependent: :destroy,
+           after_add:         :touch_updated_at,
+           after_remove:      :touch_updated_at
   has_many :information_recommendations, dependent: :destroy
-  has_many :creators, dependent: :destroy
+  has_many :creators, dependent: :destroy,
+           after_add:            :touch_updated_at,
+           after_remove:         :touch_updated_at
   has_one_attached :icon
-  has_many :comments, dependent: :destroy
+  has_many :comments, dependent: :destroy,
+           after_add:            :touch_updated_at,
+           after_remove:         :touch_updated_at
 
   searchkick word_start:  [:title, :description, :categories],
              word_middle: [:links]
@@ -46,15 +52,12 @@ class Resource < ApplicationRecord
 
   private
 
-    def touch_list_items_referencing_this_resource
-      ListItem.where(listable: self).each(&:touch)
-    end
-
-    def touch_creators_referencing_this_resource
-      Creator.where(referenced_resource: self).each(&:touch)
-    end
-
+    # TODO: Move this into a module with `method_missing`.
     def touch_categories
-      categories.each(&:touch)
+      categories.find_each(&:touch)
+    end
+
+    def touch_updated_at(_)
+      self.touch if persisted?
     end
 end
