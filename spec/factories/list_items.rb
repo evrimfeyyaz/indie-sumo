@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :list_item do
-    association :list, factory: :list
+    association :list
   end
 end

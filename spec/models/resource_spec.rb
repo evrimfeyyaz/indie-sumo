@@ -13,13 +13,32 @@ describe Resource do
   it { should validate_presence_of(:title) }
 
   describe '#after_save' do
+    let(:subject) { create(:resource) }
+
     it 'touches all list items referencing it' do
-      subject   = create(:resource)
       list_item = create(:list_item, listable: subject)
 
       expect do
         subject.update(title: 'New Title')
       end.to change { list_item.reload.updated_at }
+    end
+
+    it 'touches all creators referencing it' do
+      creator = create(:creator, referenced_resource: subject)
+
+      expect do
+        subject.update(title: 'New Title')
+      end.to change { creator.reload.updated_at }
+    end
+
+    it 'touches all categories it belongs to' do
+      category = create(:category, resources: [subject])
+
+      subject.reload
+
+      expect do
+        subject.update(title: 'New Title')
+      end.to change { category.reload.updated_at }
     end
   end
 

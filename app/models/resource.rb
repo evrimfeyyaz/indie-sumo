@@ -1,5 +1,7 @@
 class Resource < ApplicationRecord
-  after_save :touch_list_items_referencing_this_resource
+  after_save :touch_list_items_referencing_this_resource,
+             :touch_creators_referencing_this_resource,
+             :touch_categories
 
   default_scope { order(title: :asc) }
 
@@ -12,7 +14,7 @@ class Resource < ApplicationRecord
   has_one_attached :icon
   has_many :comments, dependent: :destroy
 
-  searchkick word_start: [:title, :description, :categories],
+  searchkick word_start:  [:title, :description, :categories],
              word_middle: [:links]
 
   validates_presence_of :title
@@ -20,10 +22,10 @@ class Resource < ApplicationRecord
   # TODO: Test the search data
   def search_data
     {
-      title: title,
+      title:       title,
       description: description,
-      links: links_as_string,
-      categories: categories_as_string
+      links:       links_as_string,
+      categories:  categories_as_string
     }
   end
 
@@ -44,7 +46,15 @@ class Resource < ApplicationRecord
 
   private
 
-  def touch_list_items_referencing_this_resource
-    ListItem.where(listable_id: id).each(&:touch)
-  end
+    def touch_list_items_referencing_this_resource
+      ListItem.where(listable: self).each(&:touch)
+    end
+
+    def touch_creators_referencing_this_resource
+      Creator.where(referenced_resource: self).each(&:touch)
+    end
+
+    def touch_categories
+      categories.each(&:touch)
+    end
 end
