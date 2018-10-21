@@ -38,7 +38,7 @@ describe 'Resources management' do
         expect(response).to have_http_status(:ok)
       end
 
-      xit 'responds with 200 when a list item is added to its lists' do
+      it 'responds with 200 when a list item is added to its lists' do
         list = resource.lists.first
         create(:list_item, list: list)
 
@@ -47,7 +47,7 @@ describe 'Resources management' do
         expect(response).to have_http_status(:ok)
       end
 
-      xit 'responds with 200 when a list item is changed in its lists' do
+      it 'responds with 200 when a list item is changed in its lists' do
         list_item = resource.lists.first.list_items.first
         list_item.listable.update(title: 'New Title')
 
