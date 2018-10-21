@@ -5,9 +5,9 @@ describe ExternalResource  do
   it { should validate_presence_of(:title) }
 
   describe '#after_save' do
-    let(:subject) { create(:external_resource) }
+    subject { create(:external_resource) }
 
-    it 'touches all list items referencing it' do
+    it 'updates the timestamp on list items that reference it' do
       list_item = create(:list_item, listable: subject)
 
       expect do

@@ -12,6 +12,26 @@ describe Resource do
 
   it { should validate_presence_of(:title) }
 
+  describe '#after_save' do
+    subject { create(:resource) }
+
+    it 'updates the timestamp on creator objects that reference it' do
+      creator = create(:creator, referenced_resource: subject)
+
+      expect do
+        subject.update(title: 'New Title')
+      end.to change { creator.reload.updated_at }
+    end
+
+    it 'updates the timestamp on list items that reference it' do
+      list_item = create(:list_item, listable: subject)
+
+      expect do
+        subject.update(title: 'New Title')
+      end.to change { list_item.reload.updated_at }
+    end
+  end
+
   describe '#links_as_string' do
     before(:each) do
       subject.website = 'https://www.example.com'
