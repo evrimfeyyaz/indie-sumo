@@ -13,6 +13,4 @@ class Creator < ApplicationRecord
 
     self[:url]
   end
-
-  # TODO: Make updated_at point to the most recent of own and referenced_resource's.
 end

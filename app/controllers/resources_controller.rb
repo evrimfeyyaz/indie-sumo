@@ -4,8 +4,9 @@ class ResourcesController < ApplicationController
     build_comment
     load_comments
     fresh_when [@resource,
-                @resource.lists.map(&:list_items),
-                @resource.creators]
+                @resource.categories,
+                @resource.lists,
+                @resource.comments]
   end
 
   private
