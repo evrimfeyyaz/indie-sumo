@@ -73,8 +73,22 @@ describe 'Resources management' do
         expect(response).to have_http_status(:ok)
       end
 
-      it 'responds with 200 when a creator is added'
-      it 'responds with 200 when a creator is updated'
+      it 'responds with 200 when a creator is added' do
+        create(:creator, resource: resource)
+
+        get_with_etag(resource_url(resource), @etag)
+
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'responds with 200 when a creator is updated' do
+        creator = resource.creators.first
+        creator.update(name: 'New Name')
+
+        get_with_etag(resource_url(resource), @etag)
+
+        expect(response).to have_http_status(:ok)
+      end
     end
   end
 end

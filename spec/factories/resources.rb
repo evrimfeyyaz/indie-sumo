@@ -14,5 +14,11 @@ FactoryBot.define do
         create(:comment, resource: resource)
       end
     end
+
+    trait :with_creator do
+      after :create do |resource|
+        create(:creator, resource: resource)
+      end
+    end
   end
 end
