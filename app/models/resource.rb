@@ -55,4 +55,8 @@ class Resource < ApplicationRecord
       ListItem.where(listable: self)
         .update_all(updated_at: Time.now)
     end
+
+    def touch_updated_at(_)
+      self.touch if persisted?
+    end
 end

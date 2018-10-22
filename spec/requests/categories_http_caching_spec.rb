@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Categories management' do
+describe 'Categories HTTP caching' do
   describe 'GET /index' do
     before :each do
       get root_url # First request.
@@ -23,7 +23,7 @@ describe 'Categories management' do
   end
 
   describe 'GET /categories/:slug' do
-    let(:category) { create(:category) }
+    let(:category) { create(:category, :with_resource) }
 
     before :each do
       get category_url(category)
@@ -43,7 +43,17 @@ describe 'Categories management' do
         expect(response).to have_http_status(:not_modified)
       end
 
-      it 'responds with 200 when its resources are updated' do
+      it 'responds with 200 when a resource is added' do
+        create(:resource, categories: [category])
+
+        get category_url(category), params: {}, headers: {
+          'HTTP_IF_NONE_MATCH': @etag
+        }
+
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'responds with 200 when a resource is updated' do
         create(:resource, categories: [category])
 
         get category_url(category), params: {}, headers: {

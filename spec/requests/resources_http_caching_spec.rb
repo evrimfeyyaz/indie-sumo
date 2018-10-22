@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Resources management' do
+describe 'Resources HTTP caching' do
   describe 'GET /:slug' do
     let(:resource) do
       create(:resource, :with_list, :with_comment, :with_creator)
