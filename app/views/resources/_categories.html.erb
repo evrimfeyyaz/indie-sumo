@@ -1,7 +1,9 @@
-<div class="text-center mb-3">
-  Categories:
-  <% @resource.categories.each_with_index do |category, index| %>
-    <%= link_to category.title, category %>
-    <%= ' / ' unless index == @resource.categories.count - 1 %>
-  <% end %>
-</div>
+<% cache @resource.categories do %>
+  <div class="text-center mb-3">
+    Categories:
+    <% @resource.categories.each_with_index do |category, index| %>
+      <%= link_to category.title, category %>
+      <%= ' / ' unless index == @resource.categories.count - 1 %>
+    <% end %>
+  </div>
+<% end %>

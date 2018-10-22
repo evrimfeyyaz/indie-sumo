@@ -1,30 +1,32 @@
-<div class="card mb-4">
-  <div class="card-body">
-    <div class="comment">
-      <div class="comment__avatar">
-        <% if comment.email.present? %>
-          <%= gravatar_image_tag(comment.email,
-                                 :alt      => comment.name,
-                                 :gravatar => { secure: true, rating: 'pg', size: 32 })
-          %>
-        <% else %>
-          <%= gravatar_image_tag('',
-                                 :alt      => comment.name,
-                                 :gravatar => { secure: true, size: 32, default: :identicon })
-          %>
-        <% end %>
-      </div>
-      <div>
-        <h2 class="card-title h5 mb-3">
-          <%= comment.name %>
-        </h2>
-        <div class="card-subtitle small text-muted">
-          <%= comment.created_at.strftime('%b %e, %Y<br>at %I:%M %p %Z').html_safe %>
+<% cache comment do %>
+  <div class="card mb-4">
+    <div class="card-body">
+      <div class="comment">
+        <div class="comment__avatar">
+          <% if comment.email.present? %>
+            <%= gravatar_image_tag(comment.email,
+                                   :alt      => comment.name,
+                                   :gravatar => { secure: true, rating: 'pg', size: 32 })
+            %>
+          <% else %>
+            <%= gravatar_image_tag('',
+                                   :alt      => comment.name,
+                                   :gravatar => { secure: true, size: 32, default: :identicon })
+            %>
+          <% end %>
+        </div>
+        <div>
+          <h2 class="card-title h5 mb-3">
+            <%= comment.name %>
+          </h2>
+          <div class="card-subtitle small text-muted">
+            <%= comment.created_at.strftime('%b %e, %Y<br>at %I:%M %p %Z').html_safe %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="card-text">
-      <%= comment.comment %>
+      <div class="card-text">
+        <%= comment.comment %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

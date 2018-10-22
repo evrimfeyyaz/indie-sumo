@@ -1,35 +1,37 @@
-<% provide(:meta_title, "Indie Sumo: #{@resource.title}") %>
-<% provide(:meta_description, @resource.description) %>
-<% if @resource.icon.attached? %>
-  <% provide(:meta_image_url, url_for(@resource.icon)) %>
+<% cache @resource do %>
+  <% provide(:meta_title, "Indie Sumo: #{@resource.title}") %>
+  <% provide(:meta_description, @resource.description) %>
+  <% if @resource.icon.attached? %>
+    <% provide(:meta_image_url, url_for(@resource.icon)) %>
+  <% end %>
+
+  <div class="resource">
+    <%= render 'icon' %>
+
+    <%= render 'categories' %>
+
+    <%= render 'shared/page_title', title: @resource.title %>
+
+    <%= render 'created_by' %>
+
+    <%= render 'links' %>
+
+    <%= render 'shared/page_description', description: @resource.description %>
+
+    <%= render 'footnote' %>
+
+    <%= render 'shared/share_buttons' %>
+
+    <%= render 'lists' %>
+
+    <%= render 'shared/newsletter' %>
+
+    <%= render 'shared/recommendation_link',
+               title: 'Add Information',
+               path:  new_resource_information_recommendation_path(@resource) %>
+
+    <hr>
+
+    <%= render 'comments' %>
+  </div>
 <% end %>
-
-<div class="resource">
-  <%= render 'icon' %>
-
-  <%= render 'categories' %>
-
-  <%= render 'shared/page_title', title: @resource.title %>
-
-  <%= render 'created_by' %>
-
-  <%= render 'links' %>
-
-  <%= render 'shared/page_description', description: @resource.description %>
-
-  <%= render 'footnote' %>
-
-  <%= render 'shared/share_buttons' %>
-
-  <%= render 'lists' %>
-
-  <%= render 'shared/newsletter' %>
-
-  <%= render 'shared/recommendation_link',
-             title: 'Add Information',
-             path:  new_resource_information_recommendation_path(@resource) %>
-
-  <hr>
-
-  <%= render 'comments' %>
-</div>

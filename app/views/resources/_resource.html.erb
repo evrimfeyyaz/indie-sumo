@@ -1,5 +1,7 @@
-<%=  render 'shared/large_card',
-            url: resource_path(resource),
-            icon: resource.icon.attached? ? resource.icon : nil,
-            title: resource.title,
-            description: resource.description.html_safe %>
+<% cache resource do %>
+  <%= render 'shared/large_card',
+             url:         resource_path(resource),
+             icon:        resource.icon.attached? ? resource.icon : nil,
+             title:       resource.title,
+             description: resource.description.html_safe %>
+<% end %>
