@@ -7,6 +7,7 @@ defaults: &defaults
   default_meta_description: ''
   default_meta_image: ''
   default_twitter_share_text: ''
+  app_version: '0.5'
 
 development:
   <<: *defaults
