@@ -1,4 +1,4 @@
-<% cache @category do %>
+<% cache [@category, page: params[:page]] do %>
   <% provide(:meta_title, "Indie Sumo: #{@category.title}") %>
   <% provide(:meta_description, @category.description) %>
 
@@ -12,19 +12,21 @@
 
   <%= render 'shared/share_buttons', twitter_share_text: "Indie Sumo: #{@category.title}" %>
 
-  <div class="resource-summaries" id="resources">
-    <% @category_resources.each_with_index do |resource, index| %>
-      <% if index == 6 || (@category_resources.count <= 6 && index == 0) %>
-        <div class="col-12 pt-5">
-          <%= render 'shared/newsletter' %>
-        </div>
+  <% cache @category_resources do %>
+    <div class="resource-summaries" id="resources">
+      <% @category_resources.each_with_index do |resource, index| %>
+        <% if index == 6 || (@category_resources.count <= 6 && index == 0) %>
+          <div class="col-12 pt-5">
+            <%= render 'shared/newsletter' %>
+          </div>
+        <% end %>
+
+        <%= render 'resources/resource', resource: resource %>
       <% end %>
+    </div>
 
-      <%= render 'resources/resource', resource: resource %>
-    <% end %>
-  </div>
-
-  <%= paginate @category_resources %>
+    <%= paginate @category_resources %>
+  <% end %>
 
   <%= render 'shared/recommendation_link',
              title: "Recommend a #{@category.title.singularize}",

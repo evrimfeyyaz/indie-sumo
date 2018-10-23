@@ -13,7 +13,7 @@
         <%= truncate_with_tooltip(title, length: LARGE_CARD_MAX_TITLE_LENGTH).html_safe %>
       </h3>
       <p class="d-none d-sm-none d-md-block">
-        <%= truncate_with_tooltip(description.html_safe,
+        <%= truncate_with_tooltip(description&.html_safe,
                                   length:    LARGE_CARD_MAX_DESCRIPTION_LENGTH,
                                   separator: ' ',
                                   escape:    false) %>

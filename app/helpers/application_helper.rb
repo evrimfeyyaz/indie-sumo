@@ -17,6 +17,8 @@ module ApplicationHelper
   # is truncated. This way the user sees a tooltip when
   # he hovers on the truncated text.
   def truncate_with_tooltip(text, options = {}, &block)
+    return if text.blank?
+
     truncated_text = truncate(text, options, &block)
 
     if options.key?(:length) && text.length > options[:length]
