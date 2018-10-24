@@ -13,8 +13,7 @@ class ResourceDashboard < Administrate::BaseDashboard
     list_items: Field::HasMany,
     information_recommendations: Field::HasMany,
     creators: Field::HasMany,
-    icon_attachment: Field::HasOne,
-    icon_blob: Field::HasOne,
+    icon: ActiveStorageField,
     comments: Field::HasMany,
     id: Field::Number,
     title: Field::String,
@@ -36,10 +35,9 @@ class ResourceDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :categories,
-    :lists,
-    :list_items,
-    :information_recommendations,
+    :icon,
+    :title,
+    :description
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -92,8 +90,7 @@ class ResourceDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how resources are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(resource)
-  #   "Resource ##{resource.id}"
-  # end
+  def display_resource(resource)
+    resource.title
+  end
 end

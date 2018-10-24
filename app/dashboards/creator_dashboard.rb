@@ -24,34 +24,30 @@ class CreatorDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :resource,
-    :referenced_resource,
-    :id,
     :name,
+    :resource
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :resource,
-    :referenced_resource,
-    :id,
     :name,
+    :referenced_resource,
     :url,
+    :resource,
     :created_at,
     :updated_at,
-    :referenced_resource_id,
+    :id
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :resource,
-    :referenced_resource,
     :name,
     :url,
-    :referenced_resource_id,
+    :referenced_resource,
+    :resource,
   ].freeze
 
   # Overwrite this method to customize how creators are displayed

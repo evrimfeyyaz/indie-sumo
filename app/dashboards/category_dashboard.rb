@@ -10,8 +10,7 @@ class CategoryDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     resources: Field::HasMany,
     resource_recommendations: Field::HasMany,
-    icon_attachment: Field::HasOne,
-    icon_blob: Field::HasOne,
+    icon: ActiveStorageField,
     id: Field::Number,
     title: Field::String,
     description: Field::Text,
@@ -26,10 +25,10 @@ class CategoryDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :resources,
-    :resource_recommendations,
-    :icon_attachment,
-    :icon_blob,
+    :icon,
+    :title,
+    :description,
+    :resources
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,33 +36,29 @@ class CategoryDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :resources,
     :resource_recommendations,
-    :icon_attachment,
-    :icon_blob,
-    :id,
+    :icon,
     :title,
+    :slug,
     :description,
     :created_at,
     :updated_at,
-    :slug,
+    :id,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :resources,
-    :resource_recommendations,
-    :icon_attachment,
-    :icon_blob,
     :title,
-    :description,
     :slug,
+    :description,
+    :icon,
+    :resources,
   ].freeze
 
   # Overwrite this method to customize how categories are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(category)
-  #   "Category ##{category.id}"
-  # end
+  def display_resource(category)
+    category.title
+  end
 end

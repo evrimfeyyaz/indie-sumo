@@ -1,21 +1,16 @@
 module Admin
   class CategoriesController < Admin::ApplicationController
-    # To customize the behavior of this controller,
-    # you can overwrite any of the RESTful actions. For example:
-    #
-    # def index
-    #   super
-    #   @resources = Category.
-    #     page(params[:page]).
-    #     per(10)
-    # end
+    def find_resource(param)
+      Category.find_by!(slug: param)
+    end
 
-    # Define a custom finder by overriding the `find_resource` method:
-    # def find_resource(param)
-    #   Category.find_by!(slug: param)
-    # end
+    def delete_icon
+      category = requested_resource
+      category.icon.purge
 
-    # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
-    # for more information
+      render 'edit', locals: {
+        page: Administrate::Page::Form.new(dashboard, requested_resource),
+      }
+    end
   end
 end

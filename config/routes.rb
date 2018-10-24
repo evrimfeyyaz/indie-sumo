@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
-      resources :categories
+      resources :categories do
+        put 'delete_icon', on: :member
+      end
       resources :comments
       resources :creators
       resources :external_resources
@@ -10,8 +12,9 @@ Rails.application.routes.draw do
       resources :resources
       resources :resource_recommendations
 
-      root to: "categories#index"
-    end
+      root 'categories#index'
+  end
+
   root 'categories#index'
 
   get 'newsletter', to: 'static_pages#newsletter'

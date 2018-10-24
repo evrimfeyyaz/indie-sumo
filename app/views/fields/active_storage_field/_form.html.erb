@@ -1,0 +1,11 @@
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+<div class="field-unit__field">
+  <% if field.data.attached? %>
+    <%= image_tag field.data %>
+    <%= link_to 'Delete', delete_icon_admin_category_path, method: :put %>
+  <% else %>
+    <%= f.file_field :icon %>
+  <% end %>
+</div>
