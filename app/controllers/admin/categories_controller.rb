@@ -8,9 +8,7 @@ module Admin
       category = requested_resource
       category.icon.purge
 
-      render 'edit', locals: {
-        page: Administrate::Page::Form.new(dashboard, requested_resource),
-      }
+      redirect_to edit_admin_category_url(category)
     end
   end
 end
