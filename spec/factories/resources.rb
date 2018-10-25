@@ -20,5 +20,11 @@ FactoryBot.define do
         create(:creator, resource: resource)
       end
     end
+
+    trait :with_category do
+      after :create do |resource|
+        create(:category, resources: [resource])
+      end
+    end
   end
 end

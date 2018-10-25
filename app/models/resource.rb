@@ -1,12 +1,15 @@
 class Resource < ApplicationRecord
   after_save :touch_creators_referencing_it,
-             :touch_list_items_referencing_it
+             :touch_list_items_referencing_it,
+             :touch_categories
 
   default_scope { order(title: :asc) }
 
   include Sluggable
 
-  has_and_belongs_to_many :categories
+  has_and_belongs_to_many :categories,
+                          after_add: :touch_updated_at,
+                          after_remove: :touch_updated_at
   has_many :lists, dependent: :destroy
   has_many :list_items, through: :lists
   has_many :information_recommendations, dependent: :destroy
@@ -54,6 +57,10 @@ class Resource < ApplicationRecord
     def touch_list_items_referencing_it
       ListItem.where(listable: self)
         .update_all(updated_at: Time.now)
+    end
+
+    def touch_categories
+      categories.find_each(&:touch)
     end
 
     def touch_updated_at(_)

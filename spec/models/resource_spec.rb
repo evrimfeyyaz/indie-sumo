@@ -31,6 +31,36 @@ describe Resource do
         subject.update(title: 'New Title')
       end.to change { list_item.reload.updated_at }
     end
+
+    it 'touches all its categories' do
+      category = create(:category, resources: [subject])
+
+      expect do
+        subject.update(title: 'New Title')
+      end.to change { category.reload.updated_at }
+    end
+  end
+
+  describe '#categories' do
+    subject { create(:resource, :with_category) }
+
+    context 'when a category is added' do
+      it 'updates the timestamp' do
+        expect do
+          subject.categories << build(:category)
+        end.to change { subject.reload.updated_at }
+      end
+    end
+
+    context 'when a category is removed' do
+      it 'updates the timestamp' do
+        category = subject.categories.first
+
+        expect do
+          subject.categories.destroy(category)
+        end.to change { subject.reload.updated_at }
+      end
+    end
   end
 
   describe '#links_as_string' do
