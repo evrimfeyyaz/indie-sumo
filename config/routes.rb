@@ -1,20 +1,21 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :categories do
-        put 'delete_icon', on: :member
-      end
-      resources :comments do
-        put 'toggle_approval', on: :member
-      end
-      resources :creators
-      resources :external_resources
-      resources :information_recommendations
-      resources :lists
-      resources :list_items
-      resources :resources
-      resources :resource_recommendations
+      put 'delete_icon', on: :member
+    end
+    resources :comments do
+      put 'toggle_approval', on: :member
+    end
+    resources :creators
+    resources :external_resources
+    resources :information_recommendations
+    resources :lists
+    resources :list_items
+    resources :resources
+    resources :resource_recommendations
+    resources :users
 
-      root 'categories#index'
+    root 'categories#index'
   end
 
   root 'categories#index'
