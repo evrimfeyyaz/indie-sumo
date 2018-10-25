@@ -43,49 +43,42 @@ class ResourceDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :categories,
-    :lists,
-    :list_items,
-    :information_recommendations,
-    :creators,
-    :icon_attachment,
-    :icon_blob,
-    :comments,
-    :id,
     :title,
+    :icon,
+    :slug,
     :description,
-    :created_at,
-    :updated_at,
     :website,
     :twitter,
     :facebook,
     :github,
     :youtube,
-    :slug,
     :footnote,
+    :categories,
+    :creators,
+    :lists,
+    :information_recommendations,
+    :comments,
+    :created_at,
+    :updated_at,
+    :id,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :categories,
-    :lists,
-    :list_items,
-    :information_recommendations,
-    :creators,
-    :icon_attachment,
-    :icon_blob,
-    :comments,
     :title,
+    :slug,
+    :icon,
     :description,
     :website,
     :twitter,
     :facebook,
     :github,
     :youtube,
-    :slug,
     :footnote,
+    :categories,
+    :creators
   ].freeze
 
   # Overwrite this method to customize how resources are displayed

@@ -9,8 +9,7 @@ class ExternalResourceDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     list_items: Field::HasMany,
-    icon_attachment: Field::HasOne,
-    icon_blob: Field::HasOne,
+    icon: ActiveStorageField,
     id: Field::Number,
     title: Field::String,
     description: Field::Text,
@@ -25,42 +24,36 @@ class ExternalResourceDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :list_items,
-    :icon_attachment,
-    :icon_blob,
-    :id,
+    :icon,
+    :title,
+    :description
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :list_items,
-    :icon_attachment,
-    :icon_blob,
-    :id,
     :title,
+    :icon,
     :description,
     :url,
     :created_at,
     :updated_at,
+    :id,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :list_items,
-    :icon_attachment,
-    :icon_blob,
     :title,
+    :icon,
     :description,
-    :url,
+    :url
   ].freeze
 
   # Overwrite this method to customize how external resources are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(external_resource)
-  #   "ExternalResource ##{external_resource.id}"
-  # end
+  def display_resource(external_resource)
+    external_resource.title
+  end
 end

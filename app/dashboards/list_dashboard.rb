@@ -22,21 +22,20 @@ class ListDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :title,
     :resource,
     :list_items,
-    :id,
-    :title,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :title,
     :resource,
     :list_items,
-    :id,
-    :title,
     :created_at,
     :updated_at,
+    :id,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -50,8 +49,7 @@ class ListDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how lists are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(list)
-  #   "List ##{list.id}"
-  # end
+  def display_resource(list)
+    list.title
+  end
 end

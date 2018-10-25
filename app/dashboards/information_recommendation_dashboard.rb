@@ -24,21 +24,21 @@ class InformationRecommendationDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :resource,
-    :id,
     :recommender_name,
     :recommender_email,
+    :information
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :resource,
-    :id,
     :recommender_name,
     :recommender_email,
     :information,
     :created_at,
     :updated_at,
+    :id,
   ].freeze
 
   # FORM_ATTRIBUTES

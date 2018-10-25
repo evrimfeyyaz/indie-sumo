@@ -52,8 +52,7 @@ class CreatorDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how creators are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(creator)
-  #   "Creator ##{creator.id}"
-  # end
+  def display_resource(creator)
+    creator.name
+  end
 end

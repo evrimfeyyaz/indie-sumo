@@ -8,9 +8,11 @@ class ListItemDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    listable: Field::Polymorphic,
-    list: Field::BelongsTo,
-    id: Field::Number,
+    listable:   Field::Polymorphic.with_options(
+      classes: [Resource, ExternalResource]
+    ),
+    list:       Field::BelongsTo,
+    id:         Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -23,8 +25,6 @@ class ListItemDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :listable,
     :list,
-    :id,
-    :created_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -32,9 +32,9 @@ class ListItemDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :listable,
     :list,
-    :id,
     :created_at,
     :updated_at,
+    :id,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -47,8 +47,7 @@ class ListItemDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how list items are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(list_item)
-  #   "ListItem ##{list_item.id}"
-  # end
+  def display_resource(list_item)
+    list_item.listable.title
+  end
 end

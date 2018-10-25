@@ -3,7 +3,9 @@ Rails.application.routes.draw do
       resources :categories do
         put 'delete_icon', on: :member
       end
-      resources :comments
+      resources :comments do
+        put 'toggle_approval', on: :member
+      end
       resources :creators
       resources :external_resources
       resources :information_recommendations
