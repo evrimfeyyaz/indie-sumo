@@ -73,7 +73,7 @@ to display a collection of resources in an HTML table.
         </td>
       <% end %>
 
-      <td><%= link_to(resource.approved ? 'Disapprove' : 'Approve',
+      <td><%= link_to(resource.approved ? 'Unapprove' : 'Approve',
                       toggle_approval_admin_comment_path(resource),
                       method: :put) %></td>
 
