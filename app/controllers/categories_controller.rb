@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
   def show
     load_category
     load_category_resources
-    fresh_when [@category, @category_resources]
+    fresh_when @category
   end
 
   private
