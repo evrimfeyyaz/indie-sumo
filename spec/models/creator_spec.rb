@@ -52,4 +52,31 @@ describe Creator do
       expect(subject.url).to eq(url)
     end
   end
+
+  describe '#resource' do
+    context 'when the creator references another resource' do
+      subject { create(:creator, :with_referenced_resource) }
+
+      it 'is updated when the referenced resource changes' do
+        resource = subject.resource
+        reference = subject.referenced_resource
+
+        expect do
+          reference.update(title: 'New Title')
+        end.to change { resource.reload.updated_at }
+      end
+    end
+
+    context 'when the creator does not reference another resource' do
+      subject { create(:creator) }
+
+      it 'is updated on change' do
+        resource = subject.resource
+
+        expect do
+          subject.update(name: 'New Name')
+        end.to change { resource.reload.updated_at }
+      end
+    end
+  end
 end

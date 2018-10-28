@@ -6,8 +6,7 @@ class ResourcesController < ApplicationController
     fresh_when [@resource,
                 @resource.lists,
                 @resource.list_items,
-                @resource.comments,
-                @resource.creators]
+                @resource.comments]
   end
 
   private

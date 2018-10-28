@@ -50,8 +50,8 @@ class Resource < ApplicationRecord
   private
 
     def touch_creators_referencing_it
-      Creator.where(referenced_resource: self)
-        .update_all(updated_at: Time.now)
+      Creator.where(referenced_resource: self).
+        find_each { |c| c.update(updated_at: Time.now) }
     end
 
     def touch_list_items_referencing_it

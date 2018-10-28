@@ -1,4 +1,6 @@
 class Creator < ApplicationRecord
+  after_save :touch_resource
+
   belongs_to :resource # Owner resource
   belongs_to :referenced_resource, class_name: 'Resource', optional: true
 
@@ -13,4 +15,10 @@ class Creator < ApplicationRecord
 
     self[:url]
   end
+
+  private
+
+    def touch_resource
+      resource.touch
+    end
 end
