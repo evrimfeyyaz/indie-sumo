@@ -65,28 +65,6 @@ describe Resource do
     end
   end
 
-  describe '#lists' do
-    subject { create(:resource, :with_list) }
-
-    context 'when a list is added' do
-      it 'updates the timestamp' do
-        expect do
-          subject.lists << build(:list)
-        end.to change { subject.reload.updated_at }
-      end
-    end
-
-    context 'when a list is removed' do
-      it 'updates the timestamp' do
-        list = subject.lists.first
-
-        expect do
-          subject.lists.destroy(list)
-        end.to change { subject.reload.updated_at }
-      end
-    end
-  end
-
   describe '#links_as_string' do
     before(:each) do
       subject.website = 'https://www.example.com'

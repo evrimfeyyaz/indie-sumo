@@ -10,9 +10,7 @@ class Resource < ApplicationRecord
   has_and_belongs_to_many :categories,
                           after_add:    :touch_updated_at,
                           after_remove: :touch_updated_at
-  has_many :lists, dependent: :destroy,
-           after_add:         :touch_updated_at,
-           after_remove:      :touch_updated_at
+  has_many :lists, dependent: :destroy
   has_many :list_items, through: :lists
   has_many :information_recommendations, dependent: :destroy
   has_many :creators, dependent: :destroy
