@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Comment do
-  it { should belong_to(:resource) }
+  it { should belong_to(:resource).touch(true) }
 
   it { should validate_presence_of(:name) }
   it { should validate_length_of(:name).is_at_least(2).is_at_most(100) }

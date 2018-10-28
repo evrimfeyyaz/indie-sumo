@@ -3,8 +3,7 @@ class ResourcesController < ApplicationController
     load_resource
     build_comment
     load_comments
-    fresh_when [@resource,
-                @resource.comments]
+    fresh_when @resource
   end
 
   private
