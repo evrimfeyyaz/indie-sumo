@@ -40,7 +40,7 @@ describe 'Resources HTTP caching' do
 
       it 'responds with 200 when a list item is added to its lists' do
         list = resource.lists.first
-        create(:list_item, list: list)
+        list.list_items << build(:list_item, list: list)
 
         get_with_etag(resource_url(resource), @etag)
 

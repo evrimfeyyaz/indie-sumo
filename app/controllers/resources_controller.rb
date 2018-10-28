@@ -4,8 +4,6 @@ class ResourcesController < ApplicationController
     build_comment
     load_comments
     fresh_when [@resource,
-                @resource.lists,
-                @resource.list_items,
                 @resource.comments]
   end
 

@@ -7,12 +7,14 @@ describe ExternalResource  do
   describe '#after_save' do
     subject { create(:external_resource) }
 
-    it 'updates the timestamp on list items that reference it' do
-      list_item = create(:list_item, listable: subject)
+    it 'updates the timestamp on resources that reference it as a list item' do
+      resource = create(:resource, :with_list)
+      list_item = resource.lists.first.list_items.first
+      list_item.update(listable: subject)
 
       expect do
         subject.update(title: 'New Title')
-      end.to change { list_item.reload.updated_at }
+      end.to change { resource.reload.updated_at }
     end
   end
 end

@@ -24,12 +24,14 @@ describe Resource do
       end.to change { creator.reload.updated_at }
     end
 
-    it 'updates the timestamp on list items that reference it' do
-      list_item = create(:list_item, listable: subject)
+    it 'updates the timestamp on resources that reference it as a list item' do
+      resource = create(:resource, :with_list)
+      list_item = resource.lists.first.list_items.first
+      list_item.update(listable: subject)
 
       expect do
         subject.update(title: 'New Title')
-      end.to change { list_item.reload.updated_at }
+      end.to change { resource.reload.updated_at }
     end
 
     it 'touches all its categories' do
@@ -58,6 +60,28 @@ describe Resource do
 
         expect do
           subject.categories.destroy(category)
+        end.to change { subject.reload.updated_at }
+      end
+    end
+  end
+
+  describe '#lists' do
+    subject { create(:resource, :with_list) }
+
+    context 'when a list is added' do
+      it 'updates the timestamp' do
+        expect do
+          subject.lists << build(:list)
+        end.to change { subject.reload.updated_at }
+      end
+    end
+
+    context 'when a list is removed' do
+      it 'updates the timestamp' do
+        list = subject.lists.first
+
+        expect do
+          subject.lists.destroy(list)
         end.to change { subject.reload.updated_at }
       end
     end
