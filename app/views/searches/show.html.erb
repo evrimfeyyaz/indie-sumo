@@ -7,7 +7,7 @@
 </div>
 
 <%= render 'shared/page_description',
-           description: "There are #{@search_results.total_count} results for \"#{params[:query]}\"." %>
+           description: result_count_message(@search_results.total_count, params[:query]) %>
 
 <div id="search-results" class="row">
   <% @search_results.each do |result| %>
