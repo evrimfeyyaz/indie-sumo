@@ -13,7 +13,8 @@ NUM_OF_CATEGORIES.times do |category_index|
   category_title       = Faker::Fallout.faction
   category_description = Faker::Fallout.quote
 
-  category = Category.create!(title: category_title, description: category_description)
+  category = Category.create!(title: category_title,
+                              description: category_description)
 
   icon_no = rand(1..10)
 
@@ -94,6 +95,9 @@ NUM_OF_CATEGORIES.times do |category_index|
     print "#{(num_of_created_resources / total_resources.to_f * 100).to_i}% done.\r"
   end
 end
+
+# Make the last category coming soon.
+Category.last.update(coming_soon: true)
 
 p "Created #{Category.count} categories"
 p "Created #{Resource.count} resources"

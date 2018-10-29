@@ -39,6 +39,18 @@ feature 'Category management' do
                              visible: false)
   end
 
+  scenario 'User clicks on a category that is not published' do
+    coming_soon_category = create(:category,
+                                  :coming_soon,
+                                  :with_resource)
+    resource = coming_soon_category.resources.first
+
+    visit category_path(coming_soon_category)
+
+    expect(page).to have_text('Coming Soon')
+    expect(page).not_to have_text(resource.title)
+  end
+
   scenario 'User clicks on a resource on the category details page, and visits the resource details page' do
     resource = create(:resource, categories: [category])
 
