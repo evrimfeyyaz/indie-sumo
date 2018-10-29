@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
   private
 
     def load_categories
-      @categories ||= category_scope
+      @categories ||= category_scope.with_attached_icon
     end
 
     def load_category
@@ -21,7 +21,10 @@ class CategoriesController < ApplicationController
     end
 
     def load_category_resources
-      @category_resources ||= @category.resources.page(params[:page])
+      @category_resources ||= @category
+                                .resources
+                                .with_attached_icon
+                                .page(params[:page])
     end
 
     def category_scope

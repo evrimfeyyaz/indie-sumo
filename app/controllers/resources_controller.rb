@@ -17,7 +17,13 @@ class ResourcesController < ApplicationController
     end
 
     def load_resource
-      @resource ||= resource_scope.find_by!(slug: params[:slug])
+      @resource ||= resource_scope
+                      .with_attached_icon
+                      .includes(lists:
+                                  [{ list_items:
+                                       [{ listable:
+                                            [:icon_attachment] }] }])
+                      .find_by!(slug: params[:slug])
     end
 
     def comment_scope
