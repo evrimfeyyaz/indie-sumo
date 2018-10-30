@@ -18,5 +18,6 @@ function hideDropdownMenus(event) {
 
   if (!target.parents(contentSelector).length) {
     $(contentSelector).hide()
+    $(toggleSelector).removeClass('hovered')
   }
 }
