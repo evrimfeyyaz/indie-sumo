@@ -19,13 +19,11 @@
 <body>
 <%= render 'layouts/facebook_share_setup' %>
 <%= render 'layouts/twitter_share_setup' %>
-<%= render 'layouts/header' %>
-
-<div class="container my-4">
+<div class="main-container">
+  <%= render 'layouts/header' %>
   <%= render 'layouts/flash' %>
   <%= yield %>
+  <%= render 'layouts/footer' %>
 </div>
-
-<%= render 'layouts/footer' %>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<%= bootstrap_form_with(model: [@category, @resource_recommendation],
+<%= form_with(model: [@category, @resource_recommendation],
                         html: { novalidate: 'novalidate', id: 'resource-recommendation-form' }) do |f| %>
   <%= f.text_field :recommender_name,
                    placeholder: 'Your name (optional)',

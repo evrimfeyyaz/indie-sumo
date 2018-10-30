@@ -1,18 +1,15 @@
-<%= render 'layouts/navbar' %>
+<div class="header">
+  <%= render 'layouts/navbar' %>
 
-<% if current_page?(root_path) %>
-  <div class="header-title">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-10 offset-xl-1">
-          <h1 class="header-title__text">Top resources for
-            <span class="header_title__text-strong">indie&nbsp;developers</span>,
-            <span class="header_title__text-strong">bootstrappers</span> and
-            <span class="header_title__text-strong">solo&nbsp;entrepreneurs</span>.</h1>
-          <%= render 'shared/share_buttons' %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-<div class="header-separator"></div>
+  <% if current_page?(root_path) %>
+    <h1 class="tagline">Top resources for
+      <span class="is-emphasized">indie&nbsp;developers</span>,
+      <span class="is-emphasized">bootstrappers</span> and
+      <span class="is-emphasized">solo&nbsp;entrepreneurs</span>.
+    </h1>
+
+    <%= render 'shared/share_buttons' %>
+  <% end %>
+  <hr class="full-width-hr">
+</div>
+

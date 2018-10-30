@@ -1,4 +1,4 @@
-<%= bootstrap_form_with(model: [@resource, @comment], html: { id: 'comment-form' }) do |f| %>
+<%= form_with(model: [@resource, @comment], html: { id: 'comment-form' }) do |f| %>
   <%= f.text_field :name,
                    placeholder: 'Your name',
                    hide_label:  true %>
