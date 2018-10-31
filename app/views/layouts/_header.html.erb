@@ -1,15 +1,7 @@
 <div class="header">
-  <%= render 'layouts/navbar' %>
+  <%= render 'layouts/topbar' %>
 
-  <% if current_page?(root_path) %>
-    <h1 class="tagline">Top resources for
-      <span class="is-emphasized">indie&nbsp;developers</span>,
-      <span class="is-emphasized">bootstrappers</span> and
-      <span class="is-emphasized">solo&nbsp;entrepreneurs</span>.
-    </h1>
-
-    <%= render 'shared/share_buttons' %>
-  <% end %>
-  <hr class="full-width-hr">
+  <%= render 'layouts/tagline' if current_page?(root_path) %>
 </div>
 
+<hr class="header-separator">

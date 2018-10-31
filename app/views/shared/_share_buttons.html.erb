@@ -1,6 +1,6 @@
-<% twitter_share_text ||= APP_SETTINGS['default_twitter_share_text'] %>
-<div class="d-flex mt-4 justify-content-center align-items-bottom">
+<div class="share">
   <%= render 'shared/facebook_share_button' %>
-  <%= render 'shared/twitter_share_button', text: twitter_share_text %>
+  <%= render 'shared/twitter_share_button',
+             text: APP_SETTINGS['default_twitter_share_text'] %>
   <%= render 'shared/linkedin_share_button' %>
 </div>

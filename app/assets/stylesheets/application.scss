@@ -4,8 +4,19 @@
 html {
   background-color: $footer-bg-color;
   box-sizing: border-box;
-  font-family: $font-family;
-  font-size: 14px;
+  font: {
+    family: $font-family;
+    size: $root-font-size;
+  }
+}
+
+body {
+  margin: {
+    top: $body-top-margin;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,81 +32,219 @@ h1, h2, h3, h4, h5, h6 {
   background-color: $bg-color;
 }
 
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.flex-stretch {
+  flex: 1;
+}
+
 // Links
 .link {
   text-decoration: none;
   transition: color .1s ease-in-out;
-}
 
-.link.light {
-  color: rgba($light-link-color, 0.5);
-}
+  &.is-light {
+    color: $light-link-color;
 
-.link.light:hover,
-.link.light.hovered {
-  color: rgba($light-link-color, 0.8);
-}
+    &:hover,
+    &.is-hovered {
+      color: $light-link-hover-color;
+    }
+  }
 
-.link.dark {
-  color: $dark-link-color;
+  &.is-dark {
+    color: $dark-link-color;
+  }
 }
 
 // Header
 .header {
-  background-color: $nav-bg-color;
+  background-color: $header-bg-color;
+  padding-bottom: 3rem;
 }
 
-.logo {
-  color: $brand-color;
-  display: inline-block;
-  font-family: $headings-font-family;
-  font-size: 2.6rem;
+.header__tagline {
+  text-align: center;
+  padding: {
+    top: 2rem;
+    left: 7rem;
+    right: 7rem;
+  }
+}
+
+.header-separator {
+  border: none;
+  height: $header-separator-height;
+  background-color: $header-separator-bg-color;
+  margin: 0;
+}
+
+// Share
+.share {
+  display: flex;
+  justify-content: center;
+
+  &__button {
+    margin-left: 1rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+// Topbar
+.topbar {
+  background-color: $topbar-bg-color;
+  padding: $margin-y $margin-x;
+
+  &__logo {
+    color: $brand-color;
+    font: {
+      family: $headings-font-family;
+      size: 2.6rem;
+    }
+  }
+}
+
+.topbar__container {
+  display: flex;
+  align-items: center;
 }
 
 // Navigation
 .main-menu {
   display: inline-block;
   list-style: none;
-}
 
-.main-menu__item {
-  display: inline-block;
+  &__item {
+    display: inline-block;
+    padding: .5rem 1rem;
+  }
+
+  &__search {
+    margin-left: 1.5rem;
+  }
 }
 
 // Dropdown menu
-.dropdown-menu__content {
+.dropdown-content {
   background-color: $dropdown-menu-bg-color;
+  border: 1px solid $border-color;
   border-radius: .5rem;
   display: none;
-  margin-top: .5rem;
+  margin: {
+    left: -1rem;
+    top: .5rem;
+  }
   overflow: hidden;
   position: absolute;
+
+  &__items {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: {
+      bottom: .3rem;
+      top: .3rem;
+    }
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+    padding: .5rem 1rem;
+    justify-content: center;
+
+    &:hover {
+      background-color: $dropdown-menu-hover-bg-color;
+    }
+
+    &.active {
+      background-color: $dropdown-menu-active-item-bg-color;
+      color: $dropdown-menu-active-item-color;
+    }
+
+    &.active:hover {
+      background-color: $dropdown-menu-active-item-bg-color;
+    }
+  }
 }
 
-.dropdown-menu__toggle:after {
+.dropdown-toggle:after {
   content: "\f0d7";
   display: inline-block;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
+  font: {
+    family: $icon-font-family;
+    weight: 900;
+  }
   padding-left: 0.3rem;
   vertical-align: middle;
 }
 
-.dropdown-menu__items {
-  align-items: stretch;
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin-top: .3rem;
+// Forms
+.form {
+  &__field {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+    border: 1px solid $border-color;
+  }
+
+  &.inline .form__field {
+    margin-left: $margin-y;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }
 
-.dropdown-menu__item {
-  align-items: center;
-  display: flex;
-  padding: .5rem 1rem;
-  justify-content: center;
+.text-field {
+  background-color: $text-field-bg-color;
 }
 
-.dropdown-menu__item:hover {
-  background-color: darken($dropdown-menu-bg-color, 5%)
+.submit-button {
+  background-color: $submit-button-bg-color;
+  color: $submit-button-color;
+  cursor: pointer;
+  border: 1px solid $submit-button-border-color;
+  transition: color .1s ease-in-out, background-color .1s ease-in-out;
+
+  &:hover {
+    background-color: $submit-button-hover-bg-color;
+    color: $submit-button-hover-color;
+  }
+}
+
+// Typography
+.display-title {
+  font: {
+    size: $display-title-font-size;
+    weight: $display-title-font-weight
+  }
+  line-height: $display-title-line-height;
+
+  &.is-light {
+    color: $light-text-color;
+  }
+
+  em {
+    text-decoration: underline rgba(255, 255, 255, 0.25);
+    font-style: inherit;
+  }
 }

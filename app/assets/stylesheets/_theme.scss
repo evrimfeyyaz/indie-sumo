@@ -1,20 +1,71 @@
 // Colors
 $off-white: #FAF7F7;
 $dark-gray: #232323;
-
 $blue: #4389da;
 $orange: #FCA126;
 $purple: #201037;
 $dark-blue: #1e5799;
-
-$brand-color: $orange;
-$footer-bg-color: $dark-gray;
-$bg-color: $off-white;
-$nav-bg-color: $purple;
-$light-link-color: white;
-$dark-link-color: black;
-$dropdown-menu-bg-color: white;
+$white: white;
+$black: black;
 
 // Fonts
-$font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-$headings-font-family: "Roboto Condensed", "Helvetica Neue", Arial, sans-serif;
+$montserrat: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+$roboto: "Roboto Condensed", "Helvetica Neue", Arial, sans-serif;
+$font-awesome: "Font Awesome 5 Free";
+
+$root-font-size: 14px;
+
+// General
+$brand-color: $orange;
+$bg-color: $off-white;
+$border-color: rgba($black, .15);
+
+$font-family: $montserrat;
+$icon-font-family: $font-awesome;
+
+$max-width: 1140px;
+$margin-x: 1rem;
+$margin-y: .5rem;
+
+$body-top-margin: 74px;
+
+// Header
+$header-bg-color: $purple;
+$header-separator-height: .3rem;
+$header-separator-bg-color: $orange;
+
+// Headings
+$headings-font-family: $roboto;
+
+// Footer
+$footer-bg-color: $dark-gray;
+
+// Dropdown menu
+$dropdown-menu-bg-color: $white;
+$dropdown-menu-hover-bg-color: darken($dropdown-menu-bg-color, 5%);
+$dropdown-menu-active-item-bg-color: $blue;
+$dropdown-menu-active-item-color: $white;
+
+// Link
+$light-link-color: rgba($white, .5);
+$light-link-hover-color: rgba($white, .8);
+$dark-link-color: black;
+
+// Topbar
+$topbar-bg-color: $purple;
+
+// Form
+$text-field-bg-color: rgba($white, .9);
+
+$submit-button-bg-color: rgba($white, 0);
+$submit-button-color: $off-white;
+$submit-button-border-color: $off-white;
+$submit-button-hover-color: $dark-gray;
+$submit-button-hover-bg-color: $off-white;
+
+// Typography
+$display-title-font-size: 3.5rem;
+$display-title-font-weight: 300;
+$display-title-line-height: 1.2;
+
+$light-text-color: $white;

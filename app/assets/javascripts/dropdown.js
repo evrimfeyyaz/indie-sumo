@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function() {
 })
 
 function toggleDropdownMenu() {
-  $(toggleSelector).toggleClass('hovered')
+  $(toggleSelector).toggleClass('is-hovered')
   $(toggleSelector).siblings(contentSelector).toggle()
 
   return false
@@ -18,6 +18,6 @@ function hideDropdownMenus(event) {
 
   if (!target.parents(contentSelector).length) {
     $(contentSelector).hide()
-    $(toggleSelector).removeClass('hovered')
+    $(toggleSelector).removeClass('is-hovered')
   }
 }
