@@ -13,48 +13,81 @@ $montserrat: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 $roboto: "Roboto Condensed", "Helvetica Neue", Arial, sans-serif;
 $font-awesome: "Font Awesome 5 Free";
 
+// Typography
 $root-font-size: 14px;
+
+$headings-font-family: $roboto;
+
+$display-title-font-size: 3.5rem;
+$display-title-font-weight: 300;
+$display-title-line-height: 1.2;
+
+$light-text-color: $white;
 
 // General
 $brand-color: $orange;
 $bg-color: $off-white;
+
 $border-color: rgba($black, .15);
+$border-width: 1px;
+$border-radius: .2rem;
 
 $font-family: $montserrat;
-$icon-font-family: $font-awesome;
 
 $max-width: 1140px;
+
+$margin-sm-x: .5rem;
+$margin-sm-y: .25rem;
+$padding-sm-x: .5rem;
+$padding-sm-y: .25rem;
+
 $margin-x: 1rem;
 $margin-y: .5rem;
+$padding-x: 1rem;
+$padding-y: .5rem;
+
+$margin-lg-x: 5rem;
+$margin-lg-y: 3rem;
+$padding-lg-x: 5rem;
+$padding-lg-y: 3rem;
 
 $body-top-margin: 74px;
+
+//Icons
+$icon-font-family: $font-awesome;
+$icon-font-weight: 900;
 
 // Header
 $header-bg-color: $purple;
 $header-separator-height: .3rem;
 $header-separator-bg-color: $orange;
 
-// Headings
-$headings-font-family: $roboto;
+// Logo
+$logo-color: $brand-color;
+$logo-font-size: 2.6rem;
 
 // Footer
 $footer-bg-color: $dark-gray;
 
 // Dropdown menu
 $dropdown-menu-bg-color: $white;
-$dropdown-menu-hover-bg-color: darken($dropdown-menu-bg-color, 5%);
-$dropdown-menu-active-item-bg-color: $blue;
-$dropdown-menu-active-item-color: $white;
+$dropdown-menu-item-hover-bg-color: darken($dropdown-menu-bg-color, 5%);
+$dropdown-menu-item-active-bg-color: $blue;
+$dropdown-menu-item-active-color: $white;
 
-// Link
-$light-link-color: rgba($white, .5);
-$light-link-hover-color: rgba($white, .8);
-$dark-link-color: black;
+// Links
+$link-light-color: rgba($white, .5);
+$link-light-hover-color: rgba($white, .8);
+$link-dark-color: black;
+$link-text-decoration: none;
 
 // Topbar
 $topbar-bg-color: $purple;
 
-// Form
+// Forms
+$form-small-font-size: 0.875rem;
+$form-small-line-height: 1.5;
+
 $text-field-bg-color: rgba($white, .9);
 
 $submit-button-bg-color: rgba($white, 0);
@@ -62,10 +95,3 @@ $submit-button-color: $off-white;
 $submit-button-border-color: $off-white;
 $submit-button-hover-color: $dark-gray;
 $submit-button-hover-bg-color: $off-white;
-
-// Typography
-$display-title-font-size: 3.5rem;
-$display-title-font-weight: 300;
-$display-title-line-height: 1.2;
-
-$light-text-color: $white;

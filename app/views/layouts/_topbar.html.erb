@@ -43,7 +43,7 @@
 
     <%= form_with url:                 search_path,
                   method:              :get,
-                  html:                { class: 'form form-inline main-menu-search' },
+                  html:                { class: 'form-small form-inline main-menu-search' },
                   local:               true,
                   skip_enforcing_utf8: true do |f| %>
       <%= f.text_field :query,

@@ -53,35 +53,35 @@ h1, h2, h3, h4, h5, h6 {
 
 // Links
 .link {
-  text-decoration: none;
+  text-decoration: $link-text-decoration;
   transition: color .1s ease-in-out;
 }
 
 .link-dark {
-  color: $dark-link-color;
+  color: $link-dark-color;
 }
 
 .link-light {
-  color: $light-link-color;
+  color: $link-light-color;
 
   &:hover,
   &.hovered {
-    color: $light-link-hover-color;
+    color: $link-light-hover-color;
   }
 }
 
 // Header
 .header {
   background-color: $header-bg-color;
-  padding-bottom: 3rem;
+  padding-bottom: $padding-lg-y;
 }
 
 .tagline {
   text-align: center;
   padding: {
-    top: 2rem;
-    left: 7rem;
-    right: 7rem;
+    top: $padding-lg-y;
+    left: $padding-lg-x;
+    right: $padding-lg-x;
   }
 }
 
@@ -118,10 +118,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo {
-  color: $brand-color;
+  color: $logo-color;
   font: {
     family: $headings-font-family;
-    size: 2.6rem;
+    size: $logo-font-size;
   }
   flex: 1;
 }
@@ -134,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .main-menu-item {
   display: inline-block;
-  padding: .5rem 1rem;
+  padding: $margin-y $margin-x;
 }
 
 .main-menu-search {
@@ -148,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     font: {
       family: $icon-font-family;
-      weight: 900;
+      weight: $icon-font-weight;
     }
     padding-left: 0.3rem;
     vertical-align: middle;
@@ -157,8 +157,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .dropdown-menu-content {
   background-color: $dropdown-menu-bg-color;
-  border: 1px solid $border-color;
-  border-radius: .5rem;
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
   display: none;
   margin: {
     left: -1rem;
@@ -174,38 +174,43 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   list-style: none;
   margin: {
-    bottom: .3rem;
-    top: .3rem;
+    bottom: $margin-y;
+    top: $margin-y;
   }
 }
 
 .dropdown-menu-item {
   align-items: center;
   display: flex;
-  padding: .5rem 1rem;
+  padding: $margin-y $margin-x;
   justify-content: center;
 
   &.active {
-    background-color: $dropdown-menu-active-item-bg-color;
-    color: $dropdown-menu-active-item-color;
+    background-color: $dropdown-menu-item-active-bg-color;
+    color: $dropdown-menu-item-active-color;
 
     &:hover {
-      background-color: $dropdown-menu-active-item-bg-color;
+      background-color: $dropdown-menu-item-active-bg-color;
     }
   }
 
   &:hover {
-    background-color: $dropdown-menu-hover-bg-color;
+    background-color: $dropdown-menu-item-hover-bg-color;
   }
 }
 
 // Forms
 .form-field {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  border-radius: 0.2rem;
-  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  border: $border-width solid $border-color;
+}
+
+.form-small {
+  .form-field {
+    padding: $padding-sm-y $padding-sm-x;
+    font-size: $form-small-font-size;
+    line-height: $form-small-line-height;
+  }
 }
 
 .form-inline {
@@ -226,7 +231,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: $submit-button-bg-color;
   color: $submit-button-color;
   cursor: pointer;
-  border: 1px solid $submit-button-border-color;
+  border: $border-width solid $submit-button-border-color;
   transition: color .1s ease-in-out, background-color .1s ease-in-out;
 
   &:hover {
@@ -247,7 +252,7 @@ h1, h2, h3, h4, h5, h6 {
     color: $light-text-color;
   }
 
-  em {
+  .emphasized {
     text-decoration: underline rgba(255, 255, 255, 0.25);
     font-style: inherit;
   }
