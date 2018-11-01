@@ -1,5 +1,6 @@
-const toggleSelector = '[data-dropdown="toggle"]'
-const contentSelector = '[data-dropdown="content"]'
+const toggleSelector = '[data-dropdown-menu="toggle"]'
+const contentSelector = '[data-dropdown-menu="content"]'
+const hoveredClass = 'hovered'
 
 $(document).on('turbolinks:load', function() {
   $(toggleSelector).click(toggleDropdownMenu)
@@ -7,7 +8,7 @@ $(document).on('turbolinks:load', function() {
 })
 
 function toggleDropdownMenu() {
-  $(toggleSelector).toggleClass('is-hovered')
+  $(toggleSelector).toggleClass(hoveredClass)
   $(toggleSelector).siblings(contentSelector).toggle()
 
   return false
@@ -18,6 +19,6 @@ function hideDropdownMenus(event) {
 
   if (!target.parents(contentSelector).length) {
     $(contentSelector).hide()
-    $(toggleSelector).removeClass('is-hovered')
+    $(toggleSelector).removeClass(hoveredClass)
   }
 }

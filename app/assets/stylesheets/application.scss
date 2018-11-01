@@ -37,6 +37,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
+// Utilities
 .fixed-top {
   position: fixed;
   top: 0;
@@ -54,18 +55,18 @@ h1, h2, h3, h4, h5, h6 {
 .link {
   text-decoration: none;
   transition: color .1s ease-in-out;
+}
 
-  &.is-light {
-    color: $light-link-color;
+.link-dark {
+  color: $dark-link-color;
+}
 
-    &:hover,
-    &.is-hovered {
-      color: $light-link-hover-color;
-    }
-  }
+.link-light {
+  color: $light-link-color;
 
-  &.is-dark {
-    color: $dark-link-color;
+  &:hover,
+  &.hovered {
+    color: $light-link-hover-color;
   }
 }
 
@@ -75,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 3rem;
 }
 
-.header__tagline {
+.tagline {
   text-align: center;
   padding: {
     top: 2rem;
@@ -92,16 +93,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // Share
-.share {
+.share-buttons {
   display: flex;
   justify-content: center;
+}
 
-  &__button {
-    margin-left: 1rem;
+.share-button {
+  margin-left: 1rem;
 
-    &:first-child {
-      margin-left: 0;
-    }
+  &:first-child {
+    margin-left: 0;
   }
 }
 
@@ -109,38 +110,52 @@ h1, h2, h3, h4, h5, h6 {
 .topbar {
   background-color: $topbar-bg-color;
   padding: $margin-y $margin-x;
-
-  &__logo {
-    color: $brand-color;
-    font: {
-      family: $headings-font-family;
-      size: 2.6rem;
-    }
-  }
 }
 
-.topbar__container {
+.topbar-container {
   display: flex;
   align-items: center;
+}
+
+.logo {
+  color: $brand-color;
+  font: {
+    family: $headings-font-family;
+    size: 2.6rem;
+  }
+  flex: 1;
 }
 
 // Navigation
 .main-menu {
   display: inline-block;
   list-style: none;
+}
 
-  &__item {
-    display: inline-block;
-    padding: .5rem 1rem;
-  }
+.main-menu-item {
+  display: inline-block;
+  padding: .5rem 1rem;
+}
 
-  &__search {
-    margin-left: 1.5rem;
-  }
+.main-menu-search {
+  margin-left: 1.5rem;
 }
 
 // Dropdown menu
-.dropdown-content {
+.dropdown-menu-toggle {
+  &:after {
+    content: "\f0d7";
+    display: inline-block;
+    font: {
+      family: $icon-font-family;
+      weight: 900;
+    }
+    padding-left: 0.3rem;
+    vertical-align: middle;
+  }
+}
+
+.dropdown-menu-content {
   background-color: $dropdown-menu-bg-color;
   border: 1px solid $border-color;
   border-radius: .5rem;
@@ -151,61 +166,50 @@ h1, h2, h3, h4, h5, h6 {
   }
   overflow: hidden;
   position: absolute;
+}
 
-  &__items {
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    margin: {
-      bottom: .3rem;
-      top: .3rem;
-    }
-  }
-
-  &__item {
-    align-items: center;
-    display: flex;
-    padding: .5rem 1rem;
-    justify-content: center;
-
-    &:hover {
-      background-color: $dropdown-menu-hover-bg-color;
-    }
-
-    &.active {
-      background-color: $dropdown-menu-active-item-bg-color;
-      color: $dropdown-menu-active-item-color;
-    }
-
-    &.active:hover {
-      background-color: $dropdown-menu-active-item-bg-color;
-    }
+.dropdown-menu-items {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: {
+    bottom: .3rem;
+    top: .3rem;
   }
 }
 
-.dropdown-toggle:after {
-  content: "\f0d7";
-  display: inline-block;
-  font: {
-    family: $icon-font-family;
-    weight: 900;
+.dropdown-menu-item {
+  align-items: center;
+  display: flex;
+  padding: .5rem 1rem;
+  justify-content: center;
+
+  &.active {
+    background-color: $dropdown-menu-active-item-bg-color;
+    color: $dropdown-menu-active-item-color;
+
+    &:hover {
+      background-color: $dropdown-menu-active-item-bg-color;
+    }
   }
-  padding-left: 0.3rem;
-  vertical-align: middle;
+
+  &:hover {
+    background-color: $dropdown-menu-hover-bg-color;
+  }
 }
 
 // Forms
-.form {
-  &__field {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    border-radius: 0.2rem;
-    border: 1px solid $border-color;
-  }
+.form-field {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: 1px solid $border-color;
+}
 
-  &.inline .form__field {
+.form-inline {
+  .form-field {
     margin-left: $margin-y;
 
     &:first-child {
@@ -239,7 +243,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   line-height: $display-title-line-height;
 
-  &.is-light {
+  &.light {
     color: $light-text-color;
   }
 

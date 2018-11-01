@@ -1,20 +1,22 @@
 <div class="topbar fixed-top">
-  <div class="topbar__container container">
+  <div class="topbar-container container">
     <div class="flex-stretch">
-      <%= link_to 'IndieSumo', root_path, class: 'topbar__logo link' %>
+      <%= link_to 'IndieSumo', root_path, class: 'logo link' %>
     </div>
 
     <ul class="main-menu">
-      <li class="main-menu__item">
+      <li class="main-menu-item">
         <div class="dropdown-menu">
-          <a class="link is-light dropdown-toggle" href="#" data-dropdown="toggle">
+          <a class="link link-light dropdown-menu__toggle" href="#" data-dropdown-menu="toggle">
             Categories
           </a>
-          <div class="dropdown-content" data-dropdown="content">
-            <div class="dropdown-content__items">
+          <div class="dropdown-menu-content" data-dropdown-menu="content">
+            <div class="dropdown-menu-items">
               <% categories_array.each do |category| %>
-                <%= link_to_unless_current category.title, category, class: 'link is-dark dropdown-content__item' do %>
-                  <%= link_to category.title, category, class: 'link is-dark dropdown-content__item active' %>
+                <%= link_to_unless_current category.title, category, class: 'link link-dark dropdown-menu-item' do %>
+                  <%= link_to category.title,
+                              category,
+                              class: 'link link-dark dropdown-menu-item active' %>
                 <% end %>
               <% end %>
             </div>
@@ -22,18 +24,18 @@
         </div>
       </li>
 
-      <li class="main-menu__item">
-        <%= link_to 'Newsletter', newsletter_path, class: 'link is-light' %>
+      <li class="main-menu-item">
+        <%= link_to 'Newsletter', newsletter_path, class: 'link link-light' %>
       </li>
 
-      <li class="main-menu__item">
-        <%= link_to APP_SETTINGS['facebook_page_url'], class: 'link is-light' do %>
+      <li class="main-menu-item">
+        <%= link_to APP_SETTINGS['facebook_page_url'], class: 'link link-light' do %>
           <i class="fab fa-facebook"></i>
         <% end %>
       </li>
 
-      <li class="main-menu__item">
-        <%= link_to APP_SETTINGS['twitter_profile_url'], class: 'link is-light' do %>
+      <li class="main-menu-item">
+        <%= link_to APP_SETTINGS['twitter_profile_url'], class: 'link link-light' do %>
           <i class="fab fa-twitter"></i>
         <% end %>
       </li>
@@ -41,14 +43,14 @@
 
     <%= form_with url:                 search_path,
                   method:              :get,
-                  html:                { class: 'form inline main-menu__search' },
+                  html:                { class: 'form form-inline main-menu-search' },
                   local:               true,
                   skip_enforcing_utf8: true do |f| %>
       <%= f.text_field :query,
                        placeholder: 'Search',
                        value:       params[:query],
-                       class:       'form__field text-field' %>
-      <%= f.submit 'Search', name: nil, class: 'form__field submit-button' %>
+                       class:       'form-field text-field' %>
+      <%= f.submit 'Search', name: nil, class: 'form-field submit-button' %>
     <% end %>
   </div>
 </div>
