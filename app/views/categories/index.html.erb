@@ -1,13 +1,8 @@
-<div class="row" id="categories">
+<div class="categories">
   <% cache @categories do %>
-    <% @categories.each_with_index do |category, index| %>
-      <% if index == 6 || (@categories.count <= 6 && index == 0) %>
-        <div class="col-12 pt-5">
-          <%= render 'shared/newsletter' %>
-        </div>
-      <% end %>
-
+    <% @categories.each do |category| %>
       <%= render 'category', category: category %>
     <% end %>
   <% end %>
+  <%= render 'shared/newsletter' %>
 </div>

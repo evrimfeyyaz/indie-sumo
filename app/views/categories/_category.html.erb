@@ -1,22 +1,19 @@
 <% cache category do %>
-  <div class="col-xl-4 col-sm-6 justify-content-center">
-    <%= link_to category, class: 'category-summary' do %>
-      <div class="category-summary__body">
-        <% if category.icon.attached? %>
-          <%= image_tag category.icon, class: 'category-summary__icon' %>
-        <% else %>
-          <%= render 'no_icon', category: category %>
-        <% end %>
-
-        <h3 class="category-summary__title">
-          <%= truncate_with_tooltip(category.title, length: CATEGORY_SUMMARY_MAX_TITLE_LENGTH) %>
-        </h3>
-        <p class="d-none d-sm-none d-md-block">
-          <%= truncate_with_tooltip(category.description,
-                                    length:    CATEGORY_SUMMARY_MAX_DESCRIPTION_LENGTH,
-                                    separator: ' ') %>
-        </p>
-      </div>
+  <%= link_to category, class: 'card link' do %>
+    <% if category.icon.attached? %>
+      <%= image_tag category.icon, class: 'card-icon' %>
+    <% else %>
+      <%= render 'no_icon', category: category %>
     <% end %>
-  </div>
+
+    <h1 class="card-title">
+      <%= truncate_with_tooltip(category.title, length: CATEGORY_SUMMARY_MAX_TITLE_LENGTH) %>
+    </h1>
+
+    <p class="card-description">
+      <%= truncate_with_tooltip(category.description,
+                                length:    CATEGORY_SUMMARY_MAX_DESCRIPTION_LENGTH,
+                                separator: ' ') %>
+    </p>
+  <% end %>
 <% end %>

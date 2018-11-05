@@ -2,17 +2,17 @@
 
 // Resets
 html {
-  background-color: $footer-bg-color;
+  background-color: $dark-gray;
   box-sizing: border-box;
   font: {
-    family: $font-family;
-    size: $root-font-size;
+    family: $montserrat;
+    size: 14px;
   }
 }
 
 body {
   margin: {
-    top: $body-top-margin;
+    top: 74px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -20,7 +20,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $headings-font-family;
+  font: {
+    family: $roboto;
+    weight: 700;
+  }
+  line-height: 1.2;
 }
 
 *, *:before, *:after {
@@ -29,11 +33,11 @@ h1, h2, h3, h4, h5, h6 {
 
 // General
 .main-container {
-  background-color: $bg-color;
+  background-color: $off-white;
 }
 
 .container {
-  max-width: $max-width;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
@@ -53,42 +57,42 @@ h1, h2, h3, h4, h5, h6 {
 
 // Links
 .link {
-  text-decoration: $link-text-decoration;
+  text-decoration: none;
   transition: color .1s ease-in-out;
 }
 
 .link-dark {
-  color: $link-dark-color;
+  color: $black;
 }
 
 .link-light {
-  color: $link-light-color;
+  color: rgba($white, .5);
 
   &:hover,
   &.hovered {
-    color: $link-light-hover-color;
+    color: rgba($white, .8);
   }
 }
 
 // Header
 .header {
-  background-color: $header-bg-color;
-  padding-bottom: $padding-lg-y;
+  background-color: $purple;
+  padding-bottom: 3rem;
 }
 
 .tagline {
   text-align: center;
   padding: {
-    top: $padding-lg-y;
-    left: $padding-lg-x;
-    right: $padding-lg-x;
+    top: 3rem;
+    left: 4rem;
+    right: 4rem;
   }
 }
 
 .header-separator {
   border: none;
-  height: $header-separator-height;
-  background-color: $header-separator-bg-color;
+  height: .3rem;
+  background-color: $orange;
   margin: 0;
 }
 
@@ -108,8 +112,7 @@ h1, h2, h3, h4, h5, h6 {
 
 // Topbar
 .topbar {
-  background-color: $topbar-bg-color;
-  padding: $margin-y $margin-x;
+  background-color: $purple;
 }
 
 .topbar-container {
@@ -118,10 +121,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo {
-  color: $logo-color;
+  color: $orange;
   font: {
-    family: $headings-font-family;
-    size: $logo-font-size;
+    family: $roboto;
+    size: 2.6rem;
   }
   flex: 1;
 }
@@ -134,11 +137,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .main-menu-item {
   display: inline-block;
-  padding: $margin-y $margin-x;
+  padding: 1rem 2rem;
 }
 
 .main-menu-search {
-  margin-left: 1.5rem;
+  margin-left: 2rem;
 }
 
 // Dropdown menu
@@ -147,8 +150,8 @@ h1, h2, h3, h4, h5, h6 {
     content: "\f0d7";
     display: inline-block;
     font: {
-      family: $icon-font-family;
-      weight: $icon-font-weight;
+      family: $font-awesome;
+      weight: 900;
     }
     padding-left: 0.3rem;
     vertical-align: middle;
@@ -156,9 +159,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dropdown-menu-content {
-  background-color: $dropdown-menu-bg-color;
-  border: $border-width solid $border-color;
-  border-radius: $border-radius;
+  background-color: $white;
+  border: 1px solid $light-gray;
+  border-radius: .5rem;
   display: none;
   margin: {
     left: -1rem;
@@ -173,87 +176,155 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   list-style: none;
-  margin: {
-    bottom: $margin-y;
-    top: $margin-y;
-  }
+  margin: 1rem 0;
 }
 
 .dropdown-menu-item {
   align-items: center;
   display: flex;
-  padding: $margin-y $margin-x;
+  padding: 1rem 2rem;
   justify-content: center;
 
   &.active {
-    background-color: $dropdown-menu-item-active-bg-color;
-    color: $dropdown-menu-item-active-color;
+    background-color: $blue;
+    color: $white;
 
     &:hover {
-      background-color: $dropdown-menu-item-active-bg-color;
+      background-color: $white;
     }
   }
 
   &:hover {
-    background-color: $dropdown-menu-item-hover-bg-color;
+    background-color: $light-gray;
   }
 }
 
 // Forms
 .form-field {
-  border-radius: $border-radius;
-  border: $border-width solid $border-color;
+  border-radius: .5rem;
+  border: 1px solid $light-gray;
 }
 
 .form-small {
   .form-field {
-    padding: $padding-sm-y $padding-sm-x;
-    font-size: $form-small-font-size;
-    line-height: $form-small-line-height;
+    padding: .25rem .5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
   }
 }
 
 .form-inline {
   .form-field {
-    margin-left: $margin-y;
+    margin-left: 1rem;
 
     &:first-child {
       margin-left: 0;
     }
   }
+
+  .submit-button {
+    margin-left: .5rem;
+  }
 }
 
 .text-field {
-  background-color: $text-field-bg-color;
+  background-color: $light-gray;
 }
 
 .submit-button {
-  background-color: $submit-button-bg-color;
-  color: $submit-button-color;
+  background-color: $transparent;
+  color: $off-white;
   cursor: pointer;
-  border: $border-width solid $submit-button-border-color;
+  border: 1px solid $off-white;
   transition: color .1s ease-in-out, background-color .1s ease-in-out;
 
   &:hover {
-    background-color: $submit-button-hover-bg-color;
-    color: $submit-button-hover-color;
+    background-color: $off-white;
+    color: $black;
   }
 }
 
 // Typography
 .display-title {
   font: {
-    size: $display-title-font-size;
-    weight: $display-title-font-weight
+    family: $roboto;
+    size: 3.5rem;
+    weight: 700;
   }
-  line-height: $display-title-line-height;
+  line-height: 1.2;
 
   &.light {
-    color: $light-text-color;
+    color: $white;
   }
 
   .emphasized {
-    text-decoration: underline rgba(255, 255, 255, 0.25);
+    text-decoration: underline rgba($white, .25);
     font-style: inherit;
   }
+}
+
+// Cards
+$card-bg: $white;
+
+.card {
+  display: block;
+  padding: 2rem;
+  background-color: $white;
+  border-radius: .5rem;
+  border: 1px solid $light-gray;
+  box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
+  transition: background-color .3s ease-in-out;
+
+  &:hover {
+    background-color: darken($card-bg, 5%);
+  }
+}
+
+.card-title {
+  font-size: 1.75rem;
+  color: $black;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.card-description {
+  color: $darker-gray;
+  text-align: center;
+  margin: 0;
+}
+
+.card-icon,
+.card-no-icon {
+  height: 32px;
+  width: 32px;
+  margin: 0 auto;
+}
+
+.card-icon {
+  display: block;
+}
+
+.card-no-icon {
+  border-radius: 16px;
+  background: $purple linear-gradient(135deg, $purple 0%, $dark-blue 100%);
+  color: $white;
+  text-align: center;
+  font: {
+    family: $roboto;
+    weight: 700;
+    size: 1rem;
+  };
+  line-height: 2.3;
+}
+
+// Categories
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 290px);
+  grid-auto-rows: 190px;
+  grid-column-gap: 4rem;
+  grid-row-gap: 3rem;
+  justify-content: space-evenly;
+  margin: 3rem 4rem;
 }
