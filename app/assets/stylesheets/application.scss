@@ -2,7 +2,7 @@
 
 // Resets
 html {
-  background-color: $dark-gray;
+  background-color: $gray;
   box-sizing: border-box;
   font: {
     family: $montserrat;
@@ -220,7 +220,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-text {
   font-size: 0.8rem;
-  color: $darker-gray;
+  color: $dark-gray;
 }
 
 .form-small {
@@ -323,7 +323,7 @@ a.card:hover {
 }
 
 .card-description {
-  color: $darker-gray;
+  color: $dark-gray;
   text-align: center;
   margin: 0;
 }
@@ -404,4 +404,66 @@ a.card:hover {
 .newsletter-card-form {
   flex: 1;
   padding: 1.5rem 3rem;
+}
+
+// Footer
+.footer {
+  background-color: $raisin-black;
+  color: $white;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem 4rem;
+}
+
+.footer-categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 1rem;
+
+  .footer-title {
+    grid-column: 1 / span 2;
+  }
+}
+
+.footer-title {
+  color: $white;
+  margin: 0;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: $orange;
+  margin: {
+    top: .4rem;
+    bottom: 0;
+  }
+}
+
+.footer-created-by {
+  margin: {
+    top: 0;
+    bottom: 2rem;
+  }
+}
+
+.footer-follow-us {
+  display: grid;
+  grid-column-gap: 2rem;
+  grid-row-gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-legal {
+  margin: 0;
 }

@@ -1,47 +1,24 @@
 <div class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="offset-lg-2 col-lg-4 col-md-6 col-sm-12">
-        <h1 class="footer__title is-brand">IndieSumo</h1>
-        <p class="footer__by">by <%= link_to 'Evrim Persembe', APP_SETTINGS['owner_url'], class: 'footer__link' %></p>
+  <div class="footer-container container">
+    <div class="footer-info">
+      <h1 class="footer-logo">IndieSumo</h1>
+      <p class="footer-created-by">by <%= link_to 'Evrim Persembe', APP_SETTINGS['owner_url'], class: 'link link-light' %></p>
 
-        <div class="footer__follow-us">
-          <h1 class="footer__title">Follow Us</h1>
-          <ul class="list-unstyled">
-            <li class="list-item">
-              <%= link_to 'Newsletter', newsletter_path, class: 'footer__link' %>
-            </li>
-            <li class="list-item">
-              <%= link_to 'Facebook', APP_SETTINGS['facebook_page_url'], class: 'footer__link' %>
-            </li>
-            <li class="list-item">
-              <%= link_to 'Twitter', APP_SETTINGS['twitter_profile_url'], class: 'footer__link' %>
-            </li>
-          </ul>
-        </div>
+      <div class="footer-follow-us">
+        <h1 class="footer-title">Follow Us</h1>
+        <%= link_to 'Newsletter', newsletter_path, class: 'link link-light' %>
+        <%= link_to 'Facebook', APP_SETTINGS['facebook_page_url'], class: 'link link-light' %>
+        <%= link_to 'Twitter', APP_SETTINGS['twitter_profile_url'], class: 'link link-light' %>
+      </div>
 
-        <p class="text-muted">Icons from <%= link_to 'Icons8', 'https://icons8.com', class: 'footer__link' %>.</p>
-      </div>
-      <div class="col-lg-2 col-md-3 d-none d-sm-none d-md-block">
-        <h1 class="footer__title">Categories</h1>
-        <ul class="list-unstyled">
-          <% categories_array.to((category_count / 2).ceil).each do |category| %>
-            <li class="list-item">
-              <%= link_to category.title, category, class: 'footer__link' %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="col-lg-2 col-md-3 d-none d-sm-none d-md-block">
-        <h1 class="footer__title">&nbsp;</h1>
-        <ul class="list-unstyled">
-          <% categories_array.from((category_count / 2).ceil + 1).each do |category| %>
-            <li class="list-item">
-              <%= link_to category.title, category, class: 'footer__link' %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+      <p class="footer-legal">Icons from <%= link_to 'Icons8', 'https://icons8.com', class: 'link link-light' %>.</p>
+    </div>
+
+    <div class="footer-categories">
+      <h1 class="footer-title">Categories</h1>
+      <% categories_array.each do |category| %>
+        <%= link_to category.title, category, class: 'link link-light' %>
+      <% end %>
     </div>
   </div>
 </div>
