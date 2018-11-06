@@ -43,14 +43,14 @@
 
     <%= form_with url:                 search_path,
                   method:              :get,
-                  html:                { class: 'form-small form-inline main-menu-search' },
+                  html:                { class: 'form form-small form-inline main-menu-search' },
                   local:               true,
                   skip_enforcing_utf8: true do |f| %>
       <%= f.text_field :query,
                        placeholder: 'Search',
                        value:       params[:query],
                        class:       'form-field text-field' %>
-      <%= f.submit 'Search', name: nil, class: 'form-field submit-button' %>
+      <%= f.submit 'Search', name: nil, class: 'form-field button button-outline' %>
     <% end %>
   </div>
 </div>

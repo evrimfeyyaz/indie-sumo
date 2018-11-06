@@ -7,6 +7,7 @@ defaults: &defaults
   default_meta_description: ''
   default_meta_image: ''
   default_twitter_share_text: ''
+  newsletter_url: 'https://indiesumo.us12.list-manage.com/subscribe/post?u=7d6b207df0db42f6bfcff3322&amp;id=fbb0bb2608'
   app_version: '0.5'
 
 development:
