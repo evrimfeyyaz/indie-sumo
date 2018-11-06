@@ -1,11 +1,9 @@
 <div class="topbar fixed-top">
   <div class="topbar-container container">
-    <div class="flex-stretch">
-      <%= link_to 'IndieSumo', root_path, class: 'logo link' %>
-    </div>
+    <%= link_to 'IndieSumo', root_path, class: 'logo link' %>
 
-    <ul class="main-menu">
-      <li class="main-menu-item">
+    <div class="navigation">
+      <div class="menu-item">
         <div class="dropdown-menu">
           <a class="link link-light dropdown-menu-toggle" href="#" data-dropdown-menu="toggle">
             Categories
@@ -22,35 +20,57 @@
             </div>
           </div>
         </div>
-      </li>
+      </div>
 
-      <li class="main-menu-item">
+      <div class="menu-item">
         <%= link_to 'Newsletter', newsletter_path, class: 'link link-light' %>
-      </li>
+      </div>
 
-      <li class="main-menu-item">
+      <div class="menu-item">
         <%= link_to APP_SETTINGS['facebook_page_url'], class: 'link link-light' do %>
           <i class="fab fa-facebook"></i>
         <% end %>
-      </li>
+      </div>
 
-      <li class="main-menu-item">
+      <div class="menu-item">
         <%= link_to APP_SETTINGS['twitter_profile_url'], class: 'link link-light' do %>
           <i class="fab fa-twitter"></i>
         <% end %>
-      </li>
-    </ul>
+      </div>
 
-    <%= form_with url:                 search_path,
-                  method:              :get,
-                  html:                { class: 'form form-small form-inline main-menu-search' },
-                  local:               true,
-                  skip_enforcing_utf8: true do |f| %>
-      <%= f.text_field :query,
-                       placeholder: 'Search',
-                       value:       params[:query],
-                       class:       'form-field text-field' %>
-      <%= f.submit 'Search', name: nil, class: 'form-field button button-outline' %>
-    <% end %>
+      <%= form_with url:                 search_path,
+                    method:              :get,
+                    html:                { class: 'form form-small form-inline' },
+                    local:               true,
+                    skip_enforcing_utf8: true do |f| %>
+        <%= f.text_field :query,
+                         placeholder: 'Search',
+                         value:       params[:query],
+                         class:       'form-field text-field' %>
+        <%= f.submit 'Search', name: nil, class: 'form-field button button-light button-outline' %>
+      <% end %>
+    </div>
+
+    <a href="#" class="button button-hamburger" data-hamburger-menu="toggle">
+      <i class="fas fa-bars"></i>
+    </a>
   </div>
+</div>
+<div class="hamburger-menu container" data-hamburger-menu="content">
+  <%= link_to 'Categories', root_path, class: 'hamburger-menu-item link link-dark' %>
+  <%= link_to 'Newsletter', newsletter_path, class: 'hamburger-menu-item link link-dark' %>
+  <%= link_to 'Facebook', APP_SETTINGS['facebook_page_url'], class: 'hamburger-menu-item link link-dark' %>
+  <%= link_to 'Twitter', APP_SETTINGS['twitter_page_url'], class: 'hamburger-menu-item link link-dark' %>
+
+  <%= form_with url:                 search_path,
+                method:              :get,
+                html:                { class: 'form' },
+                local:               true,
+                skip_enforcing_utf8: true do |f| %>
+    <%= f.text_field :query,
+                     placeholder: 'Search',
+                     value:       params[:query],
+                     class:       'form-field text-field' %>
+    <%= f.submit 'Search', name: nil, class: 'form-field button button-primary button-outline' %>
+  <% end %>
 </div>
