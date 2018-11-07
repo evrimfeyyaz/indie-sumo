@@ -20,10 +20,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font: {
-    family: $roboto;
-    weight: 700;
-  }
+  font-family: $roboto;
   line-height: 1.2;
 }
 
@@ -41,6 +38,25 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
+.page-title {
+  font-size: 3.5rem;
+  width: 80%;
+  text-align: center;
+  margin: 0;
+}
+
+.page-description {
+  font-size: 1.5rem;
+  color: $raisin-black;
+  width: 70%;
+  text-align: center;
+  margin: 0;
+}
+
+.recommend-button {
+  margin: 2rem 0;
+}
+
 // Utilities
 .fixed-top {
   position: fixed;
@@ -55,29 +71,44 @@ h1, h2, h3, h4, h5, h6 {
   flex: 1;
 }
 
+.round {
+  border-radius: 100%;
+}
+
 // Links
 .link {
   text-decoration: none;
   transition: color .1s ease-in-out;
+
+  color: $blue;
+
+  &:hover,
+  &.active {
+    color: $dark-blue;
+  }
 }
 
 .link-dark {
   color: $black;
-}
-
-.link-light {
-  color: rgba($white, .5);
 
   &:hover,
   &.active {
-    color: rgba($white, .8);
+    color: $dark-gray;
+  }
+}
+
+.link-light {
+  color: $gray;
+
+  &:hover,
+  &.active {
+    color: $light-gray;
   }
 }
 
 // Header
 .header {
   background-color: $purple;
-  padding-bottom: 3rem;
 }
 
 .tagline {
@@ -86,6 +117,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 1rem;
     left: 4rem;
     right: 4rem;
+    bottom: 3rem;
   }
 }
 
@@ -149,10 +181,7 @@ h1, h2, h3, h4, h5, h6 {
   &:after {
     content: "\f0d7";
     display: inline-block;
-    font: {
-      family: $font-awesome;
-      weight: 900;
-    }
+    font-family: $font-awesome;
     padding-left: 0.3rem;
     vertical-align: middle;
   }
@@ -225,6 +254,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.8rem;
   color: $dark-gray;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .form-small {
@@ -262,10 +292,11 @@ h1, h2, h3, h4, h5, h6 {
 
 // Buttons
 .button {
-  padding: 0.375rem 3rem;
+  padding: 0.5rem 3rem;
   transition: color .1s ease-in-out, background-color .1s ease-in-out;
   cursor: pointer;
   border-radius: .5rem;
+  text-decoration: none;
 }
 
 .button-primary {
@@ -354,7 +385,6 @@ h1, h2, h3, h4, h5, h6 {
   font: {
     family: $roboto;
     size: 3.5rem;
-    weight: 700;
   }
   line-height: 1.2;
 
@@ -414,27 +444,46 @@ a.card:hover {
 }
 
 .card-icon,
-.card-no-icon {
-  height: 32px;
-  width: 32px;
+.card-no-icon,
+.card-icon-large,
+.card-no-icon-large {
   margin: 0 auto;
 }
 
-.card-icon {
+.card-icon,
+.card-no-icon {
+  height: 32px;
+  width: 32px;
+}
+
+.card-icon,
+.card-icon-large {
   display: block;
 }
 
 .card-no-icon {
-  border-radius: 16px;
+  font-size: 1rem;
+  line-height: 2.3;
+}
+
+.card-no-icon,
+.card-no-icon-large {
   background: $purple linear-gradient(135deg, $purple 0%, $dark-blue 100%);
   color: $white;
   text-align: center;
-  font: {
-    family: $roboto;
-    weight: 700;
-    size: 1rem;
-  }
-  line-height: 2.3;
+  font-family: $roboto;
+}
+
+.card-icon-large {
+  height: 100px;
+  width: 100px;
+}
+
+.card-no-icon-large {
+  height: 100px;
+  width: 100px;
+  font-size: 3.5rem;
+  line-height: 7.4rem;
 }
 
 // Categories
@@ -448,6 +497,28 @@ a.card:hover {
 
   @media (max-width: $screen-small) {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+// Category
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 0;
+}
+
+.category-resources {
+  align-self: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 280px);
+  grid-column-gap: 4rem;
+  grid-row-gap: 3rem;
+  justify-content: space-evenly;
+  margin: 3rem 4rem;
+
+  @media (max-width: $screen-small) {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   }
 }
 
@@ -573,4 +644,49 @@ a.card:hover {
 
 .footer-legal {
   margin: 0;
+}
+
+// Kaminari (pagination)
+.pagination {
+  display: flex;
+
+  span:first-child {
+    border-left: 1px solid $light-gray;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+
+  span:last-child {
+    border-right: 1px solid $light-gray;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+
+  span {
+    border: 1px solid $light-gray;
+    border-left: none;
+    background-color: $white;
+
+    a {
+      @extend .link;
+    }
+
+    &.current {
+      color: $gray;
+
+      &:hover {
+        background-color: $white;
+      }
+    }
+
+    &:hover {
+      background-color: $off-white;
+    }
+  }
+
+  span a,
+  span.current {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+  }
 }

@@ -1,34 +1,27 @@
 <% cache [@category, page: params[:page]] do %>
-  <% provide(:meta_title, "Indie Sumo: #{@category.title}") %>
-  <% provide(:meta_description, @category.description) %>
+  <div class="category">
+    <% provide(:meta_title, "Indie Sumo: #{@category.title}") %>
+    <% provide(:meta_description, @category.description) %>
 
-  <%= render 'shared/page_title', title: @category.title %>
+    <%= render 'shared/page_title', title: @category.title %>
+    <%= render 'shared/page_description', description: @category.description %>
 
-  <%= render 'shared/page_description', description: @category.description %>
+    <%= render 'shared/recommendation_button',
+               title: "Recommend a #{@category.title.singularize}",
+               path:  new_category_resource_recommendation_path(category_slug: @category.slug) %>
 
-  <%= render 'shared/recommendation_link',
-             title: "Recommend a #{@category.title.singularize}",
-             path:  new_category_resource_recommendation_path(category_slug: @category.slug) %>
+    <%= render 'shared/share_buttons', twitter_share_text: "Indie Sumo: #{@category.title}" %>
 
-  <%= render 'shared/share_buttons', twitter_share_text: "Indie Sumo: #{@category.title}" %>
-
-  <% cache @category_resources do %>
-    <div class="resource-summaries" id="resources">
-      <% @category_resources.each_with_index do |resource, index| %>
-        <% if index == 6 || (@category_resources.count <= 6 && index == 0) %>
-          <div class="col-12 pt-5">
-            <%= render 'shared/newsletter' %>
-          </div>
+    <% cache @category_resources do %>
+      <div class="category-resources">
+        <% @category_resources.each do |resource| %>
+          <%= render 'resources/resource', resource: resource %>
         <% end %>
 
-        <%= render 'resources/resource', resource: resource %>
-      <% end %>
-    </div>
+        <%= render 'shared/newsletter_card' %>
+      </div>
 
-    <%= paginate @category_resources, theme: 'bootstrap4' %>
-  <% end %>
-
-  <%= render 'shared/recommendation_link',
-             title: "Recommend a #{@category.title.singularize}",
-             path:  new_category_resource_recommendation_path(category_slug: @category.slug) %>
+      <%= paginate @category_resources %>
+    <% end %>
+  </div>
 <% end %>

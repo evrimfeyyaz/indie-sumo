@@ -1,7 +1,20 @@
 <% cache resource do %>
-  <%= render 'shared/large_card',
-             url:         resource_path(resource),
-             icon:        resource.icon.attached? ? resource.icon : nil,
-             title:       resource.title,
-             description: resource.description&.html_safe %>
+  <%= link_to resource, class: 'card link' do %>
+    <% if resource.icon.attached? %>
+      <%= image_tag resource.icon, class: 'card-icon-large round' %>
+    <% else %>
+      <%= render 'shared/no_icon_large', title: resource.title %>
+    <% end %>
+
+    <h1 class="card-title">
+      <%= truncate_with_tooltip(resource.title, length: LARGE_CARD_MAX_TITLE_LENGTH).html_safe %>
+    </h1>
+
+    <p class="card-description">
+      <%= truncate_with_tooltip(resource.description&.html_safe,
+                                length:    LARGE_CARD_MAX_DESCRIPTION_LENGTH,
+                                separator: ' ',
+                                escape:    false) %>
+    </p>
+  <% end %>
 <% end %>
