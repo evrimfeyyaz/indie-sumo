@@ -1,3 +1,5 @@
-<div class="resource-icon round">
-  <%= image_tag @resource.icon, class: 'resource-icon' if @resource.icon.attached? %>
-</div>
+<% if @resource.icon.attached? %>
+  <div class="resource-icon round">
+    <%= image_tag @resource.icon, class: 'resource-icon' %>
+  </div>
+<% end %>

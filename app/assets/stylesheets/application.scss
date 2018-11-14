@@ -603,10 +603,6 @@ a.card:hover {
   grid-column-gap: 4rem;
   grid-row-gap: 3rem;
   justify-content: space-evenly;
-
-  //@media (max-width: $screen-small) {
-  //  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  //}
 }
 
 // Newsletter
