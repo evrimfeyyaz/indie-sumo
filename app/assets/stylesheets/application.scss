@@ -1,5 +1,12 @@
 @import "_theme";
 
+// Helpers
+%container-flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 // Resets
 html {
   background-color: $gray;
@@ -57,6 +64,10 @@ h1, h2, h3, h4, h5, h6 {
   margin: 2rem 0;
 }
 
+.text-small {
+  font-size: 0.8rem;
+}
+
 // Utilities
 .fixed-top {
   position: fixed;
@@ -73,9 +84,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .round {
   border-radius: 100%;
+  overflow: hidden;
 }
 
 // Links
+a,
 .link {
   text-decoration: none;
   transition: color .1s ease-in-out;
@@ -160,7 +173,12 @@ h1, h2, h3, h4, h5, h6 {
     family: $roboto;
     size: 2.6rem;
   }
+  text-decoration: none;
   flex: 1;
+
+  &:hover {
+    color: $orange;
+  }
 }
 
 // Navigation
@@ -502,9 +520,7 @@ a.card:hover {
 
 // Category
 .category {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @extend %container-flex-column;
   margin: 3rem 0;
 }
 
@@ -516,6 +532,78 @@ a.card:hover {
   grid-row-gap: 3rem;
   justify-content: space-evenly;
   margin: 3rem 4rem;
+
+  @media (max-width: $screen-small) {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+}
+
+// Resource
+.resource {
+  @extend %container-flex-column;
+  margin: {
+    top: 2rem;
+    bottom: 3rem;
+  }
+}
+
+.resource-icon {
+  height: 120px;
+  width: 120px;
+}
+
+.resource-categories {
+  margin-bottom: 2rem;
+  width: 80%;
+  text-align: center;
+}
+
+.resource-creators {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+}
+
+.resource-links {
+  font-size: 1.2rem;
+  width: 80%;
+  text-align: center;
+  margin: {
+    top: 2rem;
+    bottom: 1rem;
+  }
+}
+
+.resource-link {
+  margin: 0 1rem;
+}
+
+.resource-link-icon {
+  margin-right: 0.5rem;
+}
+
+.resource-footnote {
+  width: 80%;
+  margin: 1rem 0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.resource-lists {
+  width: 80%;
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resource-lists-content {
+  align-self: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 280px);
+  grid-column-gap: 4rem;
+  grid-row-gap: 3rem;
+  justify-content: space-evenly;
 
   @media (max-width: $screen-small) {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -650,22 +738,22 @@ a.card:hover {
 .pagination {
   display: flex;
 
-  span:first-child {
-    border-left: 1px solid $light-gray;
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-  }
-
-  span:last-child {
-    border-right: 1px solid $light-gray;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-  }
-
   span {
     border: 1px solid $light-gray;
     border-left: none;
     background-color: $white;
+
+    &:first-child {
+        border-left: 1px solid $light-gray;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+    }
+
+    &:last-child {
+      border-right: 1px solid $light-gray;
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+    }
 
     a {
       @extend .link;
@@ -688,5 +776,55 @@ a.card:hover {
   span.current {
     display: inline-block;
     padding: 0.5rem 1rem;
+  }
+}
+
+// Tabs
+[data-tabs="pane"] {
+  display: none;
+}
+
+[data-tabs="tab-bar"] {
+  display: flex;
+}
+
+[data-tabs="content"] {
+  background-color: $white;
+  border: 1px solid $light-gray;
+  border-radius: 0.5rem;
+  margin-top: -1px;
+  padding: 1rem 0;
+}
+
+[data-tabs="tab"] {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 1px solid $light-gray;
+  border-left: none;
+  background-color: $white;
+  cursor: pointer;
+
+  &:first-child {
+    border-left: 1px solid $light-gray;
+    border-top-left-radius: 0.5rem;
+  }
+
+  &:last-child {
+    border-right: 1px solid $light-gray;
+    border-top-right-radius: 0.5rem;
+  }
+
+  &.active {
+    color: $black;
+    border-bottom: 1px solid $white;
+    z-index: 9999;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+
+  &:hover {
+    background-color: $off-white;
   }
 }

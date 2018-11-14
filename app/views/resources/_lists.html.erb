@@ -1,37 +1,30 @@
 <% cache @resource.lists do %>
-  <div class="resource__lists">
-    <ul class="nav nav-pills mb-3 mt-4 justify-content-center" id="lists" role="tablist">
-      <% @resource.lists.each_with_index do |list, i| %>
-        <% cache ['nav', list] do %>
-          <li class="nav-item">
-            <a class="nav-link <%= 'active' if i == 0 %>"
-               id="list-<%= list.id %>-tab"
-               data-toggle="tab"
-               href="#list-<%= list.id %>" role="tab">
-              <%= list.title %>
-            </a>
-          </li>
+  <div class="resource-lists">
+    <div class="resource-list-tabs" data-tabs="tab-bar">
+      <% @resource.lists.each do |list| %>
+        <% cache ['tabs', list] do %>
+          <a class="tab" data-tabs="tab" data-tab-id="<%= list.id %>">
+            <%= list.title %>
+          </a>
         <% end %>
       <% end %>
-    </ul>
+    </div>
 
-    <div class="tab-content mb-5" id="listsContent">
-      <% @resource.lists.each_with_index do |list, i| %>
-        <% cache ['content', list] do %>
-          <div class="tab-pane fade <%= 'show active' if i == 0 %>" id="list-<%= list.id %>">
-            <div class="row">
-              <% cache list.items do %>
-                <% list.items.each do |list_item| %>
-                  <% cache list_item do %>
-                    <% if list_item.is_a?(Resource) %>
-                      <%= render 'resources/resource', resource: list_item %>
-                    <% else %>
-                      <%= render 'resources/external_resource', external_resource: list_item %>
-                    <% end %>
+    <div class="resource-lists-content" data-tabs="content">
+      <% @resource.lists.each do |list| %>
+        <% cache ['tab-panes', list] do %>
+          <div class="resource-list" data-tabs="pane" data-tab-id="<%= list.id %>">
+            <% cache list.items do %>
+              <% list.items.each do |list_item| %>
+                <% cache list_item do %>
+                  <% if list_item.is_a?(Resource) %>
+                    <%= render 'resources/resource', resource: list_item %>
+                  <% else %>
+                    <%#= render 'resources/external_resource', external_resource: list_item %>
                   <% end %>
                 <% end %>
               <% end %>
-            </div>
+            <% end %>
           </div>
         <% end %>
       <% end %>
