@@ -569,13 +569,14 @@ a.card:hover {
   width: 80%;
   text-align: center;
   margin: {
-    top: 2rem;
+    top: 1.5rem;
     bottom: 1rem;
   }
 }
 
 .resource-link {
-  margin: 0 1rem;
+  margin: 0.5rem 1rem;
+  display: inline-block;
 }
 
 .resource-link-icon {
