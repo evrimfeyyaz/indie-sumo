@@ -1,5 +1,5 @@
 <% cache resource do %>
-  <%= link_to resource, class: 'card link' do %>
+  <%= link_to_resource resource, class: 'card link' do %>
     <% if resource.icon.attached? %>
       <%= image_tag resource.icon, class: 'card-icon-large round' %>
     <% else %>
@@ -10,11 +10,13 @@
       <%= truncate_with_tooltip(resource.title, length: LARGE_CARD_MAX_TITLE_LENGTH).html_safe %>
     </h1>
 
-    <p class="card-description">
-      <%= truncate_with_tooltip(resource.description&.html_safe,
-                                length:    LARGE_CARD_MAX_DESCRIPTION_LENGTH,
-                                separator: ' ',
-                                escape:    false) %>
-    </p>
+    <% if description %>
+      <p class="card-description">
+        <%= truncate_with_tooltip(resource.description&.html_safe,
+                                  length:    LARGE_CARD_MAX_DESCRIPTION_LENGTH,
+                                  separator: ' ',
+                                  escape:    false) %>
+      </p>
+    <% end %>
   <% end %>
 <% end %>

@@ -1,3 +1,17 @@
+/*
+ * Tabs Control
+ *
+ * Instructions
+ * ------------
+ * 1. Add `data-tabs=tab` to all tabs.
+ * 2. Add `data-tabs=pane` to all tab panes.
+ * 3. Add `data-tab-id` to all tabs and tab panes.
+ * 4. Add `tab-bar` class to the tabs container.
+ * 5. Add `tab` class to tabs.
+ * 6. Add `tab-content` to the area that will show tabs. This should
+ * contain all the tab panes.
+ */
+
 (function () {
   const tabsSelector = '[data-tabs="tab"]'
   const tabPanesSelector = '[data-tabs="pane"]'

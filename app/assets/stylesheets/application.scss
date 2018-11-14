@@ -597,17 +597,16 @@ a.card:hover {
   align-items: center;
 }
 
-.resource-lists-content {
-  align-self: stretch;
+.resource-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 280px);
+  grid-template-columns: repeat(auto-fit, 230px);
   grid-column-gap: 4rem;
   grid-row-gap: 3rem;
   justify-content: space-evenly;
 
-  @media (max-width: $screen-small) {
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  }
+  //@media (max-width: $screen-small) {
+  //  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  //}
 }
 
 // Newsletter
@@ -784,19 +783,20 @@ a.card:hover {
   display: none;
 }
 
-[data-tabs="tab-bar"] {
+.tab-bar {
   display: flex;
 }
 
-[data-tabs="content"] {
+.tab-content {
   background-color: $white;
   border: 1px solid $light-gray;
   border-radius: 0.5rem;
   margin-top: -1px;
-  padding: 1rem 0;
+  padding: 3rem 2rem;
+  width: 100%;
 }
 
-[data-tabs="tab"] {
+.tab {
   display: inline-block;
   padding: 1rem 2rem;
   border: 1px solid $light-gray;

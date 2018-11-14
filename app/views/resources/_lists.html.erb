@@ -1,6 +1,6 @@
 <% cache @resource.lists do %>
   <div class="resource-lists">
-    <div class="resource-list-tabs" data-tabs="tab-bar">
+    <div class="tab-bar">
       <% @resource.lists.each do |list| %>
         <% cache ['tabs', list] do %>
           <a class="tab" data-tabs="tab" data-tab-id="<%= list.id %>">
@@ -10,21 +10,19 @@
       <% end %>
     </div>
 
-    <div class="resource-lists-content" data-tabs="content">
+    <div class="tab-content">
       <% @resource.lists.each do |list| %>
         <% cache ['tab-panes', list] do %>
-          <div class="resource-list" data-tabs="pane" data-tab-id="<%= list.id %>">
-            <% cache list.items do %>
-              <% list.items.each do |list_item| %>
-                <% cache list_item do %>
-                  <% if list_item.is_a?(Resource) %>
-                    <%= render 'resources/resource', resource: list_item %>
-                  <% else %>
-                    <%#= render 'resources/external_resource', external_resource: list_item %>
+          <div data-tabs="pane" data-tab-id="<%= list.id %>">
+            <div class="resource-list">
+              <% cache list.items do %>
+                <% list.items.each do |list_item| %>
+                  <% cache list_item do %>
+                    <%= render 'resources/resource', resource: list_item, description: false %>
                   <% end %>
                 <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
         <% end %>
       <% end %>

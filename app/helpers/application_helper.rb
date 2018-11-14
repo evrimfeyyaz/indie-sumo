@@ -12,6 +12,16 @@ module ApplicationHelper
     content_tag('div', class: fail_class, &block)
   end
 
+  # Properly links to resources (which have their own pages) and
+  # external resources (which point to external URLs).
+  def link_to_resource(resource, html_options = nil, &block)
+    if resource.is_a?(Resource)
+      link_to resource, html_options, &block
+    else # External Resource
+      link_to resource.url, html_options, &block
+    end
+  end
+
   # This wrapper around Rails' #truncate method puts the
   # text in a span with a title attribute when the text
   # is truncated. This way the user sees a tooltip when
