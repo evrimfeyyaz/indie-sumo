@@ -1,25 +1,21 @@
-<div class="row">
-  <% cache @comments do %>
-    <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 px-5 text-center mt-3">
-      <h1 class="text-center">
-        Comments (<%= @comments.count %>)
-      </h1>
-      <% if @comments.any? %>
-        <%= link_to 'Add a Comment', '#add-comment', class: 'btn btn-link mb-4' %>
+<% cache @comments do %>
+  <div class="comments">
+    <h1>Comments (<%= @comments.count %>)</h1>
+    <% if @comments.any? %>
+      <%= link_to 'Add a Comment', '#add-comment', class: 'comment-add-button' %>
+    <% end %>
+    <% if @comments.any? %>
+      <% @comments.each do |comment| %>
+        <%= render 'comment', comment: comment %>
       <% end %>
-      <% if @comments.any? %>
-        <div id="comments">
-          <% @comments.each do |comment| %>
-            <%= render 'comment', comment: comment %>
-          <% end %>
-        </div>
-      <% else %>
-        <p>There are currently no comments. Be the first one to comment!</p>
-      <% end %>
-  <% end %>
-  <div id="add-comment" class="comment-form">
-    <h2 class="mb-3">Add a Comment</h2>
-    <%= render 'comment_form' %>
+    <% else %>
+      <p>There are currently no comments. Be the first one to comment!</p>
+    <% end %>
   </div>
-  </div>
+
+<% end %>
+
+<div id="add-comment" class="comment-form">
+  <h2 class="comment-form-title">Add a Comment</h2>
+  <%= render 'comment_form' %>
 </div>

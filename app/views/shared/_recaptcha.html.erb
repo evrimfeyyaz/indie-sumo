@@ -1,7 +1,7 @@
 <div class="recaptcha">
   <%= recaptcha_tags %>
   <% if recaptcha_error(obj) %>
-    <div class="recaptcha__invalid-feedback">
+    <div class="form-error-message">
       <%= recaptcha_error(obj) %>
     </div>
   <% end %>

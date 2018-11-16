@@ -10,9 +10,9 @@
       <%= truncate_with_tooltip(resource.title, length: LARGE_CARD_MAX_TITLE_LENGTH).html_safe %>
     </h1>
 
-    <% if description %>
+    <% if resource.description %>
       <p class="card-description">
-        <%= truncate_with_tooltip(resource.description&.html_safe,
+        <%= truncate_with_tooltip(resource.description.html_safe,
                                   length:    LARGE_CARD_MAX_DESCRIPTION_LENGTH,
                                   separator: ' ',
                                   escape:    false) %>

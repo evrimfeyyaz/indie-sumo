@@ -1,16 +1,21 @@
-<%= form_with(model: [@resource, @comment], html: { id: 'comment-form' }) do |f| %>
+<%= form_with model: [@resource, @comment], html: { id: 'comment-form', class: 'comment-form form' } do |f| %>
   <%= f.text_field :name,
                    placeholder: 'Your name',
-                   hide_label:  true %>
+                   class:       'form-field text-field' %>
+  <%= field_error(@comment, :name) %>
   <%= f.email_field :email,
                     placeholder: 'Your e-mail (optional)',
-                    hide_label:  true,
-                    help:        "Your e-mail is used to show your Gravatar and won't be publicly visible." %>
+                    class:       'form-field text-field' %>
+  <%= field_error(@comment, :email) %>
+  <div class="form-text">
+    Your e-mail is used to show your Gravatar and won't be publicly visible.
+  </div>
   <%= f.text_area :comment,
                   placeholder: 'Your comment',
                   rows:        5,
-                  hide_label:  true,
+                  class:       'form-field text-area',
                   maxlength:   APP_SETTINGS['max_comment_length'] %>
+  <%= field_error(@comment, :comment) %>
   <%= render 'shared/recaptcha', obj: @comment %>
-  <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  <%= f.submit 'Submit', class: 'form-field button button-primary' %>
 <% end %>

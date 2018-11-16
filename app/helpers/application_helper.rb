@@ -58,4 +58,13 @@ module ApplicationHelper
   def category_count
     Category.count
   end
+
+  # Shows the first error for a given field.
+  def field_error(obj, field)
+    if obj.errors[field].any?
+      content_tag :div,
+                  obj.errors.messages[field].first,
+                  class: 'form-error-message'
+    end
+  end
 end
