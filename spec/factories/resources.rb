@@ -15,12 +15,6 @@ FactoryBot.define do
       end
     end
 
-    trait :with_creator do
-      after :create do |resource|
-        create(:creator, resource: resource)
-      end
-    end
-
     trait :with_category do
       after :create do |resource|
         create(:category, resources: [resource])

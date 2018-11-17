@@ -8,21 +8,12 @@ describe Resource do
   it { should have_many(:lists).dependent(:destroy) }
   it { should have_many(:list_items).through(:lists) }
   it { should have_many(:information_recommendations).dependent(:destroy) }
-  it { should have_many(:creators).dependent(:destroy) }
   it { should have_many(:comments).dependent(:destroy) }
 
   it { should validate_presence_of(:title) }
 
   describe '#after_save' do
     subject { create(:resource) }
-
-    it 'updates the timestamp on creator objects that reference it' do
-      creator = create(:creator, referenced_resource: subject)
-
-      expect do
-        subject.update(title: 'New Title')
-      end.to change { creator.reload.updated_at }
-    end
 
     it 'updates the timestamp on resources that reference it as a list item' do
       resource = create(:resource, :with_list)

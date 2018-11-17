@@ -1,6 +1,5 @@
 class Resource < ApplicationRecord
-  after_save :touch_creators_referencing_it,
-             :touch_resources_that_reference_it_as_list_item,
+  after_save :touch_resources_that_reference_it_as_list_item,
              :touch_categories
 
   default_scope { order(title: :asc) }
@@ -48,11 +47,6 @@ class Resource < ApplicationRecord
   end
 
   private
-
-    def touch_creators_referencing_it
-      Creator.where(referenced_resource: self)
-        .find_each { |c| c.update(updated_at: Time.now) }
-    end
 
     def touch_resources_that_reference_it_as_list_item
       Resource
