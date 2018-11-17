@@ -11,7 +11,7 @@ feature 'Comment management' do
     comment = 'Some test comment.'
 
     expect do
-      within '.comment-form' do
+      within '#comment-form' do
         fill_in 'Name', with: name
         fill_in 'Email', with: email
         fill_in 'Comment', with: comment

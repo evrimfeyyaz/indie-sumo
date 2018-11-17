@@ -11,8 +11,10 @@ feature 'Search management' do
 
     visit root_path
 
-    fill_in 'Search', with: search_term
-    click_button 'Search'
+    within '.navigation' do
+      fill_in 'Search', with: search_term
+      click_button 'Search'
+    end
 
     expect(page).to have_current_path(search_path, ignore_query: true)
 

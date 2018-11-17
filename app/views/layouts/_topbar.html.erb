@@ -43,6 +43,7 @@
                     html:                { class: 'form form-small form-inline' },
                     local:               true,
                     skip_enforcing_utf8: true do |f| %>
+        <%= f.label :query, class: 'sr-only' %>
         <%= f.text_field :query,
                          placeholder: 'Search',
                          value:       params[:query],
@@ -67,6 +68,7 @@
                 html:                { class: 'form' },
                 local:               true,
                 skip_enforcing_utf8: true do |f| %>
+    <%= f.label :query, class: 'sr-only' %>
     <%= f.text_field :query,
                      placeholder: 'Search',
                      value:       params[:query],

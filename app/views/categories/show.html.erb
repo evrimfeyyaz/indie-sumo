@@ -13,7 +13,7 @@
     <%= render 'shared/share_buttons', twitter_share_text: "Indie Sumo: #{@category.title}" %>
 
     <% cache @category_resources do %>
-      <div class="category-resources">
+      <div class="category-resources" id="resources">
         <% @category_resources.each do |resource| %>
           <%= render 'resources/resource', resource: resource %>
         <% end %>

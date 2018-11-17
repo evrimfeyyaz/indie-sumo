@@ -13,7 +13,7 @@
     <div class="tab-content">
       <% @resource.lists.each do |list| %>
         <% cache ['tab-panes', list] do %>
-          <div data-tabs="pane" data-tab-id="<%= list.id %>">
+          <div data-tabs="pane" data-tab-id="<%= list.id %>" id="list-<%= list.id %>">
             <div class="resource-list">
               <% cache list.items do %>
                 <% list.items.each do |list_item| %>

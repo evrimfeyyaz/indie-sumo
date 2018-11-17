@@ -1,8 +1,10 @@
 <%= form_with model: [@resource, @comment], html: { id: 'comment-form', class: 'comment-form form' } do |f| %>
+  <%= f.label :name, class: 'sr-only' %>
   <%= f.text_field :name,
                    placeholder: 'Your name',
                    class:       'form-field text-field' %>
   <%= field_error(@comment, :name) %>
+  <%= f.label :email, class: 'sr-only' %>
   <%= f.email_field :email,
                     placeholder: 'Your e-mail (optional)',
                     class:       'form-field text-field' %>
@@ -10,6 +12,7 @@
   <div class="form-text">
     Your e-mail is used to show your Gravatar and won't be publicly visible.
   </div>
+  <%= f.label :comment, class: 'sr-only' %>
   <%= f.text_area :comment,
                   placeholder: 'Your comment',
                   rows:        5,

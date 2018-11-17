@@ -4,7 +4,9 @@ module ApplicationHelper
   def link_to_resource(resource, html_options = nil, &block)
     if resource.is_a?(Resource)
       link_to resource, html_options, &block
-    else # External Resource
+    elsif resource.is_a?(ExternalResource) && resource.url.blank?
+      content_tag :div, html_options, &block
+    else # External Resource with link
       link_to resource.url, html_options, &block
     end
   end

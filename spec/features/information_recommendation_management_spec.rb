@@ -9,7 +9,7 @@ feature 'Information recommendation management' do
   scenario 'User visits a resource page and recommends new information' do
     visit resource_path(resource)
 
-    click_link('Add Information', match: :first)
+    click_link('Improve This Page', match: :first)
 
     expect(current_path).to eq(new_resource_information_recommendation_path(resource))
 

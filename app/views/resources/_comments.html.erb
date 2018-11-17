@@ -1,5 +1,5 @@
 <% cache @comments do %>
-  <div class="comments">
+  <div class="comments" id="comments">
     <h1>Comments (<%= @comments.count %>)</h1>
     <% if @comments.any? %>
       <%= link_to 'Add a Comment', '#add-comment', class: 'comment-add-button' %>
@@ -15,7 +15,7 @@
 
 <% end %>
 
-<div id="add-comment" class="comment-form">
+<div id="add-comment" class="comment-add">
   <h2 class="comment-form-title">Add a Comment</h2>
   <%= render 'comment_form' %>
 </div>

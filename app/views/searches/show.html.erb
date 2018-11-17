@@ -1,9 +1,7 @@
 <%= render 'shared/page_title', title: "Search" %>
 
-<div class="row">
-  <div class="offset-lg-3 col-lg-6 px-5 text-center mt-3 mb-4">
+<div class="search-form">
     <%= render 'form' %>
-  </div>
 </div>
 
 <%= render 'shared/page_description',
@@ -16,5 +14,5 @@
 </div>
 
 <div class="mt-4">
-  <%= paginate @search_results, theme: 'bootstrap4' %>
+  <%= paginate @search_results %>
 </div>

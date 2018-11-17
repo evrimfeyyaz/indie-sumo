@@ -1,12 +1,15 @@
 <%= form_with(model: [@resource, @information_recommendation],
                         html: { novalidate: 'novalidate', id: 'information-recommendation-form' }) do |f| %>
+  <%= f.label :recommender_name, class: 'sr-only' %>
   <%= f.text_field :recommender_name,
                    placeholder: 'Your name (optional)',
                    hide_label:  true %>
+  <%= f.label :recommender_email, class: 'sr-only' %>
   <%= f.email_field :recommender_email,
                     placeholder: 'Your e-mail (optional)',
                     hide_label:  true %>
   <div class="my-1">&nbsp;</div>
+  <%= f.label :information, class: 'sr-only' %>
   <%= f.text_area :information,
                   placeholder: 'Information you would like to add',
                   rows:        5,
