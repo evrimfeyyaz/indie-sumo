@@ -69,6 +69,14 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.8rem;
 }
 
+hr {
+  background-color: $light-gray;
+  width: 100%;
+  border: 0;
+  height: 1px;
+  margin: 3rem;
+}
+
 // Utilities
 .fixed-top {
   position: fixed;
@@ -609,16 +617,13 @@ a.card:hover {
   margin: 0.5rem 0.5rem;
 }
 
-.resource-footnote {
-  width: 80%;
-  margin: 1rem 0;
-  font-size: 0.8rem;
-  text-align: center;
+.resource-share-buttons {
+  margin: 2rem 0 1rem;
 }
 
 .resource-lists {
   width: 100%;
-  margin: 3rem 0;
+  margin: 1rem 0 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
