@@ -6,11 +6,11 @@
     <%= render 'shared/page_title', title: @category.title %>
     <%= render 'shared/page_description', description: @category.description %>
 
+    <%= render 'shared/share_buttons', twitter_share_text: "Indie Sumo: #{@category.title}" %>
+
     <%= link_to "Recommend a #{@category.title.singularize}",
                 new_category_resource_recommendation_path(category_slug: @category.slug),
                 class: 'recommend-resource-button button button-outline button-primary' %>
-
-    <%= render 'shared/share_buttons', twitter_share_text: "Indie Sumo: #{@category.title}" %>
 
     <% cache @category_resources do %>
       <div class="category-resources" id="resources">

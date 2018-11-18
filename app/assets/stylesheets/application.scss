@@ -164,6 +164,7 @@ a,
 .share-buttons {
   display: flex;
   justify-content: center;
+  margin: 1rem 0;
 }
 
 .share-button {
@@ -629,10 +630,6 @@ a.card:hover {
 
 .resource-action-button {
   margin: 0.5rem 0.5rem;
-}
-
-.resource-share-buttons {
-  margin: 2rem 0 1rem;
 }
 
 .resource-lists {
