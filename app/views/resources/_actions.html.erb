@@ -1,0 +1,11 @@
+<div class="resource-actions">
+  <% if @resource.website.present? %>
+    <%= link_to 'Visit Website',
+                @resource.website,
+                class: 'resource-action-button button button-primary button-outline' %>
+  <% end %>
+
+  <%= link_to 'Improve This Page',
+              new_resource_information_recommendation_path(@resource),
+              class: 'resource-action-button button button-secondary button-outline' %>
+</div>

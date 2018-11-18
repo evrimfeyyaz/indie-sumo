@@ -28,22 +28,14 @@ NUM_OF_CATEGORIES.times do |category_index|
     resource_title       = Faker::Fallout.character
     resource_description = Faker::Fallout.quote
 
-    links_url = 'http://www.example.com'
+    website = 'http://www.example.com'
     footnote  = 'Image copyright <a href="http://www.example.com">John Doe</a>.'
 
     resource = Resource.create!(title:       resource_title,
                                 description: resource_description,
                                 categories:  [category],
-                                website:     links_url,
-                                twitter:     links_url,
-                                github:      links_url,
-                                youtube:     links_url,
-                                facebook:    links_url,
+                                website:     website,
                                 footnote:    footnote)
-
-    Creator.create!(name: 'John Doe', url: 'http://www.example.com', resource: resource)
-    Creator.create!(name: 'Jane Doe', resource: resource)
-    Creator.create!(referenced_resource: Resource.order("RANDOM()").first, resource: resource)
 
     icon_no = rand(1..25)
 

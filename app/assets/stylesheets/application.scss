@@ -65,10 +65,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-.recommend-button {
-  margin: 2rem 0;
-}
-
 .text-small {
   font-size: 0.8rem;
 }
@@ -334,6 +330,7 @@ a,
 
 // Buttons
 .button {
+  display: inline-block;
   padding: 0.5rem 3rem;
   transition: color .1s ease-in-out, background-color .1s ease-in-out;
   cursor: pointer;
@@ -350,6 +347,17 @@ a,
   &:hover {
     color: $white;
     background-color: $dark-blue;
+  }
+}
+
+.button-secondary {
+  background-color: $dark-gray;
+  border: 1px solid $dark-gray;
+  color: $white;
+
+  &:hover {
+    color: $white;
+    background-color: $raisin-black;
   }
 }
 
@@ -380,6 +388,15 @@ a,
 
     &:hover {
       background-color: $blue;
+      color: $white;
+    }
+  }
+
+  &.button-secondary {
+    color: $dark-gray;
+
+    &:hover {
+      background-color: $dark-gray;
       color: $white;
     }
   }
@@ -548,6 +565,10 @@ a.card:hover {
   @extend %container-flex-column;
 }
 
+.recommend-resource-button {
+  margin: 1rem 0;
+}
+
 .category-resources {
   align-self: stretch;
   display: grid;
@@ -573,33 +594,19 @@ a.card:hover {
 }
 
 .resource-categories {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
-.resource-creators {
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-  opacity: 0.8;
+.resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0.5rem 0;
 }
 
-.resource-links {
-  font-size: 1.2rem;
-  width: 80%;
-  text-align: center;
-  margin: {
-    top: 1.5rem;
-    bottom: 1rem;
-  }
-}
-
-.resource-link {
-  margin: 0.5rem 1rem;
-  display: inline-block;
-}
-
-.resource-link-icon {
-  margin-right: 0.5rem;
+.resource-action-button {
+  margin: 0.5rem 0.5rem;
 }
 
 .resource-footnote {

@@ -2,7 +2,7 @@
   <div class="comments" id="comments">
     <h1>Comments (<%= @comments.count %>)</h1>
     <% if @comments.any? %>
-      <%= link_to 'Add a Comment', '#add-comment', class: 'comment-add-button' %>
+      <%= link_to 'Add a Comment', '#comment-add', class: 'comment-add-button' %>
     <% end %>
     <% if @comments.any? %>
       <% @comments.each do |comment| %>
