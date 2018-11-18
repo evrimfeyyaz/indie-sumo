@@ -96,6 +96,16 @@ hr {
   overflow: hidden;
 }
 
+.group:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
+* html .group             { zoom: 1; } /* IE6 */
+*:first-child+html .group { zoom: 1; } /* IE7 */
+
 // Links
 a,
 .link {
@@ -222,15 +232,16 @@ a,
     left: -1rem;
     top: .5rem;
   }
-  overflow: hidden;
   position: absolute;
+  height: 80vh;
+  overflow: auto;
 }
 
 .dropdown-menu-items {
   align-items: stretch;
   display: flex;
   flex-direction: column;
-  list-style: none;
+  flex-wrap: wrap;
   margin: 1rem 0;
 }
 
@@ -239,18 +250,21 @@ a,
   display: flex;
   padding: 1rem 2rem;
   justify-content: center;
+  text-align: center;
 
   &.active {
     background-color: $blue;
     color: $white;
 
     &:hover {
-      background-color: $white;
+      background-color: $blue;
+      color: $white;
     }
   }
 
   &:hover {
     background-color: $light-gray;
+    color: $black;
   }
 }
 

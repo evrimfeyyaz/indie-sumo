@@ -11,10 +11,10 @@
           <div class="dropdown-menu-content" data-dropdown-menu="content">
             <div class="dropdown-menu-items">
               <% categories_array.each do |category| %>
-                <%= link_to_unless_current category.title, category, class: 'link link-dark dropdown-menu-item' do %>
+                <%= link_to_unless_current category.title, category, class: 'dropdown-menu-item link link-dark' do %>
                   <%= link_to category.title,
                               category,
-                              class: 'link link-dark dropdown-menu-item active' %>
+                              class: 'dropdown-menu-item link link-dark active' %>
                 <% end %>
               <% end %>
             </div>
