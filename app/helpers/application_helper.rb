@@ -27,23 +27,6 @@ module ApplicationHelper
     truncated_text
   end
 
-  # Returns the Bootstrap alert class for the given
-  # flash notice type.
-  def flash_class(level)
-    case level
-    when 'notice' then
-      'alert-primary'
-    when 'success' then
-      'alert-success'
-    when 'error' then
-      'alert-danger'
-    when 'alert' then
-      'alert-danger'
-    else
-      'alert-secondary'
-    end
-  end
-
   def initial(str)
     str.first.capitalize
   end
