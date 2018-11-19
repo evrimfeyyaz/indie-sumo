@@ -593,7 +593,8 @@ a.card:hover {
   margin: 1rem 0;
 }
 
-.category-resources {
+// Resources index
+.resources-index {
   align-self: stretch;
   display: grid;
   grid-template-columns: repeat(auto-fill, 280px);
@@ -958,4 +959,13 @@ a.card:hover {
 
 .comment-form-title {
   margin-bottom: 0;
+}
+
+// Search
+.search {
+  @extend %container-flex-column;
+}
+
+.search-form {
+  margin-top: 1rem;
 }

@@ -1,0 +1,9 @@
+<div class="resources-index" id="resources">
+  <% resources.each do |resource| %>
+    <%= render 'resources/resource', resource: resource %>
+  <% end %>
+
+  <%= render 'shared/newsletter_card' %>
+</div>
+
+<%= paginate resources %>

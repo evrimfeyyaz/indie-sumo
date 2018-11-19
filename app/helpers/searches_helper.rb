@@ -1,7 +1,7 @@
 module SearchesHelper
   def result_count_message(count, query)
-    return nil if count == 0
+    return nil if query.blank?
 
-    "There are #{count} results for \"#{query}\"."
+    "There are #{count} #{"results".pluralize(count)} for \"#{query}\"."
   end
 end

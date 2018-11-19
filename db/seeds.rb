@@ -91,6 +91,9 @@ end
 # Make the last category coming soon.
 Category.last.update(coming_soon: true)
 
+# Reindex search results.
+Resource.reindex
+
 p "Created #{Category.count} categories"
 p "Created #{Resource.count} resources"
 p "Created #{List.count} lists"

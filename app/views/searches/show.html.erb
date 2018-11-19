@@ -1,18 +1,10 @@
-<%= render 'shared/page_title', title: "Search" %>
+<div class="search">
+  <%= render 'shared/page_title', title: "Search" %>
+  <%= render 'shared/page_description',
+             description: result_count_message(@search_results.total_count, params[:query]) %>
+  <%= render 'form' %>
 
-<div class="search-form">
-    <%= render 'form' %>
-</div>
-
-<%= render 'shared/page_description',
-           description: result_count_message(@search_results.total_count, params[:query]) %>
-
-<div id="search-results" class="row">
-  <% @search_results.each do |result| %>
-    <%= render 'resources/resource', resource: result %>
-  <% end %>
-</div>
-
-<div class="mt-4">
-  <%= paginate @search_results %>
+  <div id="search-results">
+    <%= render 'resources/resources', resources: @search_results if @search_results.total_count > 0 %>
+  </div>
 </div>
