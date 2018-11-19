@@ -1,20 +1,30 @@
 <%= form_with(model: [@resource, @information_recommendation],
-                        html: { novalidate: 'novalidate', id: 'information-recommendation-form' }) do |f| %>
+              html:  { novalidate: 'novalidate',
+                       id:         'information-recommendation-form',
+                       class:      'form information-recommendation-form' }) do |f| %>
   <%= f.label :recommender_name, class: 'sr-only' %>
   <%= f.text_field :recommender_name,
                    placeholder: 'Your name (optional)',
-                   hide_label:  true %>
+                   class:       'form-field text-field' %>
+  <%= field_error(@information_recommendation, :recommender_name) %>
+
   <%= f.label :recommender_email, class: 'sr-only' %>
   <%= f.email_field :recommender_email,
                     placeholder: 'Your e-mail (optional)',
-                    hide_label:  true %>
-  <div class="my-1">&nbsp;</div>
+                    class:       'form-field text-field' %>
+  <%= field_error(@information_recommendation, :recommender_email) %>
+
+  <div>&nbsp;</div>
+
   <%= f.label :information, class: 'sr-only' %>
   <%= f.text_area :information,
                   placeholder: 'Information you would like to add',
-                  rows:        5,
-                  hide_label:  true %>
+                  class:       'form-field text-area',
+                  rows:        5 %>
+  <%= field_error(@information_recommendation, :information) %>
+
   <%= render 'shared/recaptcha', obj: @information_recommendation %>
-  <%= f.submit 'Submit', class: 'btn btn-primary' %>
-  <%= link_to 'Cancel', @resource, class: 'btn btn-link' %>
+
+  <%= f.submit 'Submit', class: 'form-field button button-primary' %>
+  <%= link_to 'Cancel', @resource, class: 'link' %>
 <% end %>

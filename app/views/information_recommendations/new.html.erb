@@ -1,7 +1,6 @@
-<%= render 'shared/page_title', title: 'Add Information' %>
+<div class="information-recommendation">
+  <%= render 'shared/page_title', title: "Improve #{@resource.title}" %>
+  <%= render 'shared/page_description', description: "Do you think we are missing something? Let us know, and we will add it." %>
 
-<div class="row">
-  <div class="offset-lg-3 col-lg-6 px-5 text-center mt-5">
-    <%= render 'form' %>
-  </div>
+  <%= render 'form' %>
 </div>

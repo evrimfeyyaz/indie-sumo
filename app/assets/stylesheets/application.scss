@@ -54,7 +54,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 3.5rem;
   text-align: center;
   margin: 0;
-  width: 70%;
+
+  @media (max-width: $screen-small) {
+    font-size: 3rem;
+  }
 }
 
 .page-description {
@@ -63,6 +66,11 @@ h1, h2, h3, h4, h5, h6 {
   width: 70%;
   text-align: center;
   margin: 0;
+
+  @media (max-width: $screen-small) {
+    font-size: 1.3rem;
+    width: 100%;
+  }
 }
 
 .text-small {
@@ -95,16 +103,6 @@ hr {
   border-radius: 100%;
   overflow: hidden;
 }
-
-.group:after {
-  visibility: hidden;
-  display: block;
-  content: "";
-  clear: both;
-  height: 0;
-}
-* html .group             { zoom: 1; } /* IE6 */
-*:first-child+html .group { zoom: 1; } /* IE7 */
 
 // Links
 a,
@@ -604,6 +602,21 @@ a.card:hover {
   @media (max-width: $screen-small) {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   }
+}
+
+// Form pages (recommendations and newsletter)
+.resource-recommendation,
+.information-recommendation,
+.newsletter {
+  @extend %container-flex-column;
+}
+
+.resource-recommendation-form,
+.information-recommendation-form,
+.newsletter-form {
+  margin-top: 2rem;
+  width: 30rem;
+  max-width: 100%;
 }
 
 // Resource
