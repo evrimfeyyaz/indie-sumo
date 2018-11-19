@@ -593,6 +593,14 @@ a.card:hover {
   margin: 1rem 0;
 }
 
+.coming-soon {
+  @extend %container-flex-column;
+}
+
+.coming-soon-newsletter {
+  margin-top: 2rem;
+}
+
 // Resources index
 .resources-index {
   align-self: stretch;
