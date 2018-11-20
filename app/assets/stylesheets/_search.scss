@@ -1,0 +1,9 @@
+.search {
+  @extend %container-flex-column;
+}
+
+.search-form {
+  margin-top: 1rem;
+  width: 30rem;
+  max-width: 100%;
+}

@@ -1,0 +1,54 @@
+.resources-index {
+  align-self: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 280px);
+  grid-column-gap: 4rem;
+  grid-row-gap: 3rem;
+  justify-content: space-evenly;
+  margin: 3rem 0;
+
+  @media (max-width: $screen-small) {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+}
+
+.resource {
+  @extend %container-flex-column;
+}
+
+.resource-icon {
+  height: 120px;
+  width: 120px;
+}
+
+.resource-categories {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.resource-action-button {
+  margin: 0.5rem 0.5rem;
+}
+
+.resource-lists {
+  width: 100%;
+  margin: 1rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resource-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 230px);
+  grid-column-gap: 4rem;
+  grid-row-gap: 3rem;
+  justify-content: space-evenly;
+}

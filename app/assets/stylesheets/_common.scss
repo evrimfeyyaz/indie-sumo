@@ -1,0 +1,57 @@
+.main-container {
+  background-color: $off-white;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.content {
+  margin: 0 auto;
+  padding: 3rem 4rem;
+}
+
+.page-title {
+  font-size: 3.5rem;
+  text-align: center;
+  margin: 0;
+
+  @media (max-width: $screen-small) {
+    font-size: 3rem;
+  }
+}
+
+.page-description {
+  font-size: 1.5rem;
+  color: $raisin-black;
+  width: 70%;
+  text-align: center;
+  margin: 0;
+
+  @media (max-width: $screen-small) {
+    font-size: 1.3rem;
+    width: 100%;
+  }
+}
+
+.display-title {
+  font: {
+    family: $roboto;
+    size: 3.5rem;
+  }
+  line-height: 1.2;
+
+  &.light {
+    color: $white;
+  }
+
+  .emphasized {
+    text-decoration: underline rgba($white, .25);
+    font-style: inherit;
+  }
+
+  @media (max-width: $screen-small) {
+    font-size: 2.5rem;
+  }
+}

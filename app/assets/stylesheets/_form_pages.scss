@@ -1,0 +1,19 @@
+/*
+ * Styles for pages that only include a form, namely
+ * resource recommendations, information recommendations
+ * and newsletter pages.
+ */
+
+.resource-recommendation,
+.information-recommendation,
+.newsletter {
+  @extend %container-flex-column;
+}
+
+.resource-recommendation-form,
+.information-recommendation-form,
+.newsletter-form {
+  margin-top: 2rem;
+  width: 30rem;
+  max-width: 100%;
+}

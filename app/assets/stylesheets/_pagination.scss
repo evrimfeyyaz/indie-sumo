@@ -1,0 +1,43 @@
+.pagination {
+  display: flex;
+
+  span {
+    border: 1px solid $light-gray;
+    border-left: none;
+    background-color: $white;
+
+    &:first-child {
+      border-left: 1px solid $light-gray;
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+    }
+
+    &:last-child {
+      border-right: 1px solid $light-gray;
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+    }
+
+    a {
+      @extend .link;
+    }
+
+    &.current {
+      color: $gray;
+
+      &:hover {
+        background-color: $white;
+      }
+    }
+
+    &:hover {
+      background-color: $off-white;
+    }
+  }
+
+  span a,
+  span.current {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+  }
+}

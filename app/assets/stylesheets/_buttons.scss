@@ -1,0 +1,72 @@
+.button {
+  display: inline-block;
+  padding: 0.5rem 3rem;
+  transition: color .1s ease-in-out, background-color .1s ease-in-out;
+  cursor: pointer;
+  border-radius: .5rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button-primary {
+  background-color: $blue;
+  border: 1px solid $blue;
+  color: $white;
+
+  &:hover {
+    color: $white;
+    background-color: $dark-blue;
+  }
+}
+
+.button-secondary {
+  background-color: $dark-gray;
+  border: 1px solid $dark-gray;
+  color: $white;
+
+  &:hover {
+    color: $white;
+    background-color: $raisin-black;
+  }
+}
+
+.button-light {
+  background-color: $white;
+  color: $black;
+  border: 1px solid $white;
+
+  &:hover {
+    background-color: $off-white;
+  }
+}
+
+.button-outline {
+  background-color: $transparent;
+
+  &.button-light {
+    color: $white;
+
+    &:hover {
+      background-color: $white;
+      color: $black;
+    }
+  }
+
+  &.button-primary {
+    color: $blue;
+
+    &:hover {
+      background-color: $blue;
+      color: $white;
+    }
+  }
+
+  &.button-secondary {
+    color: $dark-gray;
+
+    &:hover {
+      background-color: $dark-gray;
+      color: $white;
+    }
+  }
+}

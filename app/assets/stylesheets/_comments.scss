@@ -1,0 +1,73 @@
+.comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.comment-add-button {
+  margin-bottom: 2rem;
+}
+
+.comment {
+  align-self: stretch;
+  margin: 1rem auto;
+  display: flex;
+  width: 40rem;
+
+  @media (max-width: $screen-small) {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.comment-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 1rem;
+
+  @media (max-width: $screen-small) {
+    margin-bottom: 1rem;
+  }
+}
+
+.comment-name {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.comment-date {
+  color: $dark-gray;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.comment-text {
+  flex: 3;
+  padding-left: 1rem;
+
+  @media (max-width: $screen-small) {
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
+.comment-form {
+  text-align: center;
+  margin: 0 auto;
+  width: 30rem;
+
+  @media (max-width: $screen-small) {
+    width: 100%;
+  }
+}
+
+.comment-add {
+  text-align: center;
+}
+
+.comment-form-title {
+  margin-bottom: 0;
+}

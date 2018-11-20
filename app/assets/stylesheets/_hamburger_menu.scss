@@ -1,0 +1,37 @@
+.button-hamburger {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  color: $off-white;
+  background-color: $transparent;
+  border: 1px solid $off-white;
+
+  &:hover,
+  &.active {
+    background-color: $off-white;
+    color: $black;
+  }
+}
+
+.hamburger-menu {
+  display: flex;
+  background-color: $off-white;
+  padding: 2rem 5rem;
+}
+
+.hamburger-menu-item {
+  display: block;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+[data-hamburger-menu="toggle"] {
+  display: none;
+
+  @media (max-width: $screen-medium) {
+    display: block;
+  }
+}
+
+[data-hamburger-menu="content"] {
+  display: none;
+}

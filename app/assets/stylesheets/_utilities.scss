@@ -1,0 +1,29 @@
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.flex-grow {
+  flex: 1;
+}
+
+.round {
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.text-small {
+  font-size: 0.8rem;
+}
+
+hr {
+  background-color: $light-gray;
+  width: 100%;
+  border: 0;
+  height: 1px;
+  margin: 3rem;
+}

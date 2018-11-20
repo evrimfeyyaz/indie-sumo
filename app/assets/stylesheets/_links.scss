@@ -1,0 +1,30 @@
+a,
+.link {
+  text-decoration: none;
+  transition: color .1s ease-in-out;
+
+  color: $blue;
+
+  &:hover,
+  &.active {
+    color: $dark-blue;
+  }
+}
+
+.link-dark {
+  color: $black;
+
+  &:hover,
+  &.active {
+    color: $dark-gray;
+  }
+}
+
+.link-light {
+  color: $gray;
+
+  &:hover,
+  &.active {
+    color: $light-gray;
+  }
+}
