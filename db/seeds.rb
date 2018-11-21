@@ -13,7 +13,7 @@ NUM_OF_CATEGORIES.times do |category_index|
   category_title       = Faker::Fallout.faction
   category_description = Faker::Fallout.quote
 
-  category = Category.create!(title: category_title,
+  category = Category.create!(title:       category_title,
                               description: category_description)
 
   icon_no = rand(1..10)
@@ -28,14 +28,12 @@ NUM_OF_CATEGORIES.times do |category_index|
     resource_title       = Faker::Fallout.character
     resource_description = Faker::Fallout.quote
 
-    website = 'http://www.example.com'
-    footnote  = 'Image copyright <a href="http://www.example.com">John Doe</a>.'
+    website  = 'http://www.example.com'
 
     resource = Resource.create!(title:       resource_title,
                                 description: resource_description,
                                 categories:  [category],
-                                website:     website,
-                                footnote:    footnote)
+                                website:     website)
 
     icon_no = rand(1..25)
 
@@ -47,10 +45,10 @@ NUM_OF_CATEGORIES.times do |category_index|
     # Add comments to the resource
     2.times do
       Comment.create!(name:     Faker::Fallout.character,
-                  email:    Faker::Internet.email,
-                  comment:  Faker::Fallout.quote,
-                  resource: resource,
-                  approved: true)
+                      email:    Faker::Internet.email,
+                      comment:  Faker::Fallout.quote,
+                      resource: resource,
+                      approved: true)
     end
 
     # Add lists to the resource.
@@ -90,6 +88,9 @@ end
 
 # Make the last category coming soon.
 Category.last.update(coming_soon: true)
+
+# Create an admin user.
+User.create!(email: 'admin@example.com', password: '123456', confirmed_at: Time.now)
 
 # Reindex search results.
 Resource.reindex
