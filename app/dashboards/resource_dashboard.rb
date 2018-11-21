@@ -12,7 +12,6 @@ class ResourceDashboard < Administrate::BaseDashboard
     lists: Field::HasMany,
     list_items: Field::HasMany,
     information_recommendations: Field::HasMany,
-    creators: Field::HasMany,
     icon: ActiveStorageField,
     comments: Field::HasMany,
     id: Field::Number,
@@ -21,12 +20,7 @@ class ResourceDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     website: Field::String,
-    twitter: Field::String,
-    facebook: Field::String,
-    github: Field::String,
-    youtube: Field::String,
-    slug: Field::String,
-    footnote: Field::String,
+    slug: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -48,13 +42,7 @@ class ResourceDashboard < Administrate::BaseDashboard
     :slug,
     :description,
     :website,
-    :twitter,
-    :facebook,
-    :github,
-    :youtube,
-    :footnote,
     :categories,
-    :creators,
     :lists,
     :information_recommendations,
     :comments,
@@ -72,13 +60,7 @@ class ResourceDashboard < Administrate::BaseDashboard
     :icon,
     :description,
     :website,
-    :twitter,
-    :facebook,
-    :github,
-    :youtube,
-    :footnote,
     :categories,
-    :creators
   ].freeze
 
   # Overwrite this method to customize how resources are displayed

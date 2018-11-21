@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     resources :comments do
       put 'toggle_approval', on: :member
     end
-    resources :creators
     resources :external_resources
     resources :information_recommendations
     resources :lists
