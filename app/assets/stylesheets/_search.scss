@@ -7,3 +7,9 @@
   width: 30rem;
   max-width: 100%;
 }
+
+.search-results {
+  @extend %container-flex-column;
+
+  width: 100%;
+}

@@ -4,7 +4,7 @@
              description: result_count_message(@search_results.total_count, params[:query]) %>
   <%= render 'form' %>
 
-  <div id="search-results">
+  <div class="search-results" id="search-results">
     <%= render 'resources/resources', resources: @search_results if @search_results.total_count > 0 %>
   </div>
 </div>
