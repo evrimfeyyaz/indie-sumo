@@ -1,7 +1,7 @@
 <%= form_with(model: [@category, @resource_recommendation],
               html:  { novalidate: 'novalidate',
                        id:         'resource-recommendation-form',
-                       class:      'form resource-recommendation-form' }) do |f| %>
+                       class:      'form' }) do |f| %>
   <%= f.label :recommender_name, class: 'sr-only' %>
   <%= f.text_field :recommender_name,
                    placeholder: 'Your name (optional)',

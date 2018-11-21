@@ -3,7 +3,7 @@
   <% provide(:meta_description, @resource.description) %>
   <% provide(:meta_image_url, url_for(@resource.icon)) if @resource.icon.attached? %>
 
-  <div class="resource">
+  <div class="container-flex-column">
     <%= render 'categories' %>
     <%= render 'icon' %>
     <%= render 'shared/page_title', title: @resource.title %>

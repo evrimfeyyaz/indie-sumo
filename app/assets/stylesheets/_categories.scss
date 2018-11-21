@@ -10,16 +10,8 @@
   }
 }
 
-.category {
-  @extend %container-flex-column;
-}
-
 .recommend-resource-button {
   margin: 1rem 0;
-}
-
-.coming-soon {
-  @extend %container-flex-column;
 }
 
 .coming-soon-newsletter {
