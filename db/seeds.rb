@@ -19,7 +19,7 @@ NUM_OF_CATEGORIES.times do |category_index|
   icon_no = rand(1..10)
 
   if icon_no.between?(1, 5) # 50% chance of getting an icon.
-    icon_path = File.join(Rails.root, "/app/assets/images/seed/category_icons/#{icon_no}.png")
+    icon_path = File.join(Rails.root, "/seed/category_icons/#{icon_no}.png")
     category.icon.attach(io: File.open(icon_path), filename: "#{category.title.parameterize}.png")
   end
 
@@ -38,7 +38,7 @@ NUM_OF_CATEGORIES.times do |category_index|
     icon_no = rand(1..25)
 
     if icon_no.between?(1, 5) # 20% chance of getting an icon.
-      icon_path = File.join(Rails.root, "/app/assets/images/seed/resource_icons/#{icon_no}.jpg")
+      icon_path = File.join(Rails.root, "/seed/resource_icons/#{icon_no}.jpg")
       resource.icon.attach(io: File.open(icon_path), filename: "#{resource.title.parameterize}.jpg")
     end
 
@@ -75,7 +75,7 @@ NUM_OF_CATEGORIES.times do |category_index|
 
         # We don't want too many of these having icons, as there are more than 1000 of them.
         if resource_index == 1
-          icon_path = File.join(Rails.root, "/app/assets/images/seed/resource_icons/#{rand(1..5)}.jpg")
+          icon_path = File.join(Rails.root, "seed/resource_icons/#{rand(1..5)}.jpg")
           external_resource.icon.attach(io: File.open(icon_path), filename: "#{resource.title.parameterize}.jpg")
         end
       end
