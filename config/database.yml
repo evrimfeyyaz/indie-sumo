@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: indie-sumo_production
-  username: indie-sumo
-  password: <%= ENV['INDIE-SUMO_DATABASE_PASSWORD'] %>
+  database: aal7frw1rt79ju
+  username: indiesumo
+  password: <%= ENV['DATABASE_PASSWORD'] %>
