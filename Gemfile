@@ -17,6 +17,7 @@ gem 'gravatar_image_tag', '~> 1.2'
 gem 'searchkick', '~> 3.1', '>= 3.1.2'
 gem 'administrate', '~> 0.11.0'
 gem 'devise', '~> 4.5'
+gem 'aws-sdk-s3', '~> 1.25'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
