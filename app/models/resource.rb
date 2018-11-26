@@ -6,6 +6,14 @@ class Resource < ApplicationRecord
 
   include Sluggable
 
+  include PgSearch
+  pg_search_scope :search, against: {
+    title:       'A',
+    description: 'B'
+  }, using:                         {
+    tsearch: { prefix: true, any_word: true }
+  }
+
   has_and_belongs_to_many :categories,
                           after_add:    :touch_updated_at,
                           after_remove: :touch_updated_at
@@ -15,24 +23,7 @@ class Resource < ApplicationRecord
   has_one_attached :icon
   has_many :comments, dependent: :destroy
 
-  searchkick word_start:  [:title, :description, :categories],
-             word_middle: [:website]
-
   validates_presence_of :title
-
-  # TODO: Test the search data
-  def search_data
-    {
-      title:       title,
-      description: description,
-      website:     website,
-      categories:  categories_as_string
-    }
-  end
-
-  def categories_as_string
-    'Categories: ' + categories.map(&:title).join(', ')
-  end
 
   private
 

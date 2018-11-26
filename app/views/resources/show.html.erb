@@ -1,23 +1,25 @@
 <% cache @resource do %>
-  <% provide(:meta_title, "Indie Sumo: #{@resource.title}") %>
-  <% provide(:meta_description, @resource.description) %>
-  <% provide(:meta_image_url, url_for(@resource.icon)) if @resource.icon.attached? %>
+  <div id="resource">
+    <% provide(:meta_title, "Indie Sumo: #{@resource.title}") %>
+    <% provide(:meta_description, @resource.description) %>
+    <% provide(:meta_image_url, url_for(@resource.icon)) if @resource.icon.attached? %>
 
-  <div class="container-flex-column">
-    <%= render 'categories' %>
-    <%= render 'icon' %>
-    <%= render 'shared/page_title', title: @resource.title %>
-    <%= render 'shared/page_description', description: @resource.description %>
-    <%= render 'shared/share_buttons' %>
+    <div class="container-flex-column">
+      <%= render 'categories' %>
+      <%= render 'icon' %>
+      <%= render 'shared/page_title', title: @resource.title %>
+      <%= render 'shared/page_description', description: @resource.description %>
+      <%= render 'shared/share_buttons' %>
 
-    <%= render 'actions' %>
+      <%= render 'actions' %>
 
-    <%= render 'lists' %>
+      <%= render 'lists' %>
 
-    <%= render 'shared/newsletter_card' %>
+      <%= render 'shared/newsletter_card' %>
 
-    <hr>
+      <hr>
 
-    <%= render 'comments' %>
+      <%= render 'comments' %>
+    </div>
   </div>
 <% end %>

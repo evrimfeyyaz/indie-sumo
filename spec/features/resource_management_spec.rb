@@ -7,7 +7,7 @@ feature 'Resource management' do
   scenario 'User visits a resource details page' do
     visit resource_path(resource)
 
-    within('.resource') do
+    within('#resource') do
       expect(page).to have_text(resource.title)
       expect(page).to have_text(resource.description)
       expect(page).to have_link(category.title)

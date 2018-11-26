@@ -1,5 +1,4 @@
 class Category < ApplicationRecord
-  after_commit :reindex_resources
   after_save :touch_resources
 
   default_scope { order(title: :asc) }
@@ -15,12 +14,6 @@ class Category < ApplicationRecord
   validates_presence_of :title
 
   private
-
-    def reindex_resources
-      resources.each do |resource|
-        resource.reindex
-      end
-    end
 
     def touch_resources
       resources.find_each(&:touch)

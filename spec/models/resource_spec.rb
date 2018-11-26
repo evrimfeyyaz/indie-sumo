@@ -16,7 +16,7 @@ describe Resource do
     subject { create(:resource) }
 
     it 'updates the timestamp on resources that reference it as a list item' do
-      resource = create(:resource, :with_list)
+      resource  = create(:resource, :with_list)
       list_item = resource.lists.first.list_items.first
       list_item.update(listable: subject)
 
@@ -53,18 +53,6 @@ describe Resource do
           subject.categories.destroy(category)
         end.to change { subject.reload.updated_at }
       end
-    end
-  end
-
-  describe '#categories_as_string' do
-    it 'returns all category title' do
-      category1 = build(:category)
-      category2 = build(:category)
-
-      subject.categories = [category1, category2]
-
-      expect(subject.categories_as_string).to include(category1.title)
-      expect(subject.categories_as_string).to include(category2.title)
     end
   end
 end

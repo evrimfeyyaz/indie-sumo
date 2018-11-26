@@ -14,11 +14,11 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'recaptcha', '~> 4.10'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'gravatar_image_tag', '~> 1.2'
-gem 'searchkick', '~> 3.1', '>= 3.1.2'
 gem 'administrate', '~> 0.11.0'
 gem 'devise', '~> 4.5'
 gem 'aws-sdk-s3', '~> 1.25'
 gem 'faker', '~> 1.8', '>= 1.8.7'
+gem 'pg_search', '~> 2.1', '>= 2.1.2'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
