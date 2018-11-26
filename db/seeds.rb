@@ -3,8 +3,14 @@ NUM_OF_RESOURCES_PER_CATEGORY = 25
 
 total_resources = NUM_OF_CATEGORIES * NUM_OF_RESOURCES_PER_CATEGORY
 
-p 'Emptying the storage folder...'
-FileUtils.rm_rf(Dir['storage/*'])
+p 'Removing existing images...'
+if Rails.env.production?
+  s3 = AWS::S3.new
+  bucket = s3.buckets[ENV['S3_BUCKET']]
+  bucket.clear!
+else
+  FileUtils.rm_rf(Dir['storage/*'])
+end
 
 p 'Seeding the database...'
 
@@ -28,7 +34,7 @@ NUM_OF_CATEGORIES.times do |category_index|
     resource_title       = Faker::Fallout.character
     resource_description = Faker::Fallout.quote
 
-    website  = 'http://www.example.com'
+    website = 'http://www.example.com'
 
     resource = Resource.create!(title:       resource_title,
                                 description: resource_description,
