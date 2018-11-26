@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :resource do
     sequence(:title) { |n| "Resource #{n}" }
-    description 'Lorem ipsum dolor sit amet.'
+    description { 'Lorem ipsum dolor sit amet.' }
 
     trait :with_list do
       after :create do |resource|
