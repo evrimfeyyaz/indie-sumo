@@ -18,6 +18,7 @@ gem 'administrate', '~> 0.11.0'
 gem 'devise', '~> 4.5'
 gem 'aws-sdk-s3', '~> 1.25'
 gem 'faker', '~> 1.8', '>= 1.8.7'
+gem 'pg_search', '~> 2.1', '>= 2.1.2'
 gem 'aws-sdk-rails', '~> 2.0', '>= 2.0.1'
 
 group :development, :test do
