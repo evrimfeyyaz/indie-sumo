@@ -5,7 +5,7 @@ total_resources = NUM_OF_CATEGORIES * NUM_OF_RESOURCES_PER_CATEGORY
 
 p 'Removing existing images...'
 if Rails.env.production?
-  s3 = AWS::S3.new
+  s3 = Aws::S3.new
   bucket = s3.buckets[ENV['S3_BUCKET']]
   bucket.clear!
 else
