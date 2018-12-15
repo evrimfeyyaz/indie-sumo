@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'newsletter', to: 'static_pages#newsletter'
+  get 'loaderio-af1f76c262397ab753e3f2ef4dc64834', to: 'static_pages#loader_io_verification_staging'
 
   resource :search, only: [:show]
   resources :categories, only: [:index, :show], param: :slug do
