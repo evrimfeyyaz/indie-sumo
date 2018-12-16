@@ -2,3 +2,4 @@
 <meta property="og:title" content="<%= yield(:meta_title).presence || APP_SETTINGS['default_meta_title'] %>" />
 <meta property="og:description" content="<%= yield(:meta_description).presence || APP_SETTINGS['default_meta_description'] %>" />
 <meta property="og:image" content="<%= yield(:meta_image_url).presence || APP_SETTINGS['default_meta_image'] %>" />
+<meta property="og:url" content="<%= yield(:meta_url).presence %>" />

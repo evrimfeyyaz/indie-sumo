@@ -2,6 +2,7 @@
   <div class="container-flex-column">
     <% provide(:meta_title, "Indie Sumo: #{@category.title}") %>
     <% provide(:meta_description, @category.description) %>
+    <% provide(:meta_url, request.original_url) %>
 
     <%= render 'shared/page_title', title: @category.title %>
     <%= render 'shared/page_description', description: @category.description %>
