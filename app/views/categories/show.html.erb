@@ -1,12 +1,11 @@
-<% description @category.description %>
-<% title @category.title %>
-<% set_meta_tags og: { type:        'website',
-                       title:       :full_title,
-                       description: :description,
-                       image:       APP_SETTINGS['social_share_image'],
-                       url:         request.original_url } %>
-
 <% cache [@category, page: params[:page]] do %>
+  <% description @category.description %>
+  <% title @category.title %>
+  <% set_meta_tags og: { type:        'website',
+                         title:       :full_title,
+                         description: :description,
+                         image:       APP_SETTINGS['social_share_image'],
+                         url:         request.original_url } %>
   <div class="container-flex-column">
     <%= render 'shared/page_title', content: @category.title %>
     <%= render 'shared/page_description', description: @category.description %>
