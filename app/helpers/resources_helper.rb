@@ -6,4 +6,12 @@ module ResourcesHelper
 
     links.join(' | ').html_safe
   end
+
+  def resource_image(resource)
+    if resource.icon.attached?
+      url_for(resource.icon)
+    else
+      APP_SETTINGS['social_share_image']
+    end
+  end
 end
