@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= display_meta_tags site:        APP_SETTINGS['site_name'],
+  <%#= display_meta_tags site:        APP_SETTINGS['site_name'],
                         description: APP_SETTINGS['site_description'],
                         image_src:   APP_SETTINGS['social_share_image'],
                         og:          { title:       :full_title,
                                        description: :description,
                                        image:       :image_src,
                                        url:         request.original_url } %>
+
+  <meta property="og:title" content="Indie Sumo | John Hancock">
+  <meta property="og:description" content="That means you&#39;re, erm... two centuries late for dinner! Perhaps I could whip you up a snack? You must be famished!">
+  <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/indie-sumo-production/indie-sumo-social-share.png">
+  <meta property="og:url" content="https://indie-sumo-staging.herokuapp.com/john-hancock-2">
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -22,8 +27,8 @@
 </head>
 
 <body>
-<%#= render 'layouts/facebook_share_setup' %>
-<%#= render 'layouts/twitter_share_setup' %>
+<%= render 'layouts/facebook_share_setup' %>
+<%= render 'layouts/twitter_share_setup' %>
 
 <div class="main-container">
   <%= render 'layouts/header' %>
