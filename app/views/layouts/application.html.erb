@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%#= display_meta_tags site:        APP_SETTINGS['site_name'],
+  <%= display_meta_tags site:        APP_SETTINGS['site_name'],
                         description: APP_SETTINGS['site_description'],
                         image_src:   APP_SETTINGS['social_share_image'],
                         og:          { title:       :full_title,
                                        description: :description,
                                        image:       :image_src,
-                                       url:         request.original_url } %>
+                                       url:         request.original_url,
+                                       type:        'website' } %>
 
   <meta property="og:title" content="Indie Sumo | John Hancock">
   <meta property="og:description" content="That means you&#39;re, erm... two centuries late for dinner! Perhaps I could whip you up a snack? You must be famished!">
