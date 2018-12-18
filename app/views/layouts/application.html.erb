@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>IndieSumo</title>
+  <%= display_meta_tags site:      APP_SETTINGS['site_name'],
+                        image_src: APP_SETTINGS['social_share_image'] %>
+
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
-  <%= render 'layouts/meta' %>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

@@ -1,10 +1,9 @@
 <% cache [@category, page: params[:page]] do %>
-  <div class="container-flex-column">
-    <% provide(:meta_title, "Indie Sumo: #{@category.title}") %>
-    <% provide(:meta_description, @category.description) %>
-    <% provide(:meta_url, request.original_url) %>
+  <% description @category.description %>
+  <% set_meta_tags og: { title: :full_title, description: :description, image: :image_src} %>
 
-    <%= render 'shared/page_title', title: @category.title %>
+  <div class="container-flex-column">
+    <%= render 'shared/page_title', content: @category.title %>
     <%= render 'shared/page_description', description: @category.description %>
 
     <%= render 'shared/share_buttons', twitter_share_text: "Indie Sumo: #{@category.title}" %>
