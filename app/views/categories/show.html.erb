@@ -1,6 +1,9 @@
 <% cache [@category, page: params[:page]] do %>
   <% description @category.description %>
-  <% set_meta_tags og: { title: :full_title, description: :description, image: :image_src} %>
+  <% set_meta_tags og: { title:       :full_title,
+                         description: :description,
+                         image:       :image_src,
+                         url:         request.original_url } %>
 
   <div class="container-flex-column">
     <%= render 'shared/page_title', content: @category.title %>

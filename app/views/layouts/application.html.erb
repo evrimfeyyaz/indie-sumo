@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= display_meta_tags site:      APP_SETTINGS['site_name'],
-                        image_src: APP_SETTINGS['social_share_image'] %>
+  <%= display_meta_tags site:        APP_SETTINGS['site_name'],
+                        description: APP_SETTINGS['site_description'],
+                        image_src:   APP_SETTINGS['social_share_image'],
+                        og:          { title:       :full_title,
+                                       description: :description,
+                                       image:       :image_src,
+                                       url:         request.original_url } %>
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>

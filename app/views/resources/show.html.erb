@@ -1,6 +1,9 @@
 <% cache @resource do %>
   <% description @resource.description %>
-  <% set_meta_tags og: { title: :full_title, description: :description, image: resource_image(@resource)} %>
+  <% set_meta_tags og: { title:       :full_title,
+                         description: :description,
+                         image:       resource_image(@resource),
+                         url:         request.original_url } %>
 
   <div id="resource">
     <div class="container-flex-column">
