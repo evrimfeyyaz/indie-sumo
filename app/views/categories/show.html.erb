@@ -1,8 +1,9 @@
 <% description @category.description %>
 <% title @category.title %>
-<% set_meta_tags og: { title:       :full_title,
+<% set_meta_tags og: { type:        'website',
+                       title:       :full_title,
                        description: :description,
-                       image:       :image_src,
+                       image:       APP_SETTINGS['social_share_image'],
                        url:         request.original_url } %>
 
 <% cache [@category, page: params[:page]] do %>
