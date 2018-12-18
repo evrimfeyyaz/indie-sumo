@@ -79,6 +79,30 @@
   width: 100%;
 }
 
+.checkbox-group {
+  display: flex;
+  margin: 0.5rem auto;
+  align-items: center;
+}
+
+input[type=checkbox] {
+  width: 2rem;
+  height: 2rem;
+}
+
 .recaptcha {
   margin: 0.5rem 0;
+}
+
+.form-links {
+  margin-top: 1rem;
+}
+
+.form-link {
+  margin: 0.3rem 0;
+  text-align: center;
+
+  @media (max-width: $screen-medium) {
+    margin: 1rem 0;
+  }
 }

@@ -1,15 +1,19 @@
 .flash {
   position: fixed;
-  top: 80px;
+  top: 85px;
   left: 10px;
   right: 10px;
   text-align: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   border-radius: 3px;
   z-index: 9999;
+  color: $white;
 
   &.success {
     background-color: rgba($green, 0.8);
-    color: $white;
+  }
+
+  &.alert {
+    background-color: rgba($green, 0.8);
   }
 }
