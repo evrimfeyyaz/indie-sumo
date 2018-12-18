@@ -3,7 +3,12 @@
   flex-direction: column;
   align-items: center;
   width: 30rem;
-  max-width: 100%;
+
+  @media (max-width: $screen-medium) {
+    width: 100%;
+    max-width: 30rem;
+    margin: 0 auto;
+  }
 }
 
 .form-field {
