@@ -1,29 +1,33 @@
-<h2>Sign up</h2>
+<div class="container-flex-column">
+  <%= render 'shared/page_title', content: 'Sign Up' %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form' }) do |f| %>
+    <%= f.label :email, class: 'sr-only' %>
+    <%= f.email_field :email, autofocus: true,
+                      autocomplete:      "email",
+                      placeholder:       'E-mail',
+                      class:             'form-field text-field' %>
+    <%= field_error(resource, :email) %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password, class: 'sr-only' %>
+    <%= f.password_field :password,
+                         autocomplete: "new-password",
+                         placeholder:  'Password',
+                         class:        'form-field text-field' %>
+    <%= field_error(resource, :password) %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="form-info">(<%= @minimum_password_length %> characters minimum)</div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <%= f.label :password_confirmation, class: 'sr-only' %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",
+                         placeholder:                          'Password (repeat)',
+                         class:                                'form-field text-field' %>
+    <%= field_error(resource, :password_confirmation) %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <%= f.submit "Sign Up", class: 'form-field button button-primary' %>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
+
