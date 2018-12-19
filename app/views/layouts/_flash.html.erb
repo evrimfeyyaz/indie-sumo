@@ -1,7 +1,7 @@
 <% flash.each do |key, value| %>
-  <div class="flash <%= key %>" id="flash">
+  <div class="flash <%= key %>">
     <%= value %>
-    <a class="flash-close" id="flash-close-button">
+    <a class="flash-close" data-flash="hide-button">
       <i class="fas fa-times"></i>
     </a>
   </div>

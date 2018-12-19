@@ -1,5 +1,7 @@
 $(document).on('turbolinks:load', function () {
-  $('#flash-close-button').click(function () {
-    $('#flash').fadeOut()
+  const hideButtonSelector = '[data-flash="hide-button"]'
+
+  $(hideButtonSelector).click(function () {
+    $(this).parent().fadeOut()
   })
 })
