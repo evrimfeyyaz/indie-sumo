@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  # Static pages
+  get 'newsletter', to: 'static_pages#newsletter'
+  get 'privacy-policy', to: 'static_pages#privacy_policy'
+  get 'loaderio-af1f76c262397ab753e3f2ef4dc64834', to: 'static_pages#loader_io_verification_staging'
+
+  # Dynamic pages
+  root 'categories#index'
+
   namespace :admin do
     resources :categories do
       put 'delete_icon', on: :member
@@ -17,12 +25,7 @@ Rails.application.routes.draw do
     root 'categories#index'
   end
 
-  root 'categories#index'
-
   devise_for :users
-
-  get 'newsletter', to: 'static_pages#newsletter'
-  get 'loaderio-af1f76c262397ab753e3f2ef4dc64834', to: 'static_pages#loader_io_verification_staging'
 
   resource :search, only: [:show]
   resources :categories, only: [:index, :show], param: :slug do
