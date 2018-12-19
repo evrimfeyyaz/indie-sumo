@@ -1,7 +1,12 @@
 <% if user_signed_in? %>
   <div class="menu-profile-button">
-    <%= link_to '', class: 'link link-light' do %>
-      <i class="fas fa-user-circle fa-3x"></i>
+    <%= link_to '', class: 'link' do %>
+      <%= gravatar_image_tag(
+              current_user.email,
+              alt: current_user.email, # TODO: Make this "full name."
+              gravatar: { secure: true, rating: 'pg', size: 90 },
+              class:    'menu-profile-image')
+      %>
     <% end %>
   </div>
 <% else %>

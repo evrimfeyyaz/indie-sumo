@@ -19,3 +19,17 @@
   align-items: center;
   margin-left: 2rem;
 }
+
+.menu-profile-image {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: 1px solid rgba($white, .2);
+  overflow: hidden;
+  display: block;
+  transition: opacity .1s ease-in-out;
+
+  &:hover {
+    opacity: .5;
+  }
+}
