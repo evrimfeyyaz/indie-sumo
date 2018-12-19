@@ -1,29 +1,35 @@
-.flash {
+.flash-container {
   position: fixed;
-  top: 85px;
+  top: 15px;
   left: 200px;
   right: 200px;
-  text-align: center;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
   z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.flash {
+  text-align: center;
+  padding: 1.5rem 3rem;
+  border-radius: 10px;
   color: $white;
   background-color: $orange;
+  margin-bottom: 1rem;
 
   &.success,
   &.notice {
-    background-color: rgba($green, 0.8);
+    background-color: rgba($green, .95);
   }
 
   &.alert {
-    background-color: rgba($red, 0.8);
+    background-color: rgba($red, .95);
   }
 }
 
 .flash-close {
   display: inline-block;
   position: absolute;
-  right: 15px;
+  right: 1.5rem;
   color: $white;
   cursor: pointer;
 
