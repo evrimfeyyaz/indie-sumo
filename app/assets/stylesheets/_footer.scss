@@ -68,5 +68,8 @@
 }
 
 .footer-legal {
-  margin: 0;
+  margin: {
+    top: 1rem;
+    bottom: 0;
+  }
 }
