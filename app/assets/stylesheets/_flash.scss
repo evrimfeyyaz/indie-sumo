@@ -9,11 +9,12 @@
   z-index: 9999;
   color: $white;
 
-  &.success {
+  &.success,
+  &.notice {
     background-color: rgba($green, 0.8);
   }
 
   &.alert {
-    background-color: rgba($green, 0.8);
+    background-color: rgba($red, 0.8);
   }
 }

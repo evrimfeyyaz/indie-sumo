@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+  <div class="menu-profile-button">
+    <%= link_to '', class: 'link link-light' do %>
+      <i class="fas fa-user-circle fa-3x"></i>
+    <% end %>
+  </div>
+<% else %>
+  <div class="menu-signup-button">
+    <%= link_to 'Sign Up', new_user_registration_path, class: 'button button-primary' %>
+  </div>
+<% end %>

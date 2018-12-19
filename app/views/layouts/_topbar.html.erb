@@ -30,15 +30,7 @@
       </div>
 
       <div class="menu-item">
-        <%= link_to APP_SETTINGS['facebook_page_url'], class: 'link link-light' do %>
-          <i class="fab fa-facebook"></i>
-        <% end %>
-      </div>
-
-      <div class="menu-item">
-        <%= link_to APP_SETTINGS['twitter_profile_url'], class: 'link link-light' do %>
-          <i class="fab fa-twitter"></i>
-        <% end %>
+        <%= link_to 'Log In', new_user_session_path, class: 'link link-light' %>
       </div>
 
       <%= form_with url:                 search_path,
@@ -53,6 +45,8 @@
                          class:       'form-field text-field' %>
         <%= f.submit 'Search', name: nil, class: 'form-field button button-light button-outline' %>
       <% end %>
+
+      <%= render 'layouts/user_buttons' %>
     </div>
 
     <a href="#" class="button button-hamburger" data-hamburger-menu="toggle">
@@ -63,8 +57,8 @@
 <div class="hamburger-menu container" data-hamburger-menu="content">
   <%= link_to 'Categories', root_path, class: 'hamburger-menu-item link link-dark' %>
   <%= link_to 'Newsletter', newsletter_path, class: 'hamburger-menu-item link link-dark' %>
-  <%= link_to 'Facebook', APP_SETTINGS['facebook_page_url'], class: 'hamburger-menu-item link link-dark' %>
-  <%= link_to 'Twitter', APP_SETTINGS['twitter_page_url'], class: 'hamburger-menu-item link link-dark' %>
+  <%= link_to 'Log In', new_user_session_path, class: 'hamburger-menu-item link link-dark' %>
+  <%= link_to 'Sign Up', new_user_registration_path, class: 'hamburger-menu-item link link-dark' %>
 
   <%= form_with url:                 search_path,
                 method:              :get,

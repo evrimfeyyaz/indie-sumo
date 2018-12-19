@@ -1,5 +1,5 @@
 <div class="container-flex-column">
-  <%= render 'shared/page_title', content: 'Sign In' %>
+  <%= render 'shared/page_title', content: 'Log In' %>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form' }) do |f| %>
     <%= f.label :email, class: 'sr-only' %>
@@ -22,7 +22,7 @@
       </div>
     <% end -%>
 
-    <%= f.submit "Sign In", class: 'form-field button button-primary' %>
+    <%= f.submit "Log In", class: 'form-field button button-primary' %>
   <% end %>
 
   <%= render "devise/shared/links" %>

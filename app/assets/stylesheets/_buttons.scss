@@ -1,7 +1,30 @@
+@mixin make-button-style($bg-color, $text-color, $hover-bg-color, $hover-text-color) {
+  background-color: $bg-color;
+  border: 1px solid $bg-color;
+  color: $text-color;
+
+  &:hover {
+    color: $hover-text-color;
+    background-color: $hover-bg-color;
+    border-color: $hover-bg-color;
+  }
+
+  &.button-outline {
+    background-color: $transparent;
+    color: $bg-color;
+
+    &:hover {
+      background-color: $bg-color;
+      border-color: $bg-color;
+      color: $text-color;
+    }
+  }
+}
+
 .button {
   display: inline-block;
   padding: 0.5rem 3rem;
-  transition: color .1s ease-in-out, background-color .1s ease-in-out;
+  transition: all .1s ease-in-out;
   cursor: pointer;
   border-radius: .5rem;
   text-decoration: none;
@@ -9,64 +32,13 @@
 }
 
 .button-primary {
-  background-color: $blue;
-  border: 1px solid $blue;
-  color: $white;
-
-  &:hover {
-    color: $white;
-    background-color: $dark-blue;
-  }
+  @include make-button-style($blue, $white, $dark-blue, $white)
 }
 
 .button-secondary {
-  background-color: $dark-gray;
-  border: 1px solid $dark-gray;
-  color: $white;
-
-  &:hover {
-    color: $white;
-    background-color: $raisin-black;
-  }
+  @include make-button-style($dark-gray, $white, $raisin-black, $white)
 }
 
 .button-light {
-  background-color: $white;
-  color: $black;
-  border: 1px solid $white;
-
-  &:hover {
-    background-color: $off-white;
-  }
-}
-
-.button-outline {
-  background-color: $transparent;
-
-  &.button-light {
-    color: $white;
-
-    &:hover {
-      background-color: $white;
-      color: $black;
-    }
-  }
-
-  &.button-primary {
-    color: $blue;
-
-    &:hover {
-      background-color: $blue;
-      color: $white;
-    }
-  }
-
-  &.button-secondary {
-    color: $dark-gray;
-
-    &:hover {
-      background-color: $dark-gray;
-      color: $white;
-    }
-  }
+  @include make-button-style($white, $black, $off-white, $black)
 }
