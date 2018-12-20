@@ -1,3 +1,6 @@
-$(document).on('turbolinks:load', function () {
-  gtag('config', '<%= APP_SETTINGS['google_analytics_tracking_id'] %>')
+$(document).on('turbolinks:load', function (e) {
+  if (typeof ga === 'function') {
+    ga('set', 'location', e.data.url);
+    ga('send', 'pageview');
+  }
 })
