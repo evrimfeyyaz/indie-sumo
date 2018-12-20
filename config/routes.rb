@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     root 'categories#index'
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
 
   resource :search, only: [:show]
   resources :categories, only: [:index, :show], param: :slug do

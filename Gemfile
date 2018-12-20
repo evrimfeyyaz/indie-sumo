@@ -28,6 +28,7 @@ group :development, :test do
   gem 'capybara', '~> 3.3', '>= 3.3.1'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'master'
   gem 'capybara-webkit', '~> 1.15', '>= 1.15.1'
+  gem 'letter_opener', '~> 1.7'
 end
 
 group :development do

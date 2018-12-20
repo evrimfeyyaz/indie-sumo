@@ -9,6 +9,12 @@
                       class:             'form-field text-field' %>
     <%= field_error(resource, :email) %>
 
+    <%= f.label :username, class: 'sr-only' %>
+    <%= f.text_field :username,
+                     placeholder: 'Username',
+                     class:       'form-field text-field' %>
+    <%= field_error(resource, :username) %>
+
     <%= f.label :password, class: 'sr-only' %>
     <%= f.password_field :password,
                          autocomplete: "new-password",
