@@ -9,7 +9,7 @@ defaults: &defaults
   twitter_share_text: 'Top resources for indie developers, bootstrappers and solo entrepreneurs.'
   newsletter_url: 'https://indiesumo.us12.list-manage.com/subscribe/post?u=7d6b207df0db42f6bfcff3322&amp;id=fbb0bb2608'
   app_version: '0.5'
-  google_analytics_tracking_id: 'UA-113731422-2'
+  google_analytics_tracking_id: 'UA-131220795-1'
 
 development:
   <<: *defaults
