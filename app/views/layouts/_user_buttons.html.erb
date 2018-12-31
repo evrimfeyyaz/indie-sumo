@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="menu-profile-button">
-    <%= link_to '', class: 'link' do %>
+    <%= link_to destroy_user_session_path, method: :delete, class: 'link' do %>
       <%= gravatar_image_tag(
               current_user.email,
               alt: current_user.email, # TODO: Make this "full name."
