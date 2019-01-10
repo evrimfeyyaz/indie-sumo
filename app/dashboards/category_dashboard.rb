@@ -9,7 +9,6 @@ class CategoryDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     resources: Field::HasMany,
-    resource_recommendations: Field::HasMany,
     icon: ActiveStorageField,
     id: Field::Number,
     title: Field::String,
@@ -35,7 +34,6 @@ class CategoryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :resources,
-    :resource_recommendations,
     :icon,
     :title,
     :slug,

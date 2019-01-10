@@ -13,10 +13,6 @@
 
     <%= render 'shared/share_buttons', twitter_share_text: "Indie News: #{@category.title}" %>
 
-    <%= link_to "Recommend a #{@category.title.singularize}",
-                new_category_resource_recommendation_path(category_slug: @category.slug),
-                class: 'recommend-resource-button button button-outline button-primary' %>
-
     <% cache @category_resources do %>
       <%= render 'resources/resources', resources: @category_resources %>
     <% end %>

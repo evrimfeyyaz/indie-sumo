@@ -8,7 +8,6 @@ class Category < ApplicationRecord
   has_and_belongs_to_many :resources,
                           after_add:    :touch_updated_at,
                           after_remove: :touch_updated_at
-  has_many :resource_recommendations, dependent: :destroy
   has_one_attached :icon
 
   validates_presence_of :title
