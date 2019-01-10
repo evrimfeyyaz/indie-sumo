@@ -8,7 +8,6 @@ defaults: &defaults
   social_share_image: 'https://s3-us-west-2.amazonaws.com/indie-news-production/indie-news-social-share.png'
   twitter_share_text: 'Top resources for indie developers, bootstrappers and solo entrepreneurs.'
   newsletter_url: 'https://indiesumo.us12.list-manage.com/subscribe/post?u=7d6b207df0db42f6bfcff3322&amp;id=fbb0bb2608'
-  app_version: '0.5'
   google_analytics_tracking_id: 'UA-131220795-1'
 
 development:
