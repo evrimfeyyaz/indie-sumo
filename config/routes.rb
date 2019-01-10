@@ -15,7 +15,6 @@ Rails.application.routes.draw do
       put 'toggle_approval', on: :member
     end
     resources :external_resources
-    resources :information_recommendations
     resources :lists
     resources :list_items
     resources :resources
@@ -40,7 +39,6 @@ Rails.application.routes.draw do
   end
 
   resources :resources, only: [:show], path: '', param: :slug do
-    resources :information_recommendations, only: [:new, :create], path: '', path_names: { new: 'add-information' }
     resources :comments, only: [:create]
   end
 end

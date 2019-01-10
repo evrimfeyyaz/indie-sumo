@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :username, case_sensitive: false
   validates_presence_of :username
-  validates_length_of :username, maximum: 32
+  validates_length_of :username, maximum: 24
 
   def self.from_omniauth(auth)
     where(provider: auth['provider'], uid: auth['uid']).first_or_initialize do |user|
