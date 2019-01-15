@@ -1,4 +1,4 @@
-# Indie News
+# Indie Sumo
 
 Created by [Evrim Persembe](https://evrim.io).
 

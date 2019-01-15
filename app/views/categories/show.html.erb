@@ -11,7 +11,7 @@
     <%= render 'shared/page_title', content: @category.title %>
     <%= render 'shared/page_description', description: @category.description %>
 
-    <%= render 'shared/share_buttons', twitter_share_text: "Indie News: #{@category.title}" %>
+    <%= render 'shared/share_buttons', twitter_share_text: "Indie Sumo: #{@category.title}" %>
 
     <% cache @category_resources do %>
       <%= render 'resources/resources', resources: @category_resources %>
