@@ -96,7 +96,7 @@ end
 Category.last.update(coming_soon: true)
 
 # Create an admin user.
-User.create!(email: 'admin@example.com', password: '123456', confirmed_at: Time.now)
+User.create!(email: 'admin@example.com', password: '123456', confirmed_at: Time.now, username: 'admin')
 
 p "Created #{Category.count} categories"
 p "Created #{Resource.count} resources"
