@@ -17,3 +17,15 @@
 .coming-soon-newsletter {
   margin-top: 2rem;
 }
+
+.categories-dropdown {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.categories-dropdown-separator {
+  grid-column: 2;
+  grid-row: 1/span 1000; // Large value to make sure it extends to the bottom.
+  width: 1px;
+  background-color: $light-gray;
+}

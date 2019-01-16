@@ -1,13 +1,17 @@
 <% if user_signed_in? %>
   <div class="menu-profile-button">
-    <%= link_to destroy_user_session_path, method: :delete, class: 'link' do %>
+    <a href="#" id="user-dropdown" class="link" data-dropdown-menu="toggle">
       <%= gravatar_image_tag(
               current_user.email,
               alt: current_user.email, # TODO: Make this "full name."
               gravatar: { secure: true, rating: 'pg', size: 90 },
               class:    'menu-profile-image')
       %>
-    <% end %>
+    </a>
+    <div data-dropdown-menu="content">
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, id: 'log-out-link',
+                  data: { 'dropdown-menu' => 'item' }, class: 'link link-dark' %>
+    </div>
   </div>
 <% else %>
   <div class="menu-signup-button">

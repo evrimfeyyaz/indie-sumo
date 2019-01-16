@@ -5,18 +5,18 @@
     <div class="navigation">
       <div class="menu-item">
         <div class="dropdown-menu">
-          <a class="link link-light dropdown-menu-toggle" href="#" data-dropdown-menu="toggle">
+          <a class="link link-light dropdown-menu-down-arrow" href="#" data-dropdown-menu="toggle">
             Categories
           </a>
-          <div class="dropdown-menu-content" data-dropdown-menu="content">
-            <div class="dropdown-menu-items">
+          <div data-dropdown-menu="content">
+            <div class="categories-dropdown">
               <% categories_array.each do |category| %>
-                <%= link_to_unless_current category.title, category, class: 'dropdown-menu-item link link-dark' do %>
-                  <%= link_to category.title,
-                              category,
-                              class: 'dropdown-menu-item link link-dark active' %>
+                <%= link_to_unless_current category.title, category,
+                                           class: 'link link-dark', data: { 'dropdown-menu': 'item' } do %>
+                  <%= link_to category.title, category,
+                              class: 'link link-dark active', data: { 'dropdown-menu': 'item' } %>
                 <% end %>
-                <div class="dropdown-menu-separator">
+                <div class="categories-dropdown-separator">
                   &nbsp;
                 </div>
               <% end %>
@@ -61,6 +61,7 @@
   <%= link_to 'Newsletter', newsletter_path, class: 'hamburger-menu-item link link-dark' %>
   <%= link_to 'Log In', new_user_session_path, class: 'hamburger-menu-item link link-dark' unless user_signed_in? %>
   <%= link_to 'Sign Up', new_user_registration_path, class: 'hamburger-menu-item link link-dark' unless user_signed_in? %>
+  <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'hamburger-menu-item link link-dark' if user_signed_in? %>
 
   <%= form_with url:                 search_path,
                 method:              :get,

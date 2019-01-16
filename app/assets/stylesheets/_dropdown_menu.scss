@@ -1,4 +1,4 @@
-.dropdown-menu-toggle {
+.dropdown-menu-down-arrow {
   &:after {
     content: "\f0d7";
     display: inline-block;
@@ -8,7 +8,7 @@
   }
 }
 
-.dropdown-menu-content {
+[data-dropdown-menu="content"] {
   background-color: $white;
   border: 1px solid $light-gray;
   border-radius: .5rem;
@@ -18,21 +18,10 @@
   }
   position: absolute;
   overflow: hidden;
+  display: none;
 }
 
-.dropdown-menu-items {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-}
-
-.dropdown-menu-separator {
-  grid-column: 2;
-  grid-row: 1/span 1000; // Large value to make sure it extends to the bottom.
-  width: 1px;
-  background-color: $light-gray;
-}
-
-.dropdown-menu-item {
+[data-dropdown-menu="item"] {
   align-items: center;
   display: flex;
   padding: 1rem 2rem;
@@ -53,8 +42,4 @@
     background-color: $light-gray;
     color: $black;
   }
-}
-
-[data-dropdown-menu="content"] {
-  display: none;
 }

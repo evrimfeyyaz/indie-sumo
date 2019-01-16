@@ -26,7 +26,7 @@ gem 'omniauth-facebook', '~> 5.0'
 group :development, :test do
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'factory_bot_rails', '~> 4.10'
-  gem 'capybara', '~> 3.3', '>= 3.3.1'
+  gem 'capybara', '~> 3.12'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'master'
   gem 'capybara-webkit', '~> 1.15', '>= 1.15.1'
   gem 'letter_opener', '~> 1.7'
