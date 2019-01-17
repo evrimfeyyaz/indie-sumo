@@ -28,8 +28,8 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.10'
   gem 'capybara', '~> 3.12'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'master'
-  gem 'capybara-webkit', '~> 1.15', '>= 1.15.1'
   gem 'letter_opener', '~> 1.7'
+  gem 'selenium-webdriver'
 end
 
 group :development do

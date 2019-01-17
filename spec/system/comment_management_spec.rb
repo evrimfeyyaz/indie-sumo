@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Comment management' do
+describe 'Comment management' do
   let(:resource) { create(:resource) }
 
   scenario 'User visits a resource page and adds a comment' do

@@ -56,5 +56,5 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   # Include Devise Helpers.
-  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :system
 end

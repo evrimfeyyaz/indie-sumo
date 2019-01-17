@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Search management' do
+describe 'Search management' do
   scenario 'Visitor searches a resource by title' do
     search_term = 'paul'
 

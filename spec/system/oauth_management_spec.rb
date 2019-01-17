@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'OAuth management' do
+describe 'OAuth management' do
   context 'User visits the login page' do
     before :each do
       visit root_url

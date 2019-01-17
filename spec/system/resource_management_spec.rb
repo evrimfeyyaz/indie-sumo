@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Resource management' do
+describe 'Resource management' do
   let(:category) { create(:category) }
   let!(:resource) { create(:resource, categories: [category]) }
 

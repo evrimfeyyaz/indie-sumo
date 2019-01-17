@@ -100,9 +100,8 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
-    capybara-webkit (1.15.1)
-      capybara (>= 2.3, < 4.0)
-      json
+    childprocess (0.9.0)
+      ffi (~> 1.0, >= 1.0.11)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
     datetime_picker_rails (0.0.7)
@@ -259,6 +258,7 @@ GEM
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
     ruby_dep (1.5.0)
+    rubyzip (1.2.2)
     sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -271,6 +271,9 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
     selectize-rails (0.12.6)
+    selenium-webdriver (3.141.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.2, >= 1.2.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -315,7 +318,6 @@ DEPENDENCIES
   aws-sdk-s3 (~> 1.25)
   bootsnap (>= 1.1.0)
   capybara (~> 3.12)
-  capybara-webkit (~> 1.15, >= 1.15.1)
   devise (~> 4.5)
   factory_bot_rails (~> 4.10)
   faker (~> 1.8, >= 1.8.7)
@@ -333,6 +335,7 @@ DEPENDENCIES
   recaptcha (~> 4.10)
   rspec-rails (~> 3.7, >= 3.7.2)
   sass-rails (~> 5.0)
+  selenium-webdriver
   shoulda-matchers!
   spring
   spring-watcher-listen (~> 2.0.0)

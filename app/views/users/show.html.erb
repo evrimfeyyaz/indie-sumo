@@ -1,0 +1,17 @@
+<% title "#{@user.username}'s Profile" %>
+<% set_meta_tags og: { type:  'website',
+                       title: :username,
+                       # TODO: Add user image here.
+                       # image:       resource_image(@resource),
+                       url: request.original_url } %>
+
+<div class="container-flex-column">
+  <%= render 'shared/page_title', content: "#{@user.username}'s Profile" %>
+
+  <div class="user-profile-actions">
+    <%= link_to 'Edit Info', edit_user_registration_path, class: 'button button-primary button-outline' %>
+  </div>
+
+  <%= @user.name %>
+  <%= @user.email %>
+</div>

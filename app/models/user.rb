@@ -17,4 +17,8 @@ class User < ApplicationRecord
       user.skip_confirmation! if user.email.present?
     end
   end
+
+  def to_param
+    username
+  end
 end

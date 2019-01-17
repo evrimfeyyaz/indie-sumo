@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Category management' do
+describe 'Category management' do
   let(:category) { create(:category) }
 
   scenario 'User visits the home page' do
