@@ -61,6 +61,7 @@
   <%= link_to 'Newsletter', newsletter_path, class: 'hamburger-menu-item link link-dark' %>
   <%= link_to 'Log In', new_user_session_path, class: 'hamburger-menu-item link link-dark' unless user_signed_in? %>
   <%= link_to 'Sign Up', new_user_registration_path, class: 'hamburger-menu-item link link-dark' unless user_signed_in? %>
+  <%= link_to 'Profile', current_user, id: 'user-profile-link', data: { 'dropdown-menu' => 'item' }, class: 'link link-dark' if user_signed_in? %>
   <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'hamburger-menu-item link link-dark' if user_signed_in? %>
 
   <%= form_with url:                 search_path,
