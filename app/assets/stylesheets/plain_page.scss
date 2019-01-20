@@ -1,0 +1,8 @@
+.plain-page-text {
+  width: 80%;
+
+  @media (max-width: $screen-small) {
+    width: 100%;
+    text-align: justify;
+  }
+}

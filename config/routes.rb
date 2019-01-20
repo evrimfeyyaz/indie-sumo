@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Static pages
   get 'newsletter', to: 'static_pages#newsletter'
-  get 'privacy-policy', to: 'static_pages#privacy_policy'
+  get 'about', to: 'static_pages#about'
   get 'loaderio-af1f76c262397ab753e3f2ef4dc64834', to: 'static_pages#loader_io_verification_staging'
   match '/404', to: 'static_pages#not_found', via: :all
   match '/422', to: 'static_pages#unprocessable_entity', via: :all

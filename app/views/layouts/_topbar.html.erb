@@ -29,11 +29,9 @@
         <%= link_to 'Newsletter', newsletter_path, class: 'link link-light' %>
       </div>
 
-      <% unless user_signed_in? %>
-        <div class="menu-item">
-          <%= link_to 'Log In', new_user_session_path, class: 'link link-light' %>
-        </div>
-      <% end %>
+      <div class="menu-item">
+        <%= link_to 'About', about_path, class: 'link link-light' %>
+      </div>
 
       <%= form_with url:                 search_path,
                     method:              :get,
@@ -57,6 +55,7 @@
 <div class="hamburger-menu container" data-hamburger-menu="content">
   <%= link_to 'Categories', root_path, class: 'hamburger-menu-item link link-dark' %>
   <%= link_to 'Newsletter', newsletter_path, class: 'hamburger-menu-item link link-dark' %>
+  <%= link_to 'About', about_path, class: 'hamburger-menu-item link link-dark' %>
 
   <%= form_with url:                 search_path,
                 method:              :get,
