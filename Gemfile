@@ -29,6 +29,7 @@ group :development, :test do
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'master'
   gem 'letter_opener', '~> 1.7'
   gem 'selenium-webdriver'
+  gem 'rails_real_favicon', '~> 0.0.11'
 end
 
 group :development do
