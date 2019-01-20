@@ -49,6 +49,8 @@
   .emphasized {
     text-decoration: underline rgba($white, .25);
     font-style: inherit;
+    padding: 0;
+    overflow: hidden;
   }
 
   @media (max-width: $screen-small) {
