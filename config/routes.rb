@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   get 'newsletter', to: 'static_pages#newsletter'
   get 'privacy-policy', to: 'static_pages#privacy_policy'
   get 'loaderio-af1f76c262397ab753e3f2ef4dc64834', to: 'static_pages#loader_io_verification_staging'
-  get '404', to: 'static_pages#not_found'
-  get '422', to: 'static_pages#unprocessable_entity'
-  get '500', to: 'static_pages#internal_server_error'
+  match '/404', to: 'static_pages#not_found', via: :all
+  match '/422', to: 'static_pages#unprocessable_entity', via: :all
+  match '/500', to: 'static_pages#internal_server_error', via: :all
 
   # Dynamic pages
   root 'categories#index'
