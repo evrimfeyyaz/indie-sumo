@@ -2,6 +2,10 @@
   <% if @resource.website.present? %>
     <%= link_to 'Visit Website',
                 @resource.website,
-                class: 'resource-action-button button button-primary button-outline' %>
+                class: 'resource-action-button button button-primary' %>
   <% end %>
+  <%= link_to 'Share on Twitter',
+              "https://twitter.com/share?url=#{request.url}&text=#{u "Check out \"#{@resource.title}\" on Indie Sumo! #indiesumo"}",
+              class:  'resource-action-button button button-primary button-outline twitter-share-button',
+              target: :blank %>
 </div>
