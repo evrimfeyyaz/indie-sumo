@@ -7,13 +7,7 @@
     <% end %>
 
     <h1 class="card-title">
-      <%= truncate_with_tooltip(category.title, length: CATEGORY_SUMMARY_MAX_TITLE_LENGTH) %>
+      <%= category.title %>
     </h1>
-
-    <p class="card-description">
-      <%= truncate_with_tooltip(category.description,
-                                length:    CATEGORY_SUMMARY_MAX_DESCRIPTION_LENGTH,
-                                separator: ' ') %>
-    </p>
   <% end %>
 <% end %>

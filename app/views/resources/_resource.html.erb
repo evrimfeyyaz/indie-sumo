@@ -6,7 +6,7 @@
       <%= render 'shared/no_icon_large', title: resource.title %>
     <% end %>
 
-    <h1 class="card-title">
+    <h1 class="card-title truncate">
       <%= truncate_with_tooltip(resource.title, length: LARGE_CARD_MAX_TITLE_LENGTH).html_safe %>
     </h1>
 

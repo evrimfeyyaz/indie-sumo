@@ -12,7 +12,6 @@ class CategoryDashboard < Administrate::BaseDashboard
     icon: ActiveStorageField,
     id: Field::Number,
     title: Field::String,
-    description: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     slug: Field::String,
@@ -26,7 +25,6 @@ class CategoryDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :icon,
     :title,
-    :description,
     :resources
   ].freeze
 
@@ -37,7 +35,6 @@ class CategoryDashboard < Administrate::BaseDashboard
     :icon,
     :title,
     :slug,
-    :description,
     :created_at,
     :updated_at,
     :id,
@@ -49,7 +46,6 @@ class CategoryDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :title,
     :slug,
-    :description,
     :icon,
     :resources,
   ].freeze

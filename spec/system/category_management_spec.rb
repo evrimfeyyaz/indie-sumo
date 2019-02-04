@@ -10,7 +10,6 @@ describe 'Category management' do
     visit root_path
 
     expect(page).to have_text(category_a.title)
-    expect(page).to have_text(category_a.description)
 
     # Make sure they are sorted by title.
     expect(page).to have_css('#categories',
@@ -28,7 +27,6 @@ describe 'Category management' do
 
     expect(page).to have_current_path(category_path(category))
     expect(page).to have_text(category.title)
-    expect(page).to have_text(category.description)
 
     expect(page).to have_text(resource_a.title)
     expect(page).to have_text(resource_a.description)

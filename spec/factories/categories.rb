@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :category do
     sequence(:title) { |n| "Category #{n}" }
-    description { 'Lorem ipsum dolor sit amet' }
     coming_soon { false }
 
     trait :with_resource do
