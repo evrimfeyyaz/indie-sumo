@@ -1,7 +1,5 @@
 <% cache @resource.lists do %>
   <div class="resource-lists">
-    <h2>More Related to <%= @resource.title %></h2>
-
     <div class="tab-bar">
       <% @resource.lists.each do |list| %>
         <% cache ['tabs', list] do %>
