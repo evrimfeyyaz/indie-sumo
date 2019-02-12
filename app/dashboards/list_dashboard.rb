@@ -50,6 +50,6 @@ class ListDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how lists are displayed
   # across all pages of the admin dashboard.
   def display_resource(list)
-    "#{list.title} (#{list.resource})"
+    "#{list.title} (#{list.resource.title})"
   end
 end
