@@ -18,7 +18,7 @@
               <% cache list.items do %>
                 <% list.items.each do |list_item| %>
                   <% cache list_item do %>
-                    <%= render 'resources/resource', resource: list_item, description: false %>
+                    <%= render 'resources/resource', resource: list_item %>
                   <% end %>
                 <% end %>
               <% end %>

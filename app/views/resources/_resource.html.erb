@@ -1,3 +1,4 @@
+<% show_description = true if local_assigns[:show_description].nil? %>
 <% cache resource do %>
   <%= link_to_resource resource, class: 'card link' do %>
     <% if resource.icon.attached? %>
@@ -6,17 +7,8 @@
       <%= render 'shared/no_icon_large', title: resource.title %>
     <% end %>
 
-    <h1 class="card-title truncate">
-      <%= truncate_with_tooltip(resource.title, length: LARGE_CARD_MAX_TITLE_LENGTH).html_safe %>
+    <h1 class="card-title">
+      <%= resource.title %>
     </h1>
-
-    <% if resource.description && description %>
-      <p class="card-description">
-        <%= truncate_with_tooltip(resource.description.html_safe,
-                                  length:    LARGE_CARD_MAX_DESCRIPTION_LENGTH,
-                                  separator: ' ',
-                                  escape:    false) %>
-      </p>
-    <% end %>
   <% end %>
 <% end %>
