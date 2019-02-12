@@ -12,7 +12,6 @@ class ExternalResourceDashboard < Administrate::BaseDashboard
     icon: ActiveStorageField,
     id: Field::Number,
     title: Field::String,
-    description: Field::Text,
     url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -25,8 +24,7 @@ class ExternalResourceDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :icon,
-    :title,
-    :description
+    :title
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -34,7 +32,6 @@ class ExternalResourceDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :title,
     :icon,
-    :description,
     :url,
     :created_at,
     :updated_at,
@@ -47,7 +44,6 @@ class ExternalResourceDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :title,
     :icon,
-    :description,
     :url
   ].freeze
 
