@@ -3,6 +3,8 @@ require 'rails_helper'
 describe List do
   it { should belong_to(:resource).touch(true) }
   it { should have_many(:list_items).dependent(:destroy) }
+  it { should have_many(:resources).through(:list_items) }
+  it { should have_many(:external_resources).through(:list_items) }
   it { should validate_presence_of(:title) }
 
   describe '#items' do

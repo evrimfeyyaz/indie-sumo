@@ -8,10 +8,16 @@ class ListDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    resource: Field::BelongsTo,
+    resource:   Field::BelongsTo,
+    id:         Field::Number,
+    title:      Field::String,
     list_items: Field::HasMany,
-    id: Field::Number,
-    title: Field::String,
+    resources: Field::HasMany.with_options(
+                               class_name: 'Resource'
+    ),
+    external_resources: Field::HasMany.with_options(
+      class_name: 'ExternalResource'
+    ),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -24,7 +30,7 @@ class ListDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :title,
     :resource,
-    :list_items,
+    :list_items
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -43,7 +49,8 @@ class ListDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :resource,
-    :list_items,
+    :resources,
+    :external_resources,
     :title,
   ].freeze
 
