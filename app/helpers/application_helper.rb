@@ -7,7 +7,7 @@ module ApplicationHelper
     elsif resource.is_a?(ExternalResource) && resource.url.blank?
       content_tag :div, html_options, &block
     else # External Resource with link
-      link_to resource.url, html_options, &block
+      link_to resource.url, html_options.merge({ target: 'blank' }), &block
     end
   end
 
