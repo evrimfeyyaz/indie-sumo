@@ -7,11 +7,14 @@
   display: flex;
   justify-content: space-around;
   padding: 3rem 4rem;
+  align-items: start;
 }
 
 .footer-categories {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2rem;
+  grid-auto-rows: 2rem;
   grid-column-gap: 2rem;
   grid-row-gap: 1rem;
 
