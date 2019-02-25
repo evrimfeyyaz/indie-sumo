@@ -51,6 +51,7 @@ a.card:hover {
 .card-icon,
 .card-icon-large {
   display: block;
+  object-fit: scale-down;
 }
 
 .card-no-icon {
