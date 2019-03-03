@@ -29,7 +29,6 @@ describe 'Category management' do
     expect(page).to have_text(category.title)
 
     expect(page).to have_text(resource_a.title)
-    expect(page).to have_text(resource_a.description)
 
     # Make sure they are sorted by title.
     expect(page).to have_css('#resources',
