@@ -33,12 +33,15 @@
   margin: 0.5rem 0.5rem;
 }
 
+.resource-associated {
+  width: 80%;
+}
+
 .resource-associated-title {
   text-align: center;
 }
 
 .resource-associated-resources {
-  width: 80%;
   display: grid;
   grid-template-columns: repeat(auto-fit, 230px);
   grid-column-gap: 4rem;
