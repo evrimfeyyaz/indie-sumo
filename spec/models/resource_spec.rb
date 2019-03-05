@@ -8,6 +8,9 @@ describe Resource do
   it { should have_many(:lists).dependent(:destroy) }
   it { should have_many(:list_items).through(:lists) }
   it { should have_many(:comments).dependent(:destroy) }
+  it { should have_many(:resource_associations) }
+  it { should have_many(:referenced_resources).through(:resource_associations) }
+  it { should have_many(:referenced_external_resources).through(:resource_associations) }
 
   it { should validate_presence_of(:title) }
 
@@ -52,6 +55,29 @@ describe Resource do
           subject.categories.destroy(category)
         end.to change { subject.reload.updated_at }
       end
+    end
+  end
+
+  describe '#associated_resources' do
+    subject { create(:resource) }
+
+    it 'shows resources and external resources that the subject is referencing' do
+      referenced_resource          = create(:resource)
+      referenced_external_resource = create(:external_resource)
+
+      subject.referenced_resources << referenced_resource
+      subject.referenced_external_resources << referenced_external_resource
+
+      expect(subject.associated_resources).to include(referenced_resource)
+      expect(subject.associated_resources).to include(referenced_external_resource)
+    end
+
+    it 'shows resources that reference the subject' do
+      resource_referencing_subject = create(:resource)
+
+      resource_referencing_subject.referenced_resources << subject
+
+      expect(subject.associated_resources).to include(resource_referencing_subject)
     end
   end
 end

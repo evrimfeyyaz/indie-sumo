@@ -21,8 +21,18 @@ class Resource < ApplicationRecord
   has_many :list_items, through: :lists
   has_one_attached :icon
   has_many :comments, dependent: :destroy
+  has_many :resource_associations
+  has_many :referenced_resources, through: :resource_associations, source: :resourceable, source_type: 'Resource'
+  has_many :referenced_external_resources, through: :resource_associations, source: :resourceable, source_type: 'ExternalResource'
 
   validates_presence_of :title
+
+  def associated_resources
+    referenced_resources +
+      referenced_external_resources +
+      Resource.joins(:resource_associations)
+        .where("resource_associations.resourceable_type = ? AND resource_associations.resourceable_id = ?", 'Resource', self.id)
+  end
 
   private
 
