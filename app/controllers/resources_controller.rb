@@ -19,10 +19,7 @@ class ResourcesController < ApplicationController
     def load_resource
       @resource ||= resource_scope
                       .with_attached_icon
-                      .includes(lists:
-                                  [{ list_items:
-                                       [{ listable:
-                                            [:icon_attachment] }] }])
+                      .includes(:resource_associations)
                       .find_by!(slug: params[:slug])
     end
 

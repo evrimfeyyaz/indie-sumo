@@ -18,8 +18,6 @@ Rails.application.routes.draw do
       put 'toggle_approval', on: :member
     end
     resources :external_resources
-    resources :lists
-    resources :list_items
     resources :resources
     resources :users
 

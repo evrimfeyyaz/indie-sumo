@@ -5,27 +5,15 @@ describe Resource do
   it_behaves_like 'a sluggable'
 
   it { should have_and_belong_to_many(:categories) }
-  it { should have_many(:lists).dependent(:destroy) }
-  it { should have_many(:list_items).through(:lists) }
   it { should have_many(:comments).dependent(:destroy) }
-  it { should have_many(:resource_associations) }
-  it { should have_many(:referenced_resources).through(:resource_associations) }
-  it { should have_many(:referenced_external_resources).through(:resource_associations) }
+  it { should have_many(:resource_associations).dependent(:destroy) }
+  it { should have_many(:related_resources).through(:resource_associations) }
+  it { should have_many(:related_external_resources).through(:resource_associations) }
 
   it { should validate_presence_of(:title) }
 
   describe '#after_save' do
     subject { create(:resource) }
-
-    it 'updates the timestamp on resources that reference it as a list item' do
-      resource  = create(:resource, :with_list)
-      list_item = resource.lists.first.list_items.first
-      list_item.update(listable: subject)
-
-      expect do
-        subject.update(title: 'New Title')
-      end.to change { resource.reload.updated_at }
-    end
 
     it 'touches all its categories' do
       category = create(:category, resources: [subject])
@@ -61,21 +49,21 @@ describe Resource do
   describe '#associated_resources' do
     subject { create(:resource) }
 
-    it 'shows resources and external resources that the subject is referencing' do
-      referenced_resource          = create(:resource)
-      referenced_external_resource = create(:external_resource)
+    it 'shows resources and external resources that are related to the subject' do
+      related_resource          = create(:resource)
+      related_external_resource = create(:external_resource)
 
-      subject.referenced_resources << referenced_resource
-      subject.referenced_external_resources << referenced_external_resource
+      subject.related_resources << related_resource
+      subject.related_external_resources << related_external_resource
 
-      expect(subject.associated_resources).to include(referenced_resource)
-      expect(subject.associated_resources).to include(referenced_external_resource)
+      expect(subject.associated_resources).to include(related_resource)
+      expect(subject.associated_resources).to include(related_external_resource)
     end
 
     it 'shows resources that reference the subject' do
       resource_referencing_subject = create(:resource)
 
-      resource_referencing_subject.referenced_resources << subject
+      resource_referencing_subject.related_resources << subject
 
       expect(subject.associated_resources).to include(resource_referencing_subject)
     end

@@ -8,7 +8,6 @@ class ExternalResourceDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    list_items: Field::HasMany,
     icon: ActiveStorageField,
     id: Field::Number,
     title: Field::String,

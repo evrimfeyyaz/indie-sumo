@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Resources HTTP caching' do
   describe 'GET /:slug' do
     let(:resource) do
-      create(:resource, :with_list, :with_comment)
+      create(:resource, :with_comment)
     end
 
     before :each do
@@ -24,32 +24,6 @@ describe 'Resources HTTP caching' do
 
       it 'responds with 200 when its categories are updated' do
         create(:category, resources: [resource])
-
-        get_with_etag(resource_url(resource), @etag)
-
-        expect(response).to have_http_status(:ok)
-      end
-
-      it 'responds with 200 when a list is added' do
-        create(:list, resource: resource)
-
-        get_with_etag(resource_url(resource), @etag)
-
-        expect(response).to have_http_status(:ok)
-      end
-
-      it 'responds with 200 when a list item is added to its lists' do
-        list = resource.lists.first
-        list.list_items << build(:list_item, list: list)
-
-        get_with_etag(resource_url(resource), @etag)
-
-        expect(response).to have_http_status(:ok)
-      end
-
-      it 'responds with 200 when a list item is changed in its lists' do
-        list_item = resource.lists.first.list_items.first
-        list_item.listable.update(title: 'New Title')
 
         get_with_etag(resource_url(resource), @etag)
 

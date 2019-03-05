@@ -8,18 +8,18 @@ class ResourceDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    categories: Field::HasMany,
-    lists: Field::HasMany,
-    list_items: Field::HasMany,
-    icon: ActiveStorageField,
-    comments: Field::HasMany,
-    id: Field::Number,
-    title: Field::String,
-    description: Field::Text,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-    website: Field::String,
-    slug: Field::String
+    categories:                 Field::HasMany,
+    related_resources:          Field::HasMany.with_options(class_name: 'Resource'),
+    related_external_resources: Field::HasMany.with_options(class_name: 'ExternalResource'),
+    icon:                       ActiveStorageField,
+    comments:                   Field::HasMany,
+    id:                         Field::Number,
+    title:                      Field::String,
+    description:                Field::Text,
+    created_at:                 Field::DateTime,
+    updated_at:                 Field::DateTime,
+    website:                    Field::String,
+    slug:                       Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -42,7 +42,8 @@ class ResourceDashboard < Administrate::BaseDashboard
     :description,
     :website,
     :categories,
-    :lists,
+    :related_resources,
+    :related_external_resources,
     :comments,
     :created_at,
     :updated_at,
@@ -59,6 +60,8 @@ class ResourceDashboard < Administrate::BaseDashboard
     :description,
     :website,
     :categories,
+    :related_resources,
+    :related_external_resources,
   ].freeze
 
   # Overwrite this method to customize how resources are displayed

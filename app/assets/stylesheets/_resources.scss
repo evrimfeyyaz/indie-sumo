@@ -33,18 +33,16 @@
   margin: 0.5rem 0.5rem;
 }
 
-.resource-lists {
-  width: 100%;
-  margin: 1rem 0 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.resource-associated-title {
+  text-align: center;
 }
 
-.resource-list {
+.resource-associated-resources {
+  width: 80%;
   display: grid;
   grid-template-columns: repeat(auto-fit, 230px);
   grid-column-gap: 4rem;
   grid-row-gap: 3rem;
   justify-content: space-evenly;
+  margin: 1rem 0 3rem;
 }

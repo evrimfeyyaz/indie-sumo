@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_03_191904) do
+ActiveRecord::Schema.define(version: 2019_03_05_164209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,24 +68,6 @@ ActiveRecord::Schema.define(version: 2019_03_03_191904) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "list_items", force: :cascade do |t|
-    t.string "listable_type"
-    t.bigint "listable_id"
-    t.bigint "list_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["list_id"], name: "index_list_items_on_list_id"
-    t.index ["listable_type", "listable_id"], name: "index_list_items_on_listable_type_and_listable_id"
-  end
-
-  create_table "lists", force: :cascade do |t|
-    t.string "title"
-    t.bigint "resource_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["resource_id"], name: "index_lists_on_resource_id"
-  end
-
   create_table "resource_associations", force: :cascade do |t|
     t.bigint "resource_id"
     t.string "resourceable_type"
@@ -118,6 +100,4 @@ ActiveRecord::Schema.define(version: 2019_03_03_191904) do
   end
 
   add_foreign_key "comments", "resources"
-  add_foreign_key "list_items", "lists"
-  add_foreign_key "lists", "resources"
 end
