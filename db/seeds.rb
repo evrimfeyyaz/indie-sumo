@@ -5,7 +5,7 @@ total_resources = NUM_OF_CATEGORIES * NUM_OF_RESOURCES_PER_CATEGORY
 
 p 'Removing existing images...'
 if Rails.env.production?
-  s3 =  Aws::S3::Resource.new(access_key_id: Rails.application.credentials.dig(:aws, :access_key_id), secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key), region: ENV['S3_REGION'])
+  s3     = Aws::S3::Resource.new(access_key_id: Rails.application.credentials.dig(:aws, :access_key_id), secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key), region: ENV['S3_REGION'])
   bucket = s3.bucket(ENV['S3_BUCKET'])
   bucket.clear!
 else
@@ -13,14 +13,13 @@ else
 end
 
 p 'Seeding the database...'
+p 'Creating resources...'
 
 # Create categories.
 NUM_OF_CATEGORIES.times do |category_index|
-  category_title       = Faker::Fallout.faction
-  category_description = Faker::Fallout.quote
+  category_title = Faker::Fallout.faction
 
-  category = Category.create!(title:       category_title,
-                              description: category_description)
+  category = Category.create!(title: category_title)
 
   icon_no = rand(1..10)
 
@@ -38,7 +37,7 @@ NUM_OF_CATEGORIES.times do |category_index|
 
     resource = Resource.create!(title:       resource_title,
                                 description: resource_description,
-                                categories:  [category],
+                                category:    category,
                                 website:     website)
 
     icon_no = rand(1..25)
@@ -57,48 +56,50 @@ NUM_OF_CATEGORIES.times do |category_index|
                       approved: true)
     end
 
-    # Add lists to the resource.
-    2.times do
-      list_title = Faker::Fallout.faction
-
-      list = List.create!(title:    list_title,
-                          resource: resource)
-
-      # Add an internal resource to the list.
-      internal_resource = Resource.order("RANDOM()").first
-      ListItem.create(listable: internal_resource, list: list)
-
-      # Add external resources to the list.
-      2.times do
-        external_resource_title       = Faker::Fallout.character
-        external_resource_description = Faker::Fallout.quote
-        external_resource_url         = 'http://www.example.com'
-
-        external_resource = ExternalResource.create!(title:       external_resource_title,
-                                                     description: external_resource_description,
-                                                     url:         external_resource_url)
-        ListItem.create(listable: external_resource, list: list)
-
-        # We don't want too many of these having icons, as there are more than 1000 of them.
-        if resource_index == 1
-          icon_path = File.join(Rails.root, "seed/resource_icons/#{rand(1..5)}.jpg")
-          external_resource.icon.attach(io: File.open(icon_path), filename: "#{resource.title.parameterize}.jpg")
-        end
-      end
-    end
-
     num_of_created_resources = (resource_index + 1) + (NUM_OF_RESOURCES_PER_CATEGORY * category_index)
     print "#{(num_of_created_resources / total_resources.to_f * 100).to_i}% done.\r"
   end
 end
 
-# Make the last category coming soon.
-Category.last.update(coming_soon: true)
+p 'Creating resource associations...'
+# Add resource associations.
+resource_ids = Resource.ids
+
+100.times do
+  referencing_resource = resource_ids.sample
+  referenced_resource  = resource_ids.sample
+
+  ResourceAssociation.create(resource_id:       referencing_resource,
+                             resourceable_id:   referenced_resource,
+                             resourceable_type: 'Resource')
+end
+
+p 'Creating external resources...'
+# Create external resources and associate them to random resources.
+100.times do
+  external_resource_title = Faker::Fallout.character
+  external_resource_url   = 'http://www.example.com'
+
+  ExternalResource.create!(title: external_resource_title,
+                           url:   external_resource_url)
+end
+
+p 'Creating external resource associations...'
+
+external_resource_ids = ExternalResource.ids
+100.times do
+  referencing_resource         = resource_ids.sample
+  referenced_external_resource = external_resource_ids.sample
+
+  ResourceAssociation.create(resource_id:       referencing_resource,
+                             resourceable_id:   referenced_external_resource,
+                             resourceable_type: 'ExternalResource')
+end
 
 # Create an admin user.
-User.create!(email: 'admin@example.com', password: '123456', confirmed_at: Time.now)
+User.create!(email: 'admin@example.com', password: '123456')
 
-p "Created #{Category.count} categories"
-p "Created #{Resource.count} resources"
-p "Created #{List.count} lists"
-p "Created #{ExternalResource.count} external resources"
+p "Created #{Category.count} categories."
+p "Created #{Resource.count} resources."
+p "Created #{ExternalResource.count} external resources."
+p "Created #{ResourceAssociation.count} resource associations."

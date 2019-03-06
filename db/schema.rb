@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_164209) do
+ActiveRecord::Schema.define(version: 2019_03_05_190200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2019_03_05_164209) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug", null: false
-    t.boolean "coming_soon", default: false
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
@@ -83,6 +82,8 @@ ActiveRecord::Schema.define(version: 2019_03_05_164209) do
     t.datetime "updated_at", null: false
     t.string "slug", null: false
     t.string "website"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_resources_on_category_id"
     t.index ["slug"], name: "index_resources_on_slug", unique: true
   end
 
@@ -100,4 +101,5 @@ ActiveRecord::Schema.define(version: 2019_03_05_164209) do
   end
 
   add_foreign_key "comments", "resources"
+  add_foreign_key "resources", "categories"
 end

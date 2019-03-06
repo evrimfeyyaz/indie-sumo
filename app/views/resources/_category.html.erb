@@ -1,0 +1,5 @@
+<% cache @resource.category do %>
+  <div class="resource-category">
+    Category: <%= link_to @resource.category.title, @resource.category %>
+  </div>
+<% end %>

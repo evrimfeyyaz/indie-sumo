@@ -18,8 +18,8 @@ describe 'Category management' do
   end
 
   scenario 'User clicks on a category on the home page, and visits the category details page' do
-    resource_z = create(:resource, title: 'Zebra', categories: [category])
-    resource_a = create(:resource, title: 'Asphalt', categories: [category])
+    resource_z = create(:resource, title: 'Zebra', category: category)
+    resource_a = create(:resource, title: 'Asphalt', category: category)
 
     visit root_path
 
@@ -36,20 +36,8 @@ describe 'Category management' do
                              visible: false)
   end
 
-  scenario 'User clicks on a category that is not published' do
-    coming_soon_category = create(:category,
-                                  :coming_soon,
-                                  :with_resource)
-    resource = coming_soon_category.resources.first
-
-    visit category_path(coming_soon_category)
-
-    expect(page).to have_text('Coming Soon')
-    expect(page).not_to have_text(resource.title)
-  end
-
   scenario 'User clicks on a resource on the category details page, and visits the resource details page' do
-    resource = create(:resource, categories: [category])
+    resource = create(:resource, category: category)
 
     visit category_path(category)
 

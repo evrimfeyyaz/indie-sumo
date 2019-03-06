@@ -44,7 +44,7 @@ describe 'Categories HTTP caching' do
       end
 
       it 'responds with 200 when a resource is added' do
-        create(:resource, categories: [category])
+        create(:resource, category: category)
 
         get category_url(category), params: {}, headers: {
           'HTTP_IF_NONE_MATCH': @etag
@@ -54,7 +54,7 @@ describe 'Categories HTTP caching' do
       end
 
       it 'responds with 200 when a resource is updated' do
-        create(:resource, categories: [category])
+        create(:resource, category: category)
 
         get category_url(category), params: {}, headers: {
           'HTTP_IF_NONE_MATCH': @etag

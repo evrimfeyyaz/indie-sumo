@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Resource management' do
   let(:category) { create(:category) }
   let(:related_resource) { create(:resource) }
-  let!(:resource) { create(:resource, categories: [category], related_resources: [related_resource]) }
+  let!(:resource) { create(:resource, category: category, related_resources: [related_resource]) }
   let!(:referencing_resource) { create(:resource, related_resources: [resource]) }
 
   scenario 'User visits a resource details page' do

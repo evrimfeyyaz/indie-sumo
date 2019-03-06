@@ -8,7 +8,7 @@ class ResourceDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    categories:                 Field::HasMany,
+    category:                   Field::BelongsTo,
     related_resources:          Field::HasMany.with_options(class_name: 'Resource'),
     related_external_resources: Field::HasMany.with_options(class_name: 'ExternalResource'),
     icon:                       ActiveStorageField,
@@ -41,7 +41,7 @@ class ResourceDashboard < Administrate::BaseDashboard
     :slug,
     :description,
     :website,
-    :categories,
+    :category,
     :related_resources,
     :related_external_resources,
     :comments,
@@ -59,7 +59,7 @@ class ResourceDashboard < Administrate::BaseDashboard
     :icon,
     :description,
     :website,
-    :categories,
+    :category,
     :related_resources,
     :related_external_resources,
   ].freeze

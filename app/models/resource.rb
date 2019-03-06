@@ -1,6 +1,4 @@
 class Resource < ApplicationRecord
-  after_save :touch_categories
-
   default_scope { order(title: :asc) }
 
   include Sluggable
@@ -13,9 +11,7 @@ class Resource < ApplicationRecord
     tsearch: { prefix: true, any_word: true }
   }
 
-  has_and_belongs_to_many :categories,
-                          after_add:    :touch_updated_at,
-                          after_remove: :touch_updated_at
+  belongs_to :category, touch: true, dependent: :destroy
   has_one_attached :icon
   has_many :comments, dependent: :destroy
   has_many :resource_associations, dependent: :destroy
@@ -30,14 +26,4 @@ class Resource < ApplicationRecord
       Resource.joins(:resource_associations)
         .where("resource_associations.resourceable_type = ? AND resource_associations.resourceable_id = ?", 'Resource', self.id)
   end
-
-  private
-
-    def touch_categories
-      categories.find_each(&:touch)
-    end
-
-    def touch_updated_at(_)
-      self.touch if persisted?
-    end
 end
