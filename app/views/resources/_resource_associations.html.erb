@@ -1,11 +1,13 @@
-<div id="resource-associated" class="resource-associated">
-  <h1 class="resource-associated-title">Related to <%= @resource.title %></h1>
+<% if @resource.associated_resources.any? %>
+  <div id="resource-associated" class="resource-associated">
+    <h1 class="resource-associated-title">Related to this</h1>
 
-  <div class="resource-associated-resources">
-    <% cache @resource.associated_resources do %>
-      <% @resource.associated_resources.each do |resource| %>
-        <%= render 'resources/resource', resource: resource %>
+    <div class="resource-associated-resources">
+      <% cache @resource.associated_resources do %>
+        <% @resource.associated_resources.each do |resource| %>
+          <%= render 'resources/resource', resource: resource %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>
