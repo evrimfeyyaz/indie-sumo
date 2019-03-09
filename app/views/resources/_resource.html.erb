@@ -1,6 +1,5 @@
-<% show_description = true if local_assigns[:show_description].nil? %>
 <% cache resource do %>
-  <%= link_to_resource resource, class: 'card link' do %>
+  <%= link_to_resource resource, class: 'resource-card card link' do %>
     <% if resource.icon.attached? %>
       <%= image_tag resource.icon, class: 'card-icon-large round' %>
     <% else %>
