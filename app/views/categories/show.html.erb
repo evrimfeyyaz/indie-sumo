@@ -6,6 +6,8 @@
 
 <% cache [@category, page: params[:page]] do %>
   <div class="container-flex-column">
+    <%= link_to 'Back to Categories', root_path, class: 'link category-back' %>
+
     <%= render 'shared/page_title', content: @category.title %>
 
     <% cache @category_resources do %>
