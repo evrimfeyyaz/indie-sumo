@@ -4,7 +4,11 @@
 <div class="field-unit__field">
   <% if field.data.attached? %>
     <%= image_tag field.data %>
-    <%= link_to 'Delete', delete_icon_admin_category_path, method: :put %>
+    <% if controller.controller_name == 'categories' %>
+      <%= link_to 'Delete', delete_icon_admin_category_path, method: :put %>
+    <% elsif controller.controller_name == 'resources' %>
+      <%= link_to 'Delete', delete_icon_admin_resource_path, method: :put %>
+    <% end %>
   <% else %>
     <%= f.file_field :icon %>
   <% end %>

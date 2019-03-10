@@ -18,7 +18,9 @@ Rails.application.routes.draw do
       put 'toggle_approval', on: :member
     end
     resources :external_resources
-    resources :resources
+    resources :resources do
+      put 'delete_icon', on: :member
+    end
     resources :users
 
     root 'categories#index'
