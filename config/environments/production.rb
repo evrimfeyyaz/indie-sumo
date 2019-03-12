@@ -96,4 +96,13 @@ Rails.application.configure do
 
   # Serve error pages from the Rails app.
   config.exceptions_app = self.routes
+
+  if ENV["MEMCACHEDCLOUD_SERVERS"]
+    config.cache_store = :mem_cache_store,
+      ENV["MEMCACHEDCLOUD_SERVERS"].split(','),
+      {
+        :username => ENV["MEMCACHEDCLOUD_USERNAME"],
+        :password => ENV["MEMCACHEDCLOUD_PASSWORD"]
+      }
+  end
 end
