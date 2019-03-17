@@ -1,6 +1,5 @@
 defaults: &defaults
-  facebook_page_url: 'https://www.facebook.com'
-  twitter_profile_url: 'https://www.twitter.com'
+  twitter_profile_url: 'https://twitter.com/evrimfeyyaz'
   owner_url: 'https://evrim.io'
   max_comment_length: 300
   site_name: 'Indie Sumo'
