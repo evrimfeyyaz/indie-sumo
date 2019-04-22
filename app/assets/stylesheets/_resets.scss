@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: inherit;
 }
 
-input:not[type=radio]:not[type=checkbox] {
+input:not([type=checkbox]):not([type=radio]) {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
