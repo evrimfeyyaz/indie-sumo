@@ -12,7 +12,7 @@ gem 'turbolinks', '~> 5.1', '>= 5.1.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'recaptcha', '~> 4.10'
-gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'kaminari', '~> 1.2'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'administrate', '~> 0.11.0'
 gem 'devise', '~> 4.6', '>= 4.6.1'
