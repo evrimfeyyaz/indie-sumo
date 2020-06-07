@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.4.3'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.12'
 gem 'sass-rails', '~> 5.0'
@@ -27,10 +27,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'factory_bot_rails', '~> 4.10'
   gem 'capybara', '~> 3.12'
-  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'master'
   gem 'letter_opener', '~> 1.7'
   gem 'selenium-webdriver'
   gem 'rails_real_favicon', '~> 0.0.11'
+  gem "shoulda-matchers", "~> 4.3"
 end
 
 group :development do

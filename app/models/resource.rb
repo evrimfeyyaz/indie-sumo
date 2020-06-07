@@ -3,7 +3,7 @@ class Resource < ApplicationRecord
 
   include Sluggable
 
-  include PgSearch
+  include PgSearch::Model
   pg_search_scope :search, against: {
     title:       'A',
     description: 'B'
