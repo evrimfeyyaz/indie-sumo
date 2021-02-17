@@ -9,7 +9,7 @@ gem 'puma', '~> 3.12'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5.1', '>= 5.1.1'
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '>= 1.1.0', require: falsU
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'recaptcha', '~> 4.10'
 gem 'kaminari', '~> 1.2'
