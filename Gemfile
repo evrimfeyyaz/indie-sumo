@@ -21,7 +21,7 @@ gem 'faker', '~> 1.8', '>= 1.8.7'
 gem 'pg_search', '~> 2.1', '>= 2.1.2'
 gem 'aws-sdk-rails', '~> 2.0', '>= 2.0.1'
 gem 'meta-tags', '~> 2.11'
-gem 'dalli', '~> 2.7', '>= 2.7.9'
+gem 'dalli', '~> 3.2'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
